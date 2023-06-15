@@ -16,8 +16,7 @@ nbproject/build-impl.xml
 nbproject/genfiles/
 nbproject/build/
 
-lib/
-dist/lib/
+
 
 *.log
 *.tmp
