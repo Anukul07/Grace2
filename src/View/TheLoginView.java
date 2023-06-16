@@ -134,7 +134,7 @@ public class TheLoginView extends javax.swing.JFrame {
         bgPanel.add(registerButton);
         registerButton.setBounds(890, 500, 130, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
         bgPanel.add(jLabel1);
         jLabel1.setBounds(40, 40, 151, 135);
 
