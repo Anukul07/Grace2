@@ -132,7 +132,7 @@ public void addLoginListner(ActionListener log)
 
         PasswordText.setBackground(new java.awt.Color(223, 230, 216));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel1AncestorAdded(evt);
