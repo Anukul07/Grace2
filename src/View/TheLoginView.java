@@ -159,6 +159,10 @@ public void setMessage(String msg){
 public void addLoginListener(ActionListener log){
     loginButton.addActionListener(log);
 }
+public void dashboard(){
+    this.dispose();
+    UserDashboardView dashb = new UserDashboardView();
+}
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         TheRegistrationView rv = new TheRegistrationView();
         rv.setVisible(true);

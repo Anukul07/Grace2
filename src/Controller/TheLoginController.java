@@ -39,6 +39,13 @@ public class TheLoginController {
                 logmod=logview.getUser();   
                 if(checkUser(logmod)){       
                     logview.setMessage("Login Successfully");
+                    Thread.sleep(800);
+                    logview.dashboard();
+//                    if (logmod.getEmail().equals("aryan@")){
+//                        
+//                        logview.dashboard();
+//      
+//      
                 }
                 else{
                     logview.setMessage("Invalid User");
@@ -54,7 +61,7 @@ public class TheLoginController {
         }
          public boolean checkUser(TheLoginModel user) throws Exception{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","calm");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
             String query="select * from registration where email='"+user.getEmail()+"' AND Passwd='"+user.getPassword()+"'";
             try{
                 stmt=conn.createStatement();
