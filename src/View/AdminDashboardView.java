@@ -8,7 +8,7 @@ package View;
  *
  * @author dell
  */
-import javax.swing.JFrame;
+
 public class AdminDashboardView extends javax.swing.JFrame {
 
     /**
