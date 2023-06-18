@@ -19,34 +19,37 @@ import java.sql.Statement;
  *
  * @author anukul
  */
+import View.TheLoginView;
+import Model.TheLoginModel;
+
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
 public class TheLoginController {
     TheLoginView logview;
     TheLoginModel logmod;
-    ResultSet rs;
-    Statement stmt;
-    public TheLoginController(TheLoginView logview){
-        this.logview=logview;
-        logview.addLoginListener(new LoginListener());
-    }
     
-    class LoginListener implements ActionListener{
+    
+    
+    public void actionPerformed(TheLoginView logview){
+        this.logview=logview;
         
-       
-        @Override
-        public void actionPerformed(ActionEvent e){
-            
             try{
                 logmod=logview.getUser();   
                 if(checkUser(logmod)){       
                     logview.setMessage("Login Successfully");
-                    Thread.sleep(800);
-                    logview.dashboard();
-//                    if (logmod.getEmail().equals("aryan@")){
-//                        
-//                        logview.dashboard();
-//      
-//      
-                }
+                    try{
+                        logview.he();
+                        logview.dispose();
+                    }
+                    catch(Exception e1){
+                        
+                    }
+                }    
+                  
                 else{
                     logview.setMessage("Invalid User");
                     
@@ -54,34 +57,31 @@ public class TheLoginController {
                            
         
             }
-            catch(Exception e1){
-                System.out.println(e1.getMessage());
+            catch(Exception e2){
+                System.out.println(e2.getMessage());
                 
             }
         }
-         public boolean checkUser(TheLoginModel user) throws Exception{
+        public boolean checkUser(TheLoginModel user) throws Exception{
+        
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
             String query="select * from registration where email='"+user.getEmail()+"' AND Passwd='"+user.getPassword()+"'";
             try{
-                stmt=conn.createStatement();
-                rs=stmt.executeQuery(query);
+                Statement stmt=conn.createStatement();
+                ResultSet rs=stmt.executeQuery(query);
+                System.out.println(user.getEmail());
+                System.out.println(user.getPassword());
                 if (rs.next()){
                     return true;
                 }
                 conn.close();
                 
             }
-            catch(Exception e2){
-                System.out.println(e2.getMessage());
+            catch(Exception e3){
+                System.out.println(e3.getMessage());
                 
             }
-           return false;
+            return false;
          }
-
-
-    }
-    
-    
 }
-

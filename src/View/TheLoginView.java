@@ -22,6 +22,20 @@ public class TheLoginView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+     public void delay() throws InterruptedException{
+        Thread.sleep(1000);
+    }
+    public void he(){
+        UserDashboardView dv = new UserDashboardView();  //creating object to call method
+        
+        try{
+            delay();
+            dv.msgboxPop();
+        }
+        catch(Exception e){
+            
+        }
+}
 
 
     @SuppressWarnings("unchecked")
@@ -146,7 +160,9 @@ public class TheLoginView extends javax.swing.JFrame {
 //validating user
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-        TheLoginController l = new TheLoginController(this);   
+        TheLoginController l = new TheLoginController();
+        l.actionPerformed(this);
+ 
     }//GEN-LAST:event_loginButtonActionPerformed
 
 public TheLoginModel getUser(){
@@ -159,10 +175,7 @@ public void setMessage(String msg){
 public void addLoginListener(ActionListener log){
     loginButton.addActionListener(log);
 }
-public void dashboard(){
-    this.dispose();
-    UserDashboardView dashb = new UserDashboardView();
-}
+
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         TheRegistrationView rv = new TheRegistrationView();
         rv.setVisible(true);
