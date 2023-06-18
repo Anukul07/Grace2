@@ -22,7 +22,21 @@ public class TheLoginView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-
+    public void delay() throws InterruptedException{
+        Thread.sleep(1000);
+    }
+    public void he(){
+        UserDashboardView dv = new UserDashboardView();  //creating object to call method
+        
+        try{
+            delay();
+            dv.msgboxPop();
+        }
+        catch(Exception e){
+            
+        }
+    
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -146,7 +160,8 @@ public class TheLoginView extends javax.swing.JFrame {
 //validating user
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-        TheLoginController l = new TheLoginController(this);   
+        TheLoginController l = new TheLoginController();
+        l.actionPerformed(this);
     }//GEN-LAST:event_loginButtonActionPerformed
 
 public TheLoginModel getUser(){
