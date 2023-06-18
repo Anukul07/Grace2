@@ -19,27 +19,25 @@ public class UserDashboardView extends javax.swing.JFrame {
     public UserDashboardView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
-        msgboxPop();
+       
     }
-       private  void msgboxPop(){
-        long start_time=System.currentTimeMillis();
+       public  void msgboxPop()throws InterruptedException{
+        this.setVisible(true);
         JOptionPane.showMessageDialog(this, "welcome");
-        //task should be added
-        long stop_time =System.currentTimeMillis();
-        long ti = stop_time-start_time; 
-       System.out.println(ti);
-        if (ti<=10000){
-            int rep=JOptionPane.showConfirmDialog(this, "Are you an admin","Confirmation", JOptionPane.YES_NO_CANCEL_OPTION);
-            if(rep==1){
+        Thread.sleep(3000);
+        int rep=JOptionPane.showConfirmDialog(this, "Are you an admin","Confirmation", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(rep==JOptionPane.CANCEL_OPTION || rep==JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(this, "Logged in as an user");
+           
+                    
+             }
+            
+        else if (rep==JOptionPane.YES_OPTION){
                 TheLoginView lg = new TheLoginView();
                 lg.setVisible(true);
-                this.dispose();
-                
-                
+                this.dispose();      
             }
-        }
-        
+
     }
 
     
