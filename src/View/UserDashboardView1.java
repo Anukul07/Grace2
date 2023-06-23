@@ -47,7 +47,7 @@ public class UserDashboardView1 extends javax.swing.JFrame {
      private void UpdateUserDisplay() throws SQLException{
         try{
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooyb019");
          Statement stmt=conn.createStatement();
          String query3="select userName from registration where status= 1";
          rs=stmt.executeQuery(query3);

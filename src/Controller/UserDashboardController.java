@@ -20,7 +20,7 @@ public class UserDashboardController {
          try{
          System.out.println(logmod.getEmail());
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
          String query="update registration set status='"+0+"' where email='"+logmod.getEmail()+"'";
 
          pst=conn.prepareStatement(query);
