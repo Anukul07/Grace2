@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package AdminDashboard;
+package View;
 
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author ghimi
+ * @author Dilasha 
+ * 
  */
 public class AdminDashboard extends javax.swing.JFrame {
 
