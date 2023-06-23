@@ -15,7 +15,9 @@ import java.sql.Statement;
 import Model.TheLoginModel;
 import Controller.UserDashboardController;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import javax.swing.JButton;
 
 
 /**
@@ -31,48 +33,21 @@ public class UserDashboardView1 extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-        try{
-            
-            UpdateUserDisplay();
-            
-        }
-        catch (Exception m){
-            
-        }
-
-        
+    }
+    
+    public void addBtnListener(ActionListener Log){
+        Logout.addActionListener(Log);
         
     }
+   
 
-     private void UpdateUserDisplay() throws SQLException{
-        try{
-         Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooyb019");
-         Statement stmt=conn.createStatement();
-         String query3="select userName from registration where status= 1";
-         rs=stmt.executeQuery(query3);
-         
-         
-        if (rs.next()) {
-                String labelText = rs.getString("userName");
-                System.out.println(labelText);
-                UserText.setText(labelText);
-            }
-         
-        }
-        catch(Exception f){
-            
-        }
-
-     }
+  
       public void closeWin(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
-    public void dd( UserDashboardController usc){
-        this.usc=usc;
-        usc.userLogout();
-    }  
+     
+   
     
 
 
@@ -94,6 +69,7 @@ public class UserDashboardView1 extends javax.swing.JFrame {
         Billing = new javax.swing.JButton();
         Staff = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
+        Refreshbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -161,6 +137,13 @@ public class UserDashboardView1 extends javax.swing.JFrame {
             }
         });
 
+        Refreshbtn.setText("Refresh");
+        Refreshbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -184,8 +167,10 @@ public class UserDashboardView1 extends javax.swing.JFrame {
                                 .addGap(84, 84, 84))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Refreshbtn)
+                        .addGap(18, 18, 18)
                         .addComponent(Logout)
-                        .addGap(70, 70, 70))))
+                        .addGap(26, 26, 26))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +202,9 @@ public class UserDashboardView1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(UserText)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Logout)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Logout)
+                            .addComponent(Refreshbtn))))
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,13 +264,20 @@ public class UserDashboardView1 extends javax.swing.JFrame {
     }//GEN-LAST:event_StaffActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
-        
+        UserDashboardController controller = new UserDashboardController();
+        controller.LogoutactionPerformed(this);
         UserText.setText(" ");
-        dd(usc);
         
     //        closeWin();
         
     }//GEN-LAST:event_LogoutActionPerformed
+
+    private void RefreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshbtnActionPerformed
+        this.setVisible(false);
+       this.setVisible(true);
+        UserDashboardController usc=new UserDashboardController();
+        usc.UpdateUserDisplay(UserText);
+    }//GEN-LAST:event_RefreshbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,6 +333,7 @@ public class UserDashboardView1 extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout;
     private javax.swing.JButton Patient;
+    private javax.swing.JButton Refreshbtn;
     private javax.swing.JButton Rooms;
     private javax.swing.JButton Services;
     private javax.swing.JButton Staff;

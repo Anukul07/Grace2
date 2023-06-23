@@ -4,6 +4,8 @@
  */
 package Model;
 
+import Controller.UserDashboardController;
+
 /**
  *
  * @author anukul
@@ -13,6 +15,7 @@ public class TheLoginModel {
      public TheLoginModel(String email, String password){
          this.email=email;
          this.password=password;
+         
         
     }
 

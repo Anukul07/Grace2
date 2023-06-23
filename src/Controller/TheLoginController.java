@@ -8,7 +8,7 @@ package Controller;
 
 import View.TheLoginView;
 import Model.TheLoginModel;
-import View.TheRegistrationView;
+import View.AdminDashboard;
 import View.UserDashboardView;
 import java.sql.*;
 import java.sql.ResultSet;
@@ -24,28 +24,24 @@ public class TheLoginController {
     public TheLoginModel logmod;
     UserDashboardView uv;
     PreparedStatement pst;
-    Statement stat;
+   
     
     
-    public void UpdateStatus(){
+    public void UpdateStatus(TheLoginModel logmod){
         try{
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
          String query="update registration set status='"+1+"' where email='"+logmod.getEmail()+"'";
          pst=conn.prepareStatement(query);
          pst.executeUpdate(query);
-//         stat=conn.createStatement();
-//         String sql ="update registration set status='"+true+"' where email='"+logmod.getEmail()+"'";
-//         stat.executeUpdate(sql);
+
         }
         catch(Exception f){
             
         }
      }
-    
-   
-    
     public void actionPerformed(TheLoginView logview){
+
         this.logview=logview;
         
             try{
@@ -54,8 +50,9 @@ public class TheLoginController {
                 
                 if (logmod.getEmail().equals("aryan@gmail.com") && logmod.getPassword().equals("ISHIKI123")){
                     JOptionPane.showMessageDialog(null, "Logged in as an admin");
-                    TheRegistrationView rv= new TheRegistrationView();
-                    rv.setVisible(true);
+                    AdminDashboard Ad= new AdminDashboard();
+                    Ad.setVisible(true);
+                    logview.dispose();
                     count-=1;
                    
                 }
@@ -72,15 +69,15 @@ public class TheLoginController {
                     
                     try{
                         logview.he();
+                        UserDashboardController usc =new UserDashboardController();
                         logview.dispose();
-                        UpdateStatus();
+                        UpdateStatus(logmod);
                         
                     }
                     catch(Exception e1){
                         
                     }
                 }    
-                  
                     else{
                         logview.setMessage("Invalid User");
                     
@@ -100,7 +97,7 @@ public class TheLoginController {
         public boolean checkUser(TheLoginModel user) throws Exception{
         
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
             String query="select * from registration where email='"+user.getEmail()+"' AND Passwd='"+user.getPassword()+"'";
             try{
                 Statement stmt=conn.createStatement();
@@ -123,3 +120,4 @@ public class TheLoginController {
 
 
     }
+
