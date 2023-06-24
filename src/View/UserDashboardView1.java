@@ -4,43 +4,51 @@
  */
 package View;
 
-import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.sql.Statement;
+import Model.TheLoginModel;
+import Controller.UserDashboardController;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+
 
 /**
  *
  * @author ghimi
  */
-public class UserDashboardView extends javax.swing.JFrame {
-     
-    public UserDashboardView() {
+public class UserDashboardView1 extends javax.swing.JFrame {
+    public ResultSet rs;
+    TheLoginModel logm;
+   UserDashboardController usc=new UserDashboardController();
+   
+    public UserDashboardView1() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-        msgboxPop();
+    }
+    
+    public void addBtnListener(ActionListener Log){
+        Logout.addActionListener(Log);
         
     }
-    public void close(){
+   
+
+  
+      public void closeWin(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
-    private void msgboxPop(){
-        int rep=JOptionPane.showConfirmDialog(null, "Please login!","Confirmation", JOptionPane.YES_NO_CANCEL_OPTION);
-        if(rep==JOptionPane.CANCEL_OPTION || rep==JOptionPane.NO_OPTION){
-            JOptionPane.showMessageDialog(null, "ABORTED", "VERIFICATION", JOptionPane.WARNING_MESSAGE);
-            System.exit(0);        
-        }
+     
    
-            
-        else if (rep==JOptionPane.YES_OPTION){
-            TheLoginView lg = new TheLoginView();
-            lg.setVisible(true);  
-            close();
-            }
-
-    }
+    
 
 
     
@@ -60,6 +68,8 @@ public class UserDashboardView extends javax.swing.JFrame {
         Rooms = new javax.swing.JButton();
         Billing = new javax.swing.JButton();
         Staff = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        Refreshbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -120,6 +130,20 @@ public class UserDashboardView extends javax.swing.JFrame {
             }
         });
 
+        Logout.setText("LOGOUT");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+
+        Refreshbtn.setText("Refresh");
+        Refreshbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,18 +151,26 @@ public class UserDashboardView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ClinicName, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ClinicName2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ClinicName, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClinicName2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(UserLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(UserText)
+                                .addGap(84, 84, 84))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(UserLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(UserText)
-                        .addGap(84, 84, 84))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Refreshbtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Logout)
+                        .addGap(26, 26, 26))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,8 +200,12 @@ public class UserDashboardView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(UserLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UserText)))
-                .addGap(90, 90, 90)
+                        .addComponent(UserText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Logout)
+                            .addComponent(Refreshbtn))))
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DoctorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,6 +263,22 @@ public class UserDashboardView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Testing 'Staff' button");
     }//GEN-LAST:event_StaffActionPerformed
 
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        UserDashboardController controller = new UserDashboardController();
+        controller.LogoutactionPerformed(this);
+        UserText.setText(" ");
+        
+    //        closeWin();
+        
+    }//GEN-LAST:event_LogoutActionPerformed
+
+    private void RefreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshbtnActionPerformed
+        this.setVisible(false);
+       this.setVisible(true);
+        UserDashboardController usc=new UserDashboardController();
+        usc.UpdateUserDisplay(UserText);
+    }//GEN-LAST:event_RefreshbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,38 +300,14 @@ public class UserDashboardView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserDashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserDashboardView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserDashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserDashboardView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserDashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserDashboardView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserDashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserDashboardView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -292,7 +320,7 @@ public class UserDashboardView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserDashboardView().setVisible(true);
+                new UserDashboardView1().setVisible(true);
             }
         });
     }
@@ -303,7 +331,9 @@ public class UserDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel ClinicName2;
     private javax.swing.JButton DoctorBtn;
     private javax.swing.JLabel Logo;
+    private javax.swing.JButton Logout;
     private javax.swing.JButton Patient;
+    private javax.swing.JButton Refreshbtn;
     private javax.swing.JButton Rooms;
     private javax.swing.JButton Services;
     private javax.swing.JButton Staff;
