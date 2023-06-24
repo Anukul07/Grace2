@@ -9,6 +9,7 @@ import Controller.TheLoginController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -31,7 +32,7 @@ public class TheLoginView extends javax.swing.JFrame {
 
     public void he() {
         UserDashboardView1 dv = new UserDashboardView1();  //creating object to call method
-
+      
         try {
             delay();
 //            dv.msgboxPop();
