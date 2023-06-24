@@ -25,7 +25,7 @@ public class TheRegisterController {
         {
             this.view=view;
             
-             view.addLoginListner(new RegisetrListener());
+            view.addLoginListner(new RegisetrListener());
         }
         
     public void myreset()
@@ -58,11 +58,16 @@ public class TheRegisterController {
        
         public boolean checkUser(TheRegistrationModel user) throws Exception
         {
-           
+            
 try
           {
          Class.forName("com.mysql.cj.jdbc.Driver");
-               Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
+
+               Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","");
+               
+
+               
+
 String sql="insert into registration(userName,Passwd,conf_password,email,contact_no) values(?,?,?,?,?)";
 pst = conn.prepareStatement(sql);
 
