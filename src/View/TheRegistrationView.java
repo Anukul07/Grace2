@@ -16,7 +16,7 @@ import javax.swing.JFrame;
  * @author ghimi
  */
 public class TheRegistrationView extends javax.swing.JFrame {
-TheRegistrationModel model;
+    TheRegistrationModel model;
     /**
      * Creates new form RegistrationView
      */
@@ -25,7 +25,7 @@ TheRegistrationModel model;
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
-public TheRegistrationModel getUser()
+    public TheRegistrationModel getUser()
 {
    // model=new RegisterModel(txtusername.getText(),txtpassword.getText());
     model=new TheRegistrationModel(NameText.getText(),ContactText.getText(),EmailText.getText(),PasswordText.getText(),confirmPass.getText());
@@ -259,7 +259,7 @@ public void addLoginListner(ActionListener log)
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        TheRegisterController r=new TheRegisterController(this);
+        TheRegisterController r = new TheRegisterController(this);
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
