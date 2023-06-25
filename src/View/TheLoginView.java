@@ -164,8 +164,8 @@ public class TheLoginView extends javax.swing.JFrame {
 //validating user
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-        TheLoginController l = new TheLoginController();
-        l.actionPerformed(this);
+        TheLoginController lc = new TheLoginController();
+        lc.actionPerformed(this);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     public TheLoginModel getUser() {

@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import java.sql.Statement;
 import Model.TheLoginModel;
 import Controller.UserDashboardController;
+import PatientUI.PatientView;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -233,8 +234,9 @@ public class UserDashboardView1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Patient' button");
+        PatientView pv = new PatientView();
+        pv.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_PatientActionPerformed
 
