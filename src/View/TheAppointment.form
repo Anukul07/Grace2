@@ -90,7 +90,7 @@
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="appoinmentSex" min="-2" pref="43" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox2" min="-2" pref="146" max="-2" attributes="0"/>
+                                                  <Component id="appointmentSex" min="-2" pref="146" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="appoinmentName" max="32767" attributes="0"/>
                                               <Component id="appoinmentContact" alignment="0" max="32767" attributes="0"/>
@@ -159,7 +159,7 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="appoinmentAge" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="appoinmentSex" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="appointmentSex" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -350,7 +350,7 @@
             <Property name="text" type="java.lang.String" value="Sex"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="appointmentSex">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Perpetua" size="24" style="0"/>
@@ -429,6 +429,9 @@
               <Dimension value="[150, 70]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="appoinmentScheduleBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
         </Component>

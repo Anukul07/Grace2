@@ -4,9 +4,12 @@
  */
 package View;
 
+import Model.TheAppointmentModel;
+import Controller.TheAppointmentController;
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,12 +17,33 @@ import java.awt.Font;
  */
 public class TheAppointment extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TheAppoinment
-     */
+    TheAppointmentModel model;
+
     public TheAppointment() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+
+    public TheAppointmentModel getAppointment() {
+        model = new TheAppointmentModel(appoinmentName.getText(), appoinmentAge.getText(), appointmentSex.getSelectedItem().toString(), appoinmentContact.getText(), appoinmentEmail.getText(), appoinmentDepartment.getText(),appoinmentDoctor.getText());
+        return model;
+    }
+
+    public void resetTextFields() {
+        appoinmentName.setText("");
+        appoinmentAge.setText("");
+        appoinmentContact.setText("");
+        appoinmentEmail.setText("");
+        appoinmentDepartment.setText("");
+        appoinmentDoctor.setText("");
+    }
+
+    private boolean fieldsEmpty() {
+        return appoinmentName.getText().isEmpty()
+                || appoinmentAge.getText().isEmpty()
+                || appoinmentContact.getText().isEmpty()
+                || appoinmentEmail.getText().isEmpty()
+                || appoinmentDepartment.getText().isEmpty();
     }
 
     /**
@@ -49,7 +73,7 @@ public class TheAppointment extends javax.swing.JFrame {
         appoinmentDoctor = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         appoinmentSex = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        appointmentSex = new javax.swing.JComboBox<>();
         appoinmentDate = new javax.swing.JTextField();
         appoinmentTime = new javax.swing.JTextField();
         appoinmentScheduleBtn = new javax.swing.JButton();
@@ -119,11 +143,11 @@ public class TheAppointment extends javax.swing.JFrame {
         appoinmentSex.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         appoinmentSex.setText("Sex");
 
-        jComboBox2.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(102, 102, 102));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jComboBox2.setBorder(null);
-        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        appointmentSex.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        appointmentSex.setForeground(new java.awt.Color(102, 102, 102));
+        appointmentSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        appointmentSex.setBorder(null);
+        appointmentSex.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         appoinmentDate.setFont(new java.awt.Font("Candara Light", 0, 20)); // NOI18N
         appoinmentDate.setForeground(new java.awt.Color(102, 102, 102));
@@ -169,6 +193,11 @@ public class TheAppointment extends javax.swing.JFrame {
         appoinmentScheduleBtn.setBorderPainted(false);
         appoinmentScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         appoinmentScheduleBtn.setMaximumSize(new java.awt.Dimension(150, 70));
+        appoinmentScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appoinmentScheduleBtnActionPerformed(evt);
+            }
+        });
 
         appoinmentBack.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         appoinmentBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Left Arrow.png"))); // NOI18N
@@ -226,7 +255,7 @@ public class TheAppointment extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(appoinmentSex, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(appointmentSex, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(appoinmentName)
                                             .addComponent(appoinmentContact)
                                             .addComponent(appoinmentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -276,7 +305,7 @@ public class TheAppointment extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(appoinmentAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(appoinmentSex)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(appointmentSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -380,6 +409,18 @@ public class TheAppointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_appoinmentTimeFocusLost
 
+    private void appoinmentScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appoinmentScheduleBtnActionPerformed
+        TheAppointmentController appointment = new TheAppointmentController();
+        appointment.appoinmentScheduleBtn(this);
+        if (fieldsEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill all the fields", "Appointment Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Registered Successfully", "Appointment Status", JOptionPane.INFORMATION_MESSAGE);
+            resetTextFields();
+        }
+
+    }//GEN-LAST:event_appoinmentScheduleBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -428,7 +469,7 @@ public class TheAppointment extends javax.swing.JFrame {
     private javax.swing.JButton appoinmentScheduleBtn;
     private javax.swing.JLabel appoinmentSex;
     private javax.swing.JTextField appoinmentTime;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> appointmentSex;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
