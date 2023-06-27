@@ -19,12 +19,27 @@ public class AdminRoomsDao {
                 String query = "INSERT INTO rooms(RoomNo,RoomCharge) VALUES (?,?)";
                 PreparedStatement pst = conn.prepareStatement(query);
                 
-                pst.setString(1, roomNo);
-                pst.setString(2,roomCharge);
+                pst.setInt(1, Integer.parseInt(roomNo));
+                pst.setInt(2,Integer.parseInt(roomCharge));
                 pst.executeUpdate();
             }
         }catch(SQLException e) {
             System.out.println("Something went wrong : "+ e.getMessage());
+        }
+        
+    }
+    public void updateQuery(String roomId,String roomNo,String roomCharge){
+        try{
+            Connection conn = DbConnection.connect();
+            String query = "UPDATE rooms set roomNo = ?, roomCharge = ? where roomId = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1,roomNo);
+            pst.setString(2,roomCharge);
+            pst.setString(3,roomId);
+            pst.executeUpdate();
+            
+        }catch (SQLException e){
+            System.out.println("Something went wrong :"+e.getMessage());
         }
         
     }

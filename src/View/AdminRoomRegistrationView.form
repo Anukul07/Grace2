@@ -58,7 +58,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="ByNumberLabel" min="-2" pref="167" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="byNumberTxt" max="32767" attributes="0"/>
+                                  <Component id="roomIdTxt" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -125,7 +125,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="byNumberTxt" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="roomIdTxt" min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="ByNumberLabel" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -265,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="By number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="byNumberTxt">
+        <Component class="javax.swing.JTextField" name="roomIdTxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d8" green="e6" red="df" type="rgb"/>
