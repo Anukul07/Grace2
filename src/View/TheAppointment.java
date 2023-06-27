@@ -369,7 +369,9 @@ public class TheAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_appoinmentTimeActionPerformed
 
     private void appoinmentBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appoinmentBackActionPerformed
-
+        PatientView pv = new PatientView();
+        pv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_appoinmentBackActionPerformed
 
     private void appoinmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appoinmentDateActionPerformed

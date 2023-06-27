@@ -126,7 +126,9 @@ public class PatientView extends javax.swing.JFrame {
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Back' button");
+        UserDashboardView1 userview = new UserDashboardView1();
+        userview.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BackActionPerformed
 
     private void IPDRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IPDRegistrationButtonActionPerformed
@@ -138,12 +140,16 @@ public class PatientView extends javax.swing.JFrame {
 
     private void OPDRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OPDRegistrationButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'OPD' button");
+        OPDView opv = new OPDView();
+        opv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_OPDRegistrationButtonActionPerformed
 
     private void AppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Appointment' button");
+        TheAppointment apt = new TheAppointment();
+        apt.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AppointmentButtonActionPerformed
 
     /**
