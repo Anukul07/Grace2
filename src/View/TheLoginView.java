@@ -9,6 +9,7 @@ import Controller.TheLoginController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -16,27 +17,29 @@ import java.awt.event.ActionListener;
  */
 
 public class TheLoginView extends javax.swing.JFrame {
- TheLoginModel logMod;
 
-    
+    TheLoginModel logMod;
+    TheLoginView viewlog;
+
     public TheLoginView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    public void delay() throws InterruptedException{
+
+    public void delay() throws InterruptedException {
         Thread.sleep(1000);
     }
-    public void he(){
-        UserDashboardView dv = new UserDashboardView();  //creating object to call method
-        
-        try{
+
+    public void he() {
+        UserDashboardView1 dv = new UserDashboardView1();  //creating object to call method
+      
+        try {
             delay();
-            dv.msgboxPop();
+//            dv.msgboxPop();
+        } catch (Exception e) {
+
         }
-        catch(Exception e){
-            
-        }
-    
+
     }
 
     @SuppressWarnings("unchecked")
@@ -165,26 +168,25 @@ public class TheLoginView extends javax.swing.JFrame {
         l.actionPerformed(this);
     }//GEN-LAST:event_loginButtonActionPerformed
 
-public TheLoginModel getUser(){
-    logMod=new TheLoginModel(emailText.getText(),passwordText.getText());  
-    return logMod;
-}
-public void setMessage(String msg){       
-    JOptionPane.showMessageDialog(this, msg);
-}
-public void addLoginListener(ActionListener log){
-    loginButton.addActionListener(log);
-}
-public void dashboard(){
-    this.dispose();
-    UserDashboardView dashb = new UserDashboardView();
-}
+    public TheLoginModel getUser() {
+        logMod = new TheLoginModel(emailText.getText(), passwordText.getText());
+        return logMod;
+    }
+
+    public void setMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+
+    public void addLoginListener(ActionListener log) {
+        loginButton.addActionListener(log);
+    }
+
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         TheRegistrationView rv = new TheRegistrationView();
         rv.setVisible(true);
         this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_registerButtonActionPerformed
 
     public static void main(String args[]) {
@@ -209,6 +211,36 @@ public void dashboard(){
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TheLoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
