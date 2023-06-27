@@ -97,15 +97,14 @@ public class TheLoginController {
         public boolean checkUser(TheLoginModel user) throws Exception{
         
             Class.forName("com.mysql.cj.jdbc.Driver");
-<<<<<<< HEAD
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","cerebralcorpse00");
-=======
+
+
 
             
 
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
 
->>>>>>> 3dc79e30ee702cf6e17fb7316108b49571f6ab70
+
             String query="select * from registration where email='"+user.getEmail()+"' AND Passwd='"+user.getPassword()+"'";
             try{
                 Statement stmt=conn.createStatement();

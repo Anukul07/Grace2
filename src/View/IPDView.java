@@ -13,13 +13,8 @@ import Model.IPDModel;
 import Controller.IPDController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
-import View.PatientView;
+
 import java.awt.event.ActionListener;
-import DAO.IpdDao;
-=======
-import java.awt.event.ActionListener;
->>>>>>> 3dc79e30ee702cf6e17fb7316108b49571f6ab70
 
 public class IPDView extends javax.swing.JFrame {
     IPDModel model;

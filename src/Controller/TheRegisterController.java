@@ -62,17 +62,16 @@ public class TheRegisterController {
 try
           {
          Class.forName("com.mysql.cj.jdbc.Driver");
-<<<<<<< HEAD
-               Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","");
+
                
-=======
+
 
                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
                
 
                
 
->>>>>>> 3dc79e30ee702cf6e17fb7316108b49571f6ab70
+
 String sql="insert into registration(userName,Passwd,conf_password,email,contact_no) values(?,?,?,?,?)";
 pst = conn.prepareStatement(sql);
 

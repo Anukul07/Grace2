@@ -4,21 +4,18 @@
  */
 package DAO;
 
-<<<<<<< HEAD
-import MyConnection.*;
-=======
+
 /*import MyConnection.*;
->>>>>>> 3dc79e30ee702cf6e17fb7316108b49571f6ab70
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.*;
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
-import Model.IPDModel;
-=======
+
+
 import Model.IPDModel;*/
->>>>>>> 3dc79e30ee702cf6e17fb7316108b49571f6ab70
+
 
 //public class IpdDao extends DbConnection{
 //    Connection conn = null;
