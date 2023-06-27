@@ -13,6 +13,7 @@ import Model.IPDModel;
 import Controller.IPDController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 
 public class IPDView extends javax.swing.JFrame {

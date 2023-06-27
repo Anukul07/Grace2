@@ -63,10 +63,14 @@ try
           {
          Class.forName("com.mysql.cj.jdbc.Driver");
 
+               
+
+
                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
                
 
                
+
 
 String sql="insert into registration(userName,Passwd,conf_password,email,contact_no) values(?,?,?,?,?)";
 pst = conn.prepareStatement(sql);

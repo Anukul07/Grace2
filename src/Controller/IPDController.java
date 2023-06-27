@@ -42,7 +42,10 @@ public class IPDController {
     public boolean checkUser(IPDModel user) throws Exception{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+
+
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root", "scooby019");  
+
                
             String sql = "insert into ipd_registration (IPD_No, Patient_Name, Age, Blood_Grp, Department, Policy_No) values (?,?,?,?,?,?)";
             pst=conn.prepareStatement(sql);
