@@ -26,12 +26,22 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         adModel = new AdRoomRegistrationModel(roomNoTxt.getText(),roomChargeTxt.getText());
         return adModel;
     }
+     public AdRoomRegistrationModel getDataUpdate() {
+        adModel = new AdRoomRegistrationModel(roomIdTxt.getText(),roomNoTxt.getText(),roomChargeTxt.getText());
+        return adModel;
+    }
   
     public void addRoomsListener(ActionListener log) {
         RegisterButton.addActionListener(log);
     }
+    public void updateRoomsListener(ActionListener log) {
+        UpdateButton.addActionListener(log);
+    }
     private boolean isEmpty() {
         return roomNoTxt.getText().isEmpty() || roomChargeTxt.getText().isEmpty();
+    }
+     private boolean isEmptyUpdate() {
+        return roomIdTxt.getText().isEmpty()||roomNoTxt.getText().isEmpty() || roomChargeTxt.getText().isEmpty();
     }
     private void resetText(){
         roomNoTxt.setText("");
@@ -60,7 +70,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         RoomChargeLabel = new javax.swing.JLabel();
         roomNoTxt = new javax.swing.JTextField();
         ByNumberLabel = new javax.swing.JLabel();
-        byNumberTxt = new javax.swing.JTextField();
+        roomIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +135,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         ByNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         ByNumberLabel.setText("By number");
 
-        byNumberTxt.setBackground(new java.awt.Color(223, 230, 216));
+        roomIdTxt.setBackground(new java.awt.Color(223, 230, 216));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,7 +155,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ByNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(byNumberTxt))
+                                .addComponent(roomIdTxt))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(RoomNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,7 +203,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
                     .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(byNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ByNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -237,7 +247,14 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Update' button");
+        AdRoomRegistrationController adControl = new AdRoomRegistrationController();
+        adControl.UpdateButtonActionPerformed(this);
+        if(isEmptyUpdate()){
+            JOptionPane.showMessageDialog(this, "Fields must be filled");
+        }else {
+            JOptionPane.showMessageDialog(this, "Rooms updated successfully");
+            resetText();
+        }
 
     }//GEN-LAST:event_UpdateButtonActionPerformed
 
@@ -297,9 +314,9 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel RoomRegistrationLogo;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    private javax.swing.JTextField byNumberTxt;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField roomChargeTxt;
+    private javax.swing.JTextField roomIdTxt;
     private javax.swing.JTextField roomNoTxt;
     // End of variables declaration//GEN-END:variables
 }

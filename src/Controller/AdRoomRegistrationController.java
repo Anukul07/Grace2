@@ -23,8 +23,10 @@ public class AdRoomRegistrationController {
     public void RegisterButtonActionPerformed(AdminRoomRegistrationView adView) {
         try{
             adModel = adView.getData();
-            checkData(adModel);
-            if(checkData(adModel)){
+            checkDataRegistration(adModel);
+            if(checkDataRegistration(adModel)){
+                
+                adDao.insertQuery(adModel.getRoomNo(), adModel.getRoomCharge());
                 System.out.println("Room registered successfully");
             }else{
                 System.out.println("Room could not be registered");
@@ -38,14 +40,50 @@ public class AdRoomRegistrationController {
         }
         
     }
-    public boolean checkData(AdRoomRegistrationModel data){
+    
+    public void UpdateButtonActionPerformed(AdminRoomRegistrationView adView){
+        try{
+            adModel = adView.getDataUpdate();
+            checkDataUpdation(adModel);
+            if(checkDataUpdation(adModel)){
+                System.out.println("Room updated successfully");
+            }else{
+                System.out.println("Room could not be updated");
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Something went wrong : "+e.getMessage());
+            
+        }
+    }
+    
+    public boolean checkDataRegistration(AdRoomRegistrationModel data){
         try{
             if (data.getRoomNo().isEmpty() || data.getRoomNo().isEmpty()){
                 System.out.println("Empty fields");
                 return false; 
+            }else{
+                return true;
             }
             
-            adDao.insertQuery(data.getRoomNo(), data.getRoomCharge());
+        }
+        catch (Exception e){
+            System.out.println("Something went wrong : "+e.getMessage());
+            return false;
+        }
+        
+        
+    }
+    public boolean checkDataUpdation(AdRoomRegistrationModel data){
+        try{
+            if (data.getRoomId().isEmpty()||data.getRoomNo().isEmpty() || data.getRoomNo().isEmpty()){
+                System.out.println("Empty fields");
+                return false; 
+            }
+            
+            adDao.updateQuery(data.getRoomId(), data.getRoomNo(),data.getRoomCharge());
             
         }
         catch (Exception e){
