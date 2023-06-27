@@ -23,7 +23,7 @@ public class UserDashboardController {
     static public void UpdateUserDisplay(JLabel field){
         try{
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
          Statement stmt=conn.createStatement();
          String query3="select userName from registration where status= 1";
          rs=stmt.executeQuery(query3);
@@ -47,7 +47,7 @@ public class UserDashboardController {
          try{
                
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
             Statement stmt=conn.createStatement();
             String query3="select * from registration where status= 1";
             rs=stmt.executeQuery(query3);

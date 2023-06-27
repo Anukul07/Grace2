@@ -18,6 +18,7 @@ public class PatientView extends javax.swing.JFrame {
      */
     public PatientView() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,6 +38,7 @@ public class PatientView extends javax.swing.JFrame {
         AppointmentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(192, 199, 180));
 
@@ -129,7 +131,9 @@ public class PatientView extends javax.swing.JFrame {
 
     private void IPDRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IPDRegistrationButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'IPD' button");
+        IPDView ipv = new IPDView();
+        ipv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_IPDRegistrationButtonActionPerformed
 
     private void OPDRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OPDRegistrationButtonActionPerformed
