@@ -30,7 +30,7 @@ public class TheLoginController {
     public void UpdateStatus(TheLoginModel logmod){
         try{
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
          String query="update registration set status='"+1+"' where email='"+logmod.getEmail()+"'";
          pst=conn.prepareStatement(query);
          pst.executeUpdate(query);
@@ -100,7 +100,7 @@ public class TheLoginController {
 
             
 
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
 
             String query="select * from registration where email='"+user.getEmail()+"' AND Passwd='"+user.getPassword()+"'";
             try{

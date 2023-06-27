@@ -191,7 +191,10 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Rooms' button");
+        AdminRoomRegistrationView rv = new AdminRoomRegistrationView();
+        rv.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     /**

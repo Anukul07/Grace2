@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import View.PatientView;
 
 /**
  *
@@ -12,9 +13,7 @@ import Model.IPDModel;
 import Controller.IPDController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import View.PatientView;
 import java.awt.event.ActionListener;
-import DAO.IpdDao;
 
 public class IPDView extends javax.swing.JFrame {
     IPDModel model;
