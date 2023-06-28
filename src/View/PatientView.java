@@ -147,7 +147,7 @@ public class PatientView extends javax.swing.JFrame {
 
     private void AppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentButtonActionPerformed
         // TODO add your handling code here:
-        TheAppointment apt = new TheAppointment();
+        TheAppointmentView apt = new TheAppointmentView();
         apt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AppointmentButtonActionPerformed
