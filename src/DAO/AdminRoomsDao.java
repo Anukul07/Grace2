@@ -8,6 +8,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
+import View.AdminRoomRegistrationView;
+import java.sql.ResultSet;
 /**
  *
  * @author anukul
@@ -25,8 +28,7 @@ public class AdminRoomsDao {
             }
         }catch(SQLException e) {
             System.out.println("Something went wrong : "+ e.getMessage());
-        }
-        
+        }     
     }
     public void updateQuery(String roomId,String roomNo,String roomCharge){
         try{
@@ -41,9 +43,7 @@ public class AdminRoomsDao {
         }catch (SQLException e){
             System.out.println("Something went wrong :"+e.getMessage());
         }
-        
     }
-
     public void deleteQuery(String roomId){
         try{
             Connection conn = DbConnection.connect();
@@ -54,7 +54,21 @@ public class AdminRoomsDao {
             
         }catch (SQLException e){
             System.out.println("Something went wrong :"+e.getMessage());
+        } 
+    }
+    public void viewQuery(AdminRoomRegistrationView view){
+        try{
+            Connection conn = DbConnection.connect();
+            DefaultTableModel dtm= (DefaultTableModel)view.ViewTable.getModel();
+            String query = "SELECT * FROM rooms";
+            dtm.setRowCount(0);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()){
+                dtm.addRow(new Object[] {rs.getString("RoomId"),rs.getString("RoomNo"),rs.getString("RoomCharge")});
+            }
+        }catch(SQLException e){
+            System.out.println("Something went wrong : "+e.getMessage());
         }
-        
     }
 }
