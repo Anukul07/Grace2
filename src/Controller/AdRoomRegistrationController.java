@@ -123,6 +123,14 @@ public class AdRoomRegistrationController {
         }
         return false;
     }
+    public void ViewButtonActionPerformed(AdminRoomRegistrationView adView){
+        try{
+            adModel = adView.getDataView();
+            adDao.viewQuery(adView);
+        }catch(Exception e){
+            System.out.println("Something went wrong : "+e.getMessage());
+        }
+    }
 }
     
 
