@@ -15,17 +15,17 @@ import javax.swing.JOptionPane;
  *
  * @author Abhisek Mgr
  */
-public class TheAppointment extends javax.swing.JFrame {
+public class TheAppointmentView extends javax.swing.JFrame {
 
     TheAppointmentModel model;
 
-    public TheAppointment() {
+    public TheAppointmentView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     public TheAppointmentModel getAppointment() {
-        model = new TheAppointmentModel(appoinmentName.getText(), appoinmentAge.getText(), appointmentSex.getSelectedItem().toString(), appoinmentContact.getText(), appoinmentEmail.getText(), appoinmentDepartment.getText(),appoinmentDoctor.getText());
+        model = new TheAppointmentModel(appoinmentName.getText(), appoinmentAge.getText(), appointmentSex.getSelectedItem().toString(), appoinmentContact.getText(), appoinmentEmail.getText(), appoinmentDepartment.getText(), appoinmentDoctor.getText(), appoinmentDate.getText(), appoinmentTime.getText());
         return model;
     }
 
@@ -36,15 +36,21 @@ public class TheAppointment extends javax.swing.JFrame {
         appoinmentEmail.setText("");
         appoinmentDepartment.setText("");
         appoinmentDoctor.setText("");
+        appoinmentDate.setText("  dd/mm/yyyy  ");
+        appoinmentTime.setText("  hh/mm  ");
     }
 
-    private boolean fieldsEmpty() {
-        return appoinmentName.getText().isEmpty()
-                || appoinmentAge.getText().isEmpty()
-                || appoinmentContact.getText().isEmpty()
-                || appoinmentEmail.getText().isEmpty()
-                || appoinmentDepartment.getText().isEmpty();
-    }
+private boolean fieldsEmpty() {
+    return appoinmentName.getText().isEmpty()
+            || appoinmentAge.getText().isEmpty()
+            || appoinmentContact.getText().isEmpty()
+            || appoinmentEmail.getText().isEmpty()
+            || appoinmentDepartment.getText().isEmpty()
+            || appoinmentDate.getText().trim().isEmpty() || appoinmentDate.getText().trim().equals("dd/mm/yyyy")
+            || appoinmentTime.getText().trim().isEmpty() || appoinmentTime.getText().trim().equals("hh/mm");
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -271,9 +277,9 @@ public class TheAppointment extends javax.swing.JFrame {
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(appoinmentTime, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(57, 57, 57)
+                                .addGap(61, 61, 61)
                                 .addComponent(appoinmentScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(399, Short.MAX_VALUE))
+                        .addContainerGap(395, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(1319, 1319, 1319)
                         .addComponent(appoinmentBack)
@@ -324,17 +330,15 @@ public class TheAppointment extends javax.swing.JFrame {
                     .addComponent(appoinmentDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(appoinmentTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
                         .addComponent(appoinmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(appoinmentScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(200, 200, 200)
+                        .addComponent(jLabel9))
+                    .addComponent(appoinmentScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(255, 255, 255)
                 .addComponent(jLabel10)
-                .addContainerGap(755, Short.MAX_VALUE))
+                .addContainerGap(700, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -434,21 +438,23 @@ public class TheAppointment extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TheAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TheAppointmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TheAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TheAppointmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TheAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TheAppointmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TheAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TheAppointmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TheAppointment().setVisible(true);
+                new TheAppointmentView().setVisible(true);
             }
         });
     }
