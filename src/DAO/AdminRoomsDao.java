@@ -44,6 +44,7 @@ public class AdminRoomsDao {
             System.out.println("Something went wrong :"+e.getMessage());
         }
     }
+
     public void deleteQuery(String roomId){
         try{
             Connection conn = DbConnection.connect();

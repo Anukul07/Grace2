@@ -32,6 +32,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         adModel = new AdRoomRegistrationModel(roomIdTxt.getText(),roomNoTxt.getText(),roomChargeTxt.getText());
         return adModel;
     }
+
     public AdRoomRegistrationModel getDataDelete() {
         adModel = new AdRoomRegistrationModel(roomIdTxt.getText());
         return adModel;
@@ -43,6 +44,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     public void deleteRoomsListener(ActionListener log) {
         DeleteButton.addActionListener(log);
     }
+
     public void addRoomsListener(ActionListener log) {
         RegisterButton.addActionListener(log);
     }
@@ -58,6 +60,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
      private boolean isEmptyUpdate() {
         return roomIdTxt.getText().isEmpty()||roomNoTxt.getText().isEmpty() || roomChargeTxt.getText().isEmpty();
     }
+
     private boolean isEmptyDelete() {
         return roomIdTxt.getText().isEmpty();
     }
