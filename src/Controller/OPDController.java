@@ -9,14 +9,13 @@ package Controller;
  * @author dilasha
  */
 
+import DAO.OPDDao;
 import View.OPDView;
 import Model.OPDModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 public class OPDController {
+    OPDDao opddao = new OPDDao();
     OPDModel model;
     OPDView view;
     ResultSet rs;
@@ -28,6 +27,7 @@ public class OPDController {
             checkUser(model);
                 
             if (checkUser(model)) {
+                opddao.insertQuery(model.getOPD_No(),model.getPatient_Name(),model.getAge(),model.getBlood_Grp(),model.getDepartment(),model.getPolicy_No());
                 opdview.setMessage("Registered Successfully");
             }  
             else {
@@ -36,31 +36,20 @@ public class OPDController {
         }
             
         catch (Exception e1) {
-                
+            System.out.println("Something went wrong: " + e1.getMessage());
         }
     }
     
-    public boolean checkUser(OPDModel user) throws Exception{
+    public boolean checkUser(OPDModel data){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root", "Root1234");  
-               
-            String sql = "insert into opd_registration (OPD_No, Patient_Name, Age, Blood_Grp, Department, Policy_No) values (?,?,?,?,?,?)";
-            pst=conn.prepareStatement(sql);
-                      
-            pst.setString(1, user.getOPD_No());
-            pst.setString(2, user.getPatient_Name());
-            pst.setString(3, user.getAge());
-            pst.setString(4, user.getBlood_Grp());
-            pst.setString(5, user.getDepartment());
-            pst.setString(6, user.getPolicy_No());
-                
-            pst.executeUpdate();
-              
-                
-            JOptionPane.showMessageDialog(null, "Data registered Successfully!");
+            if (data.getOPD_No().isEmpty() || data.getPatient_Name().isEmpty() || data.getAge().isEmpty() || data.getBlood_Grp().isEmpty() || data.getDepartment().isEmpty() || data.getPolicy_No().isEmpty()) {
+                System.out.println("Empty fields");
+                return false;
+            }
+            else {
+                return true;
+            }
         }
-            
         catch (Exception e2) {
             System.out.println(e2.getMessage());
         }

@@ -82,6 +82,11 @@ public class AdRoomRegistrationController {
                 System.out.println("Empty fields");
                 return false; 
             }
+<<<<<<< HEAD
+=======
+            
+            adDao.updateQuery(data.getRoomId(), data.getRoomNo(),data.getRoomCharge());
+>>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
             
             adDao.updateQuery(data.getRoomId(), data.getRoomNo(),data.getRoomCharge());
             

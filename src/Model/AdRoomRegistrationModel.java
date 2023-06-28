@@ -22,9 +22,12 @@ public class AdRoomRegistrationModel {
         this.roomNo = roomNo;
         this.roomCharge = roomCharge;
     }
+<<<<<<< HEAD
     public AdRoomRegistrationModel(String roomId){
         this.roomId = roomId;
     }
+=======
+>>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
     public void setRoomId(String roomId){
         this.roomId = roomId;
     }

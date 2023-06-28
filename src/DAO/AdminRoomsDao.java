@@ -43,6 +43,7 @@ public class AdminRoomsDao {
         }
         
     }
+<<<<<<< HEAD
     public void deleteQuery(String roomId){
         try{
             Connection conn = DbConnection.connect();
@@ -57,4 +58,6 @@ public class AdminRoomsDao {
         
     }
     
+=======
+>>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
 }
