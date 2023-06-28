@@ -43,4 +43,18 @@ public class AdminRoomsDao {
         }
         
     }
+    public void deleteQuery(String roomId){
+        try{
+            Connection conn = DbConnection.connect();
+            String query = "DELETE FROM rooms WHERE roomId = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1,Integer.parseInt(roomId));
+            pst.executeUpdate();
+            
+        }catch (SQLException e){
+            System.out.println("Something went wrong :"+e.getMessage());
+        }
+        
+    }
+    
 }

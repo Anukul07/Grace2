@@ -30,6 +30,13 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         adModel = new AdRoomRegistrationModel(roomIdTxt.getText(),roomNoTxt.getText(),roomChargeTxt.getText());
         return adModel;
     }
+    public AdRoomRegistrationModel getDataDelete() {
+        adModel = new AdRoomRegistrationModel(roomIdTxt.getText());
+        return adModel;
+    }
+    public void deleteRoomsListener(ActionListener log) {
+        DeleteButton.addActionListener(log);
+    }
   
     public void addRoomsListener(ActionListener log) {
         RegisterButton.addActionListener(log);
@@ -43,7 +50,11 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
      private boolean isEmptyUpdate() {
         return roomIdTxt.getText().isEmpty()||roomNoTxt.getText().isEmpty() || roomChargeTxt.getText().isEmpty();
     }
+    private boolean isEmptyDelete() {
+        return roomIdTxt.getText().isEmpty();
+    }
     private void resetText(){
+        roomIdTxt.setText("");
         roomNoTxt.setText("");
         roomChargeTxt.setText("");
     }
@@ -247,14 +258,14 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-        AdRoomRegistrationController adControl = new AdRoomRegistrationController();
-        adControl.UpdateButtonActionPerformed(this);
         if(isEmptyUpdate()){
             JOptionPane.showMessageDialog(this, "Fields must be filled");
         }else {
             JOptionPane.showMessageDialog(this, "Rooms updated successfully");
             resetText();
         }
+        AdRoomRegistrationController adControl = new AdRoomRegistrationController();
+        adControl.UpdateButtonActionPerformed(this);
 
     }//GEN-LAST:event_UpdateButtonActionPerformed
 
@@ -265,8 +276,16 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewButtonActionPerformed
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
-        // TODO add your handling code here:        
-        JOptionPane.showMessageDialog(this, "Testing 'Delete' button");
+        // TODO add your handling code here:
+        AdRoomRegistrationController adControl = new AdRoomRegistrationController();
+        adControl.DeleteButtonActionPerformed(this);        
+        if(isEmptyDelete()){
+            JOptionPane.showMessageDialog(this, "By number field must be filled");
+        }else {
+            JOptionPane.showMessageDialog(this, "Rooms deleted successfully");
+            resetText();
+        }
+        
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     /**
