@@ -30,7 +30,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         adModel = new AdRoomRegistrationModel(roomIdTxt.getText(),roomNoTxt.getText(),roomChargeTxt.getText());
         return adModel;
     }
-<<<<<<< HEAD
+
     public AdRoomRegistrationModel getDataDelete() {
         adModel = new AdRoomRegistrationModel(roomIdTxt.getText());
         return adModel;
@@ -38,8 +38,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     public void deleteRoomsListener(ActionListener log) {
         DeleteButton.addActionListener(log);
     }
-=======
->>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
+
   
     public void addRoomsListener(ActionListener log) {
         RegisterButton.addActionListener(log);
@@ -53,12 +52,10 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
      private boolean isEmptyUpdate() {
         return roomIdTxt.getText().isEmpty()||roomNoTxt.getText().isEmpty() || roomChargeTxt.getText().isEmpty();
     }
-<<<<<<< HEAD
+
     private boolean isEmptyDelete() {
         return roomIdTxt.getText().isEmpty();
     }
-=======
->>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
     private void resetText(){
         roomIdTxt.setText("");
         roomNoTxt.setText("");
@@ -264,22 +261,17 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-=======
+
         AdRoomRegistrationController adControl = new AdRoomRegistrationController();
         adControl.UpdateButtonActionPerformed(this);
->>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
+
         if(isEmptyUpdate()){
             JOptionPane.showMessageDialog(this, "Fields must be filled");
         }else {
             JOptionPane.showMessageDialog(this, "Rooms updated successfully");
             resetText();
         }
-<<<<<<< HEAD
-        AdRoomRegistrationController adControl = new AdRoomRegistrationController();
-        adControl.UpdateButtonActionPerformed(this);
-=======
->>>>>>> 9b221d91e31b4c630247056fde03560f2af03cab
+
 
     }//GEN-LAST:event_UpdateButtonActionPerformed
 
