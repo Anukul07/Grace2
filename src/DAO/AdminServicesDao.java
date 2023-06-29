@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import View.AdminRoomRegistrationView;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -32,6 +33,20 @@ public class AdminServicesDao {
             System.out.println("Something went wrong : "+ e.getMessage());
         }     
     }
+    public void updateQuery(String servicesId,String serviceName,String serviceCharge){
+        try{
+            Connection conn = DbConnection.connect();
+            String query = "UPDATE services set ServiceName = ?, ServiceCharge = ? where ServicesId = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1,serviceName);
+            pst.setInt(2,Integer.parseInt(serviceCharge));
+            pst.setInt(3,Integer.parseInt(servicesId));
+            pst.executeUpdate();
+            
+        }catch (SQLException e){
+            System.out.println("Something went wrong :"+e.getMessage());
+        }
+    }
     public void deleteQuery(String ServicesId){
         try{
             Connection conn = DbConnection.connect();
@@ -43,6 +58,21 @@ public class AdminServicesDao {
         }catch (SQLException e){
             System.out.println("Something went wrong :"+e.getMessage());
         } 
+    }
+     public void viewQuery(AdminServicesRegistrationView view){
+        try{
+            Connection conn = DbConnection.connect();
+            DefaultTableModel dtm= (DefaultTableModel)view.ViewTable.getModel();
+            String query = "SELECT * FROM services";
+            dtm.setRowCount(0);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()){
+                dtm.addRow(new Object[] {rs.getString("ServicesId"),rs.getString("ServiceName"),rs.getString("ServiceCharge")});
+            }
+        }catch(SQLException e){
+            System.out.println("Something went wrong : "+e.getMessage());
+        }
     }
    
 }

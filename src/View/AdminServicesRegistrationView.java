@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
 import Controller.AdServicesRegistrationController;
 import Model.AdminServicesRegistrationModel;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 /**
  *
  * @author anukul
@@ -100,9 +102,19 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
 
         UpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationUpdate.png"))); // NOI18N
         UpdateButton.setText("jButton2");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
 
         ViewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationView.png"))); // NOI18N
         ViewButton.setText("jButton3");
+        ViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewButtonActionPerformed(evt);
+            }
+        });
 
         DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationDelete.png"))); // NOI18N
         DeleteButton.setText("jButton4");
@@ -140,7 +152,7 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
         });
 
         ViewTable.setBackground(new java.awt.Color(247, 255, 229));
-        ViewTable.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ViewTable.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         ViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -263,11 +275,11 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
-        AdServicesRegistrationController adControl = new AdServicesRegistrationController();
-        adControl.RegisterButtonActionPerformed(this);
         if(isEmptyInsert()){
-            JOptionPane.showMessageDialog(this, "Fields must be filled");
+            JOptionPane.showMessageDialog(this, "Fields must be filled"," Error", JOptionPane.ERROR_MESSAGE);
         }else {
+            AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+            adControl.RegisterButtonActionPerformed(this);
             JOptionPane.showMessageDialog(this, "Services registered successfully");
             resetText();
         }
@@ -275,15 +287,34 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
         // TODO add your handling code here:
-        AdServicesRegistrationController adControl = new AdServicesRegistrationController();
-        adControl.DeleteButtonActionPerformed(this);
         if(isEmptyDelete()){
-             JOptionPane.showMessageDialog(this, "By number field must be filled");
+             JOptionPane.showMessageDialog(this, "By number field must be filled"," Error", JOptionPane.ERROR_MESSAGE);
         }else{
+            AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+            adControl.DeleteButtonActionPerformed(this);
             JOptionPane.showMessageDialog(this, "Service deleted successfully");
         }
         resetText();
     }//GEN-LAST:event_DeleteButtonActionPerformed
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+        // TODO add your handling code here:
+        if(isEmptyUpdate()){
+             JOptionPane.showMessageDialog(this, "Fields must be filled"," Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+            adControl.UpdateButtonActionPerformed(this);
+            JOptionPane.showMessageDialog(this, "Service úpdated successfully");
+        }
+        resetText();
+    }//GEN-LAST:event_UpdateButtonActionPerformed
+
+    private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
+        // TODO add your handling code here:
+        AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+        adControl.ViewButtonActionPerformed(this);
+        
+    }//GEN-LAST:event_ViewButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +357,7 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    private javax.swing.JTable ViewTable;
+    public javax.swing.JTable ViewTable;
     private javax.swing.JTextField byNumberTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

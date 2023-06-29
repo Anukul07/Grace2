@@ -25,6 +25,9 @@ public class AdminServicesRegistrationModel {
     public AdminServicesRegistrationModel(String servicesId){
         this.servicesId = servicesId;
     }
+    public AdminServicesRegistrationModel(){
+        
+    }
     public void setServicesId(String servicesId){
         this.servicesId= servicesId;
     }

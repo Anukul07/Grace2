@@ -26,4 +26,12 @@ public class AdServicesRegistrationController {
         adModel = adView.getDeleteData();
         adDao.deleteQuery(adModel.getServicesId());
     }
+    public void UpdateButtonActionPerformed(AdminServicesRegistrationView adView){
+        adModel = adView.getUpdateData();
+        adDao.updateQuery(adModel.getServicesId(),adModel.getServiceName(),adModel.getServiceCharge());
+    }
+    public void ViewButtonActionPerformed(AdminServicesRegistrationView adView){
+        adModel = adView.getViewData();
+        adDao.viewQuery(adView);
+    }
 }
