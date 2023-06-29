@@ -48,7 +48,7 @@ public class TheLoginController {
                
                 logmod=logview.getUser();
                 
-                if (logmod.getEmail().equals("aryan@gmail.com") && logmod.getPassword().equals("ISHIKI123")){
+                if (logmod.getEmail().equals("aryan@gmail.com") && logmod.getPassword().equals("")){
                     JOptionPane.showMessageDialog(null, "Logged in as an admin");
                     AdminDashboard Ad= new AdminDashboard();
                     Ad.setVisible(true);
