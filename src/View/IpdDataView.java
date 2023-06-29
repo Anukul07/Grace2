@@ -19,6 +19,8 @@ public class IpdDataView extends javax.swing.JFrame {
     public IpdDataView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        ipdTable.setEnabled(false);
+
     }
     
     public IPDModel getDataView() {
@@ -38,9 +40,9 @@ public class IpdDataView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtIpdId = new javax.swing.JTextField();
         btnViewAll = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ipdTable = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -56,9 +58,9 @@ public class IpdDataView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("By ID:");
 
-        jTextField1.setBackground(new java.awt.Color(223, 230, 216));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
+        txtIpdId.setBackground(new java.awt.Color(223, 230, 216));
+        txtIpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnViewAll.setBackground(new java.awt.Color(62, 117, 83));
         btnViewAll.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnViewAll.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,10 +71,16 @@ public class IpdDataView extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(62, 117, 83));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("VIEW");
+
+        btnView.setBackground(new java.awt.Color(62, 117, 83));
+        btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setText("VIEW");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         ipdTable.setBackground(new java.awt.Color(223, 230, 216));
         ipdTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -134,9 +142,10 @@ public class IpdDataView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                         .addGap(38, 38, 38)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(253, Short.MAX_VALUE))
@@ -157,8 +166,8 @@ public class IpdDataView extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
@@ -190,6 +199,13 @@ public class IpdDataView extends javax.swing.JFrame {
         IpdDataController iDataCon = new IpdDataController();
         iDataCon.btnViewAllactionPerformed(this);
     }//GEN-LAST:event_btnViewAllActionPerformed
+
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        IpdDataController iDataCon = new IpdDataController();
+        iDataCon.btnViewactionPerformed(this);
+    }//GEN-LAST:event_btnViewActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -227,14 +243,15 @@ public class IpdDataView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewAll;
     public javax.swing.JTable ipdTable;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtIpdId;
     // End of variables declaration//GEN-END:variables
 }

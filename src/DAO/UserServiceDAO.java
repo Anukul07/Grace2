@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.*;
@@ -16,8 +15,7 @@ public class UserServiceDAO extends DbConnection {
         PreparedStatement pst = null;
         
         try {
-
-            try(Connection conn = DbConnection.connect()) {
+            try(Connection conn = connect()) {
 
                 String sql = "INSERT INTO user_service (service_name, service_date, patient_id, patient_name, patient_charge) VALUES(?,?,?,?,?)";
             

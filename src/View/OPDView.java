@@ -89,7 +89,8 @@ public class OPDView extends javax.swing.JFrame {
         radioInsuranceN = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         txtPolicyNo = new javax.swing.JTextField();
-        opdRegister = new javax.swing.JButton();
+
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +101,6 @@ public class OPDView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("OPD No.");
 
-        txtOpdNo.setBackground(new java.awt.Color(223, 230, 216));
         txtOpdNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtOpdNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +110,6 @@ public class OPDView extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setText("Name");
-
-        txtName.setBackground(new java.awt.Color(223, 230, 216));
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,8 +130,6 @@ public class OPDView extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel7.setText("Age");
-
-        txtAge.setBackground(new java.awt.Color(223, 230, 216));
         txtAge.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +140,6 @@ public class OPDView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel6.setText("Blood Group ");
 
-        comboBldGrp.setBackground(new java.awt.Color(223, 230, 216));
         comboBldGrp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         comboBldGrp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -" }));
 
@@ -224,9 +219,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel18.setText("Department");
 
-        comboDep.setBackground(new java.awt.Color(223, 230, 216));
         comboDep.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        comboDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Emergency Department (ED) or Emergency Room (ER)", "Cardiology Department", "Oncology Department", "Pediatrics Department", "Obstetrics and Gynecology Department (OB/GYN)", "Neurology Department", "Orthopedics Department", "Internal Medicine Department", "Surgery Department", "Radiology Department", "Pathology Department", "Anesthesiology Department", "Intensive Care Unit (ICU)", "Pharmacy Department", "Physical Therapy Department", "Respiratory Therapy Department", "Psychiatry Department", "Nutrition and Dietetics Department" }));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel17.setText("Reason for visit");
@@ -269,7 +262,6 @@ public class OPDView extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel20.setText("Policy no.");
 
-        txtPolicyNo.setBackground(new java.awt.Color(223, 230, 216));
         txtPolicyNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtPolicyNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,9 +348,9 @@ public class OPDView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(radioInsuranceY, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
-                                .addComponent(radioInsuranceN, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPolicyNo, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60))
+                        .addGap(112, 112, 112))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(257, 257, 257)
                         .addComponent(opdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,11 +526,10 @@ public class OPDView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
-    private void opdRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opdRegisterActionPerformed
+    private void txtPolicyNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPolicyNoActionPerformed
         // TODO add your handling code here:
-        OPDController opd = new OPDController();
-        opd.OpdBtnactionPerformed(this);
-    }//GEN-LAST:event_opdRegisterActionPerformed
+    }//GEN-LAST:event_txtPolicyNoActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -576,10 +567,12 @@ public class OPDView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackButton;
+
     public javax.swing.JComboBox<String> comboBldGrp;
-    private javax.swing.JComboBox<String> comboDep;
-    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> comboDep;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -609,12 +602,10 @@ public class OPDView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JButton opdRegister;
-    private javax.swing.JRadioButton radioInsuranceN;
-    private javax.swing.JRadioButton radioInsuranceY;
-    private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtOpdNo;
-    private javax.swing.JTextField txtPolicyNo;
+    public javax.swing.JTextField txtAge;
+    public javax.swing.JTextField txtName;
+    public javax.swing.JTextField txtOpdNo;
+    public javax.swing.JTextField txtPolicyNo;
+
     // End of variables declaration//GEN-END:variables
 }

@@ -28,8 +28,7 @@ public class IPDView extends javax.swing.JFrame {
     }
     
     public IPDModel getUser() { 
-        model = new IPDModel(txtIpdNo.getText(), txtName.getText(), txtAge.getText(), comboBldGrp.getSelectedItem().toString(), comboDep.getSelectedItem().toString(), txtPolicyNo.getText());
-        
+        model = new IPDModel(txtIpdNo.getText(), txtName.getText(), txtAge.getText(), comboBldGrp.getSelectedItem().toString(), comboDep.getSelectedItem().toString(), txtPolicyNo.getText());       
         return model;
     }
     
@@ -388,7 +387,7 @@ public class IPDView extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
