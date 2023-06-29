@@ -6,16 +6,16 @@ package DAO;
 import java.sql.*;
 import Model.IPDModel;
 import javax.swing.table.DefaultTableModel;
-import View.IpdDataView;
+import View.OpdDataView;
 import javax.swing.JTable;
 
-public class IpdDataDao{
+public class OpdDataDao {
     PreparedStatement pst = null;
 
-    public void view(IpdDataView iDataView, IPDModel ipdmodel) {
+    public void view(OpdDataView oDataView, IPDModel ipdmodel) {
         
         try {
-            DefaultTableModel dtm = (DefaultTableModel)iDataView.ipdTable.getModel();
+            DefaultTableModel dtm = (DefaultTableModel)oDataView.opdTable.getModel();
             Connection conn = DbConnection.connect();
             Statement stmt = conn.createStatement();
             
@@ -35,9 +35,9 @@ public class IpdDataDao{
     }
     
     
-    public void viewAll(IpdDataView iDataView) {     
+    public void viewAll(OpdDataView oDataView) {     
         try {
-            DefaultTableModel dtm = (DefaultTableModel)iDataView.ipdTable.getModel(); 
+            DefaultTableModel dtm = (DefaultTableModel)oDataView.opdTable.getModel(); 
             Connection conn = DbConnection.connect();
             Statement stmt = conn.createStatement();
             String sql = "select * from ipd_registration";
@@ -55,4 +55,4 @@ public class IpdDataDao{
 
     }
 }
-
+}

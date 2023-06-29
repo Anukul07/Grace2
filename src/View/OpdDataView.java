@@ -5,14 +5,25 @@
 package View;
 import javax.swing.JFrame;
 import View.AdminPatientView;
+import Model.IPDModel;
+import View.OPDView;
+import Controller.OpdDataController;
 
 public class OpdDataView extends javax.swing.JFrame {
-
+    IPDModel ipdmodel;
+    OPDView opdview = new OPDView();
     /**
      * Creates new form OpdDataView
      */
     public OpdDataView() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        opdTable.setEnabled(false);
+    }
+    
+    public IPDModel getDataView() {
+        ipdmodel = new IPDModel(opdview.txtOpdNo.getText(), opdview.txtName.getText(), opdview.txtAge.getText(), opdview.comboBldGrp.getSelectedItem().toString(), opdview.comboDep.getSelectedItem().toString(), opdview.txtPolicyNo.getText());
+        return ipdmodel;
     }
 
     /**
@@ -28,11 +39,11 @@ public class OpdDataView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnViewAll = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        opdTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,15 +57,25 @@ public class OpdDataView extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(223, 230, 216));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jButton2.setBackground(new java.awt.Color(62, 117, 83));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("VIEW");
+        btnView.setBackground(new java.awt.Color(62, 117, 83));
+        btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setText("VIEW");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(62, 117, 83));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("VIEW ALL");
+        btnViewAll.setBackground(new java.awt.Color(62, 117, 83));
+        btnViewAll.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        btnViewAll.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewAll.setText("VIEW ALL");
+        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllActionPerformed(evt);
+            }
+        });
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +84,8 @@ public class OpdDataView extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(223, 230, 216));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        opdTable.setBackground(new java.awt.Color(223, 230, 216));
+        opdTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -102,8 +123,8 @@ public class OpdDataView extends javax.swing.JFrame {
                 "OPD No", "Patient name", "Age", "Blood Group", "Department", "Policy No."
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(150, 145, 145));
-        jScrollPane1.setViewportView(jTable1);
+        opdTable.setGridColor(new java.awt.Color(150, 145, 145));
+        jScrollPane1.setViewportView(opdTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,9 +139,9 @@ public class OpdDataView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(253, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
@@ -140,8 +161,8 @@ public class OpdDataView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,6 +188,16 @@ public class OpdDataView extends javax.swing.JFrame {
         adminPatient.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        OpdDataController oDataCon = new OpdDataController();
+        oDataCon.btnViewactionPerformed(this);
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
+        OpdDataController oDataCon = new OpdDataController();
+        oDataCon.btnViewAllactionPerformed(this);
+    }//GEN-LAST:event_btnViewAllActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,13 +236,13 @@ public class OpdDataView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnView;
+    private javax.swing.JButton btnViewAll;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JTable opdTable;
     // End of variables declaration//GEN-END:variables
 }
