@@ -6,15 +6,39 @@ package View;
 
 /**
  *
- * @author dell
+ * @author dilasha
  */
-public class OPDView extends javax.swing.JFrame {
 
+import Model.OPDModel;
+import Controller.OPDController;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+
+public class OPDView extends javax.swing.JFrame {
+    OPDModel model; 
+    
     /**
      * Creates new form OPDView
      */
+    
     public OPDView() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+    }
+    
+    public OPDModel getUser() { 
+        model = new OPDModel(txtOpdNo.getText(), txtName.getText(), txtAge.getText(), comboBldGrp.getSelectedItem().toString(), comboDep.getSelectedItem().toString(), txtPolicyNo.getText());
+        return model;
+    }
+    
+    public void setMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+    
+    public void addPatientListener(ActionListener log) {
+        opdRegister.addActionListener(log);
     }
 
     /**
@@ -49,7 +73,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BackButton = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -61,10 +85,11 @@ public class OPDView extends javax.swing.JFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        radioInsuranceY = new javax.swing.JRadioButton();
+        radioInsuranceN = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         txtPolicyNo = new javax.swing.JTextField();
+
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +110,6 @@ public class OPDView extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setText("Name");
-
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +120,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel3.setText("DOB");
 
+        jTextField3.setBackground(new java.awt.Color(223, 230, 216));
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +130,6 @@ public class OPDView extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel7.setText("Age");
-
         txtAge.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,12 +146,14 @@ public class OPDView extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel5.setText("Sex");
 
+        jComboBox1.setBackground(new java.awt.Color(223, 230, 216));
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel8.setText("Address");
 
+        jTextField5.setBackground(new java.awt.Color(223, 230, 216));
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +164,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel9.setText("Contact no.");
 
+        jTextField6.setBackground(new java.awt.Color(223, 230, 216));
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +175,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel11.setText("Guardian name");
 
+        jTextField8.setBackground(new java.awt.Color(223, 230, 216));
         jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +186,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel13.setText("Contact no of");
 
+        jTextField9.setBackground(new java.awt.Color(223, 230, 216));
         jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,12 +197,18 @@ public class OPDView extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel14.setText("guardian");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
-        jButton2.setText("jButton2");
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
+        BackButton.setText("jButton2");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel15.setText("Date - Time");
 
+        jTextField12.setBackground(new java.awt.Color(223, 230, 216));
         jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +224,7 @@ public class OPDView extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel17.setText("Reason for visit");
 
+        jTextArea1.setBackground(new java.awt.Color(223, 230, 216));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -196,7 +232,9 @@ public class OPDView extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel21.setText("Consultant");
 
+        jComboBox5.setBackground(new java.awt.Color(223, 230, 216));
         jComboBox5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dr. Ranjit Kumar Sharma", "Dr. Prativa Shrestha", "Dr. Lava N Joshi", "Dr. Toran KC", "Dr. Raj Rana", "Dr. Mahesh Bahadur Adhikari", "Dr. Amit Kumar Shah", "Dr. Babu Ram Pokharel", "Dr. Bidhan Gyawali", "Dr. Gopal Raman Sharma", "Dr. Sumit Joshi", "Dr. Prakash Paudel", "Dr. Prasanna Karki", "Dr. Anish Hirachan", "Dr. Milan Gautam", "Dr. Bijoy G Rajbanshi", "Dr Sunil Kumar Sharma Dhakal", "Dr. Pranil Rai", "Dr. Nirvan Rai", "Dr. Satyadeep Bhattacharya", "Dr. Sushil Rawal", "Dr. Jyoti Rayamajhi", "Dr. Pawan Singh Bhat", "Dr. Srijan Malla", "Dr. Raj Rana", "Prof. Dr. Rabindra L Pradhan", "Dr. Shishir Lakhey", "Dr. Daman Kumar Jha", "Dr. Jitendra Thakur", "Prof. Dr. Umid Kumar Shrestha", "Dr. Rabin Sharma", "Dr. Neeraj Joshi", "Dr. Lata Bajracharya", "Dr. Nira Singh Shrestha", "Dr. Sweety Shrestha", "Dr. Junu Bajracharya", "Dr. Anna Sharma", "Dr. Suchita Shrestha Joshi", "Dr. Pradeep Krishna Shrestha" }));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel19.setText("doctor");
@@ -204,19 +242,20 @@ public class OPDView extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel24.setText("Insurance");
 
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jRadioButton2.setText("yes");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        radioInsuranceY.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        radioInsuranceY.setText("yes");
+        radioInsuranceY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radioInsuranceYActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jRadioButton1.setText("no");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        radioInsuranceN.setBackground(new java.awt.Color(192, 199, 180));
+        radioInsuranceN.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        radioInsuranceN.setText("no");
+        radioInsuranceN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioInsuranceNActionPerformed(evt);
             }
         });
 
@@ -230,10 +269,15 @@ public class OPDView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(62, 117, 83));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("REGISTER");
+        opdRegister.setBackground(new java.awt.Color(62, 117, 83));
+        opdRegister.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        opdRegister.setForeground(new java.awt.Color(255, 255, 255));
+        opdRegister.setText("REGISTER");
+        opdRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opdRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,12 +289,12 @@ public class OPDView extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -286,7 +330,6 @@ public class OPDView extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
                             .addComponent(jLabel18)
@@ -300,23 +343,23 @@ public class OPDView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(comboDep, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane1)
-                                .addComponent(jComboBox5, 0, 308, Short.MAX_VALUE)
+                                .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField12))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(radioInsuranceY, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPolicyNo, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(112, 112, 112))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(257, 257, 257)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(opdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
@@ -325,7 +368,9 @@ public class OPDView extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -358,8 +403,8 @@ public class OPDView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel24)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(radioInsuranceY, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(radioInsuranceN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -401,7 +446,7 @@ public class OPDView extends javax.swing.JFrame {
                                     .addComponent(jLabel20))))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(opdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(227, Short.MAX_VALUE))
         );
@@ -456,17 +501,35 @@ public class OPDView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radioInsuranceYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInsuranceYActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        if (radioInsuranceY.isSelected()) {
+            radioInsuranceN.setSelected(false);
+        }
+    }//GEN-LAST:event_radioInsuranceYActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void radioInsuranceNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInsuranceNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        if (radioInsuranceN.isSelected()) {
+            radioInsuranceY.setSelected(false);
+        }
+    }//GEN-LAST:event_radioInsuranceNActionPerformed
 
     private void txtPolicyNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPolicyNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPolicyNoActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+        PatientView patient = new PatientView();
+        patient.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void txtPolicyNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPolicyNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPolicyNoActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -504,6 +567,7 @@ public class OPDView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     public javax.swing.JComboBox<String> comboBldGrp;
     public javax.swing.JComboBox<String> comboDep;
     private javax.swing.JButton jButton1;
@@ -530,8 +594,6 @@ public class OPDView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField12;
@@ -544,5 +606,6 @@ public class OPDView extends javax.swing.JFrame {
     public javax.swing.JTextField txtName;
     public javax.swing.JTextField txtOpdNo;
     public javax.swing.JTextField txtPolicyNo;
+
     // End of variables declaration//GEN-END:variables
 }

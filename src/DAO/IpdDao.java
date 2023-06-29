@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
-
 import java.sql.PreparedStatement;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import Model.IPDModel;
 
 public class IpdDao {
+
                  
     public boolean insert(IPDModel user) throws Exception{
         

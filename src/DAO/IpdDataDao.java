@@ -45,7 +45,9 @@ public class IpdDataDao{
             ResultSet rs = stmt.executeQuery(sql); 
             
             while (rs.next()) {
+
                 dtm.addRow(new Object[]{rs.getString("IPD_No"),rs.getString("Patient_Name"),rs.getString("Age"),rs.getString("Blood_Grp"),rs.getString("Department"),rs.getString("Policy_No")}); 
+
             }
         }
         

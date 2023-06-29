@@ -176,7 +176,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void DoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Doctor' button");
+        AdminDoctor admindoctor = new AdminDoctor();
+        admindoctor.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_DoctorButtonActionPerformed
 
     private void StaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffButtonActionPerformed
@@ -186,7 +188,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void ServicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServicesButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Services' button");
+        AdminServicesRegistrationView adv = new AdminServicesRegistrationView();
+        adv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_ServicesButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed

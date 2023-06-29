@@ -3,73 +3,76 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+
+import View.AdminRoomRegistrationView;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
-import View.AdminRoomRegistrationView;
+import View.AdminServicesRegistrationView;
 import java.sql.ResultSet;
+
 /**
  *
  * @author anukul
  */
-public class AdminRoomsDao {
-    public void insertQuery(String roomNo, String roomCharge){
+public class AdminServicesDao {
+    public void insertQuery(String serviceName, String serviceCharge){
         try {
             try (Connection conn = DbConnection.connect()) {
-                String query = "INSERT INTO rooms(RoomNo,RoomCharge) VALUES (?,?)";
+                String query = "INSERT INTO services(ServiceName,ServiceCharge) VALUES (?,?)";
                 PreparedStatement pst = conn.prepareStatement(query);
                 
-                pst.setInt(1, Integer.parseInt(roomNo));
-                pst.setInt(2,Integer.parseInt(roomCharge));
+                pst.setString(1,serviceName);
+                pst.setInt(2,Integer.parseInt(serviceCharge));
                 pst.executeUpdate();
             }
         }catch(SQLException e) {
             System.out.println("Something went wrong : "+ e.getMessage());
         }     
     }
-    public void updateQuery(String roomId,String roomNo,String roomCharge){
+    public void updateQuery(String servicesId,String serviceName,String serviceCharge){
         try{
             Connection conn = DbConnection.connect();
-            String query = "UPDATE rooms set roomNo = ?, roomCharge = ? where roomId = ?";
+            String query = "UPDATE services set ServiceName = ?, ServiceCharge = ? where ServicesId = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1,roomNo);
-            pst.setString(2,roomCharge);
-            pst.setString(3,roomId);
+            pst.setString(1,serviceName);
+            pst.setInt(2,Integer.parseInt(serviceCharge));
+            pst.setInt(3,Integer.parseInt(servicesId));
             pst.executeUpdate();
             
         }catch (SQLException e){
             System.out.println("Something went wrong :"+e.getMessage());
         }
     }
-
-    public void deleteQuery(String roomId){
+    public void deleteQuery(String ServicesId){
         try{
             Connection conn = DbConnection.connect();
-            String query = "DELETE FROM rooms WHERE roomId = ?";
+            String query = "DELETE FROM services WHERE ServicesId = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1,Integer.parseInt(roomId));
+            pst.setInt(1,Integer.parseInt(ServicesId));
             pst.executeUpdate();
             
         }catch (SQLException e){
             System.out.println("Something went wrong :"+e.getMessage());
         } 
     }
-    public void viewQuery(AdminRoomRegistrationView view){
+     public void viewQuery(AdminServicesRegistrationView view){
         try{
             Connection conn = DbConnection.connect();
             DefaultTableModel dtm= (DefaultTableModel)view.ViewTable.getModel();
-            String query = "SELECT * FROM rooms";
+            String query = "SELECT * FROM services";
             dtm.setRowCount(0);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
-                dtm.addRow(new Object[] {rs.getString("RoomId"),rs.getString("RoomNo"),rs.getString("RoomCharge")});
+                dtm.addRow(new Object[] {rs.getString("ServicesId"),rs.getString("ServiceName"),rs.getString("ServiceCharge")});
             }
         }catch(SQLException e){
             System.out.println("Something went wrong : "+e.getMessage());
         }
     }
+   
 }

@@ -12,6 +12,7 @@ import Controller.OpdDataController;
 public class OpdDataView extends javax.swing.JFrame {
     IPDModel ipdmodel;
     OPDView opdview = new OPDView();
+
     /**
      * Creates new form OpdDataView
      */
@@ -125,7 +126,6 @@ public class OpdDataView extends javax.swing.JFrame {
         ));
         opdTable.setGridColor(new java.awt.Color(150, 145, 145));
         jScrollPane1.setViewportView(opdTable);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -236,6 +236,7 @@ public class OpdDataView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JLabel jLabel1;

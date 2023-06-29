@@ -20,6 +20,7 @@ public class IpdDataView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         ipdTable.setEnabled(false);
+
     }
     
     public IPDModel getDataView() {
@@ -57,9 +58,9 @@ public class IpdDataView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("By ID:");
 
+
         txtIpdId.setBackground(new java.awt.Color(223, 230, 216));
         txtIpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         btnViewAll.setBackground(new java.awt.Color(62, 117, 83));
         btnViewAll.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnViewAll.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,6 +70,7 @@ public class IpdDataView extends javax.swing.JFrame {
                 btnViewAllActionPerformed(evt);
             }
         });
+
 
         btnView.setBackground(new java.awt.Color(62, 117, 83));
         btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -143,6 +145,7 @@ public class IpdDataView extends javax.swing.JFrame {
                         .addComponent(txtIpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                         .addGap(38, 38, 38)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(253, Short.MAX_VALUE))
@@ -197,10 +200,12 @@ public class IpdDataView extends javax.swing.JFrame {
         iDataCon.btnViewAllactionPerformed(this);
     }//GEN-LAST:event_btnViewAllActionPerformed
 
+
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         IpdDataController iDataCon = new IpdDataController();
         iDataCon.btnViewactionPerformed(this);
     }//GEN-LAST:event_btnViewActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -238,6 +243,7 @@ public class IpdDataView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewAll;
     public javax.swing.JTable ipdTable;

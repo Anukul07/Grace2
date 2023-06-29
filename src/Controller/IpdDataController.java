@@ -20,7 +20,7 @@ public class IpdDataController {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    
+
     public void btnViewactionPerformed(IpdDataView iDataView) {
         try {
             ipdmodel = iDataView.getDataView();
@@ -30,4 +30,5 @@ public class IpdDataController {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
 }

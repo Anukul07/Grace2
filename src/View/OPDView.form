@@ -49,12 +49,12 @@
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -103,7 +103,6 @@
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -118,21 +117,21 @@
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="comboDep" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox5" alignment="0" pref="308" max="32767" attributes="0"/>
+                                  <Component id="jComboBox5" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButton2" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="radioInsuranceY" min="-2" pref="72" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="radioInsuranceN" min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtPolicyNo" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="292" max="-2" attributes="0"/>
+                          <Component id="opdRegister" min="-2" pref="292" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -141,7 +140,7 @@
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="BackButton" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -151,8 +150,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <Component id="BackButton" min="-2" pref="43" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -193,8 +195,8 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel24" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="jRadioButton2" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="radioInsuranceY" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="radioInsuranceN" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -251,7 +253,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="opdRegister" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="jTextField9" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -279,6 +281,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtOpdNo">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -300,6 +305,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtName">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -321,6 +329,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -339,6 +350,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtAge">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -360,6 +374,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="comboBldGrp">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -391,6 +408,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -404,6 +424,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -416,6 +437,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -434,6 +458,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField6">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -452,6 +479,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField8">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -470,6 +500,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField9">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -486,13 +519,16 @@
             <Property name="text" type="java.lang.String" value="guardian"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="BackButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/BackButton.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jButton2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
@@ -504,6 +540,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField12">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -522,11 +561,33 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="comboDep">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="18">
+                <StringItem index="0" value="Emergency Department (ED) or Emergency Room (ER)"/>
+                <StringItem index="1" value="Cardiology Department"/>
+                <StringItem index="2" value="Oncology Department"/>
+                <StringItem index="3" value="Pediatrics Department"/>
+                <StringItem index="4" value="Obstetrics and Gynecology Department (OB/GYN)"/>
+                <StringItem index="5" value="Neurology Department"/>
+                <StringItem index="6" value="Orthopedics Department"/>
+                <StringItem index="7" value="Internal Medicine Department"/>
+                <StringItem index="8" value="Surgery Department"/>
+                <StringItem index="9" value="Radiology Department"/>
+                <StringItem index="10" value="Pathology Department"/>
+                <StringItem index="11" value="Anesthesiology Department"/>
+                <StringItem index="12" value="Intensive Care Unit (ICU)"/>
+                <StringItem index="13" value="Pharmacy Department"/>
+                <StringItem index="14" value="Physical Therapy Department"/>
+                <StringItem index="15" value="Respiratory Therapy Department"/>
+                <StringItem index="16" value="Psychiatry Department"/>
+                <StringItem index="17" value="Nutrition and Dietetics Department"/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>
@@ -551,6 +612,9 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="e6" red="df" type="rgb"/>
+                </Property>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
@@ -567,11 +631,54 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="39">
+                <StringItem index="0" value="Dr. Ranjit Kumar Sharma"/>
+                <StringItem index="1" value="Dr. Prativa Shrestha"/>
+                <StringItem index="2" value="Dr. Lava N Joshi"/>
+                <StringItem index="3" value="Dr. Toran KC"/>
+                <StringItem index="4" value="Dr. Raj Rana"/>
+                <StringItem index="5" value="Dr. Mahesh Bahadur Adhikari"/>
+                <StringItem index="6" value="Dr. Amit Kumar Shah"/>
+                <StringItem index="7" value="Dr. Babu Ram Pokharel"/>
+                <StringItem index="8" value="Dr. Bidhan Gyawali"/>
+                <StringItem index="9" value="Dr. Gopal Raman Sharma"/>
+                <StringItem index="10" value="Dr. Sumit Joshi"/>
+                <StringItem index="11" value="Dr. Prakash Paudel"/>
+                <StringItem index="12" value="Dr. Prasanna Karki"/>
+                <StringItem index="13" value="Dr. Anish Hirachan"/>
+                <StringItem index="14" value="Dr. Milan Gautam"/>
+                <StringItem index="15" value="Dr. Bijoy G Rajbanshi"/>
+                <StringItem index="16" value="Dr Sunil Kumar Sharma Dhakal"/>
+                <StringItem index="17" value="Dr. Pranil Rai"/>
+                <StringItem index="18" value="Dr. Nirvan Rai"/>
+                <StringItem index="19" value="Dr. Satyadeep Bhattacharya"/>
+                <StringItem index="20" value="Dr. Sushil Rawal"/>
+                <StringItem index="21" value="Dr. Jyoti Rayamajhi"/>
+                <StringItem index="22" value="Dr. Pawan Singh Bhat"/>
+                <StringItem index="23" value="Dr. Srijan Malla"/>
+                <StringItem index="24" value="Dr. Raj Rana"/>
+                <StringItem index="25" value="Prof. Dr. Rabindra L Pradhan"/>
+                <StringItem index="26" value="Dr. Shishir Lakhey"/>
+                <StringItem index="27" value="Dr. Daman Kumar Jha"/>
+                <StringItem index="28" value="Dr. Jitendra Thakur"/>
+                <StringItem index="29" value="Prof. Dr. Umid Kumar Shrestha"/>
+                <StringItem index="30" value="Dr. Rabin Sharma"/>
+                <StringItem index="31" value="Dr. Neeraj Joshi"/>
+                <StringItem index="32" value="Dr. Lata Bajracharya"/>
+                <StringItem index="33" value="Dr. Nira Singh Shrestha"/>
+                <StringItem index="34" value="Dr. Sweety Shrestha"/>
+                <StringItem index="35" value="Dr. Junu Bajracharya"/>
+                <StringItem index="36" value="Dr. Anna Sharma"/>
+                <StringItem index="37" value="Dr. Suchita Shrestha Joshi"/>
+                <StringItem index="38" value="Dr. Pradeep Krishna Shrestha"/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>
@@ -594,7 +701,7 @@
             <Property name="text" type="java.lang.String" value="Insurance"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="radioInsuranceY">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
@@ -602,18 +709,21 @@
             <Property name="text" type="java.lang.String" value="yes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioInsuranceYActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="radioInsuranceN">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b4" green="c7" red="c0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="no"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioInsuranceNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
@@ -626,6 +736,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtPolicyNo">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="e6" red="df" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
@@ -637,7 +750,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="opdRegister">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="53" green="75" red="3e" type="rgb"/>
@@ -650,6 +763,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="REGISTER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opdRegisterActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

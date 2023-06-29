@@ -16,6 +16,7 @@ public class UserServiceDAO extends DbConnection {
         
         try {
             try(Connection conn = connect()) {
+
                 String sql = "INSERT INTO user_service (service_name, service_date, patient_id, patient_name, patient_charge) VALUES(?,?,?,?,?)";
             
                 pst = conn.prepareStatement(sql);
