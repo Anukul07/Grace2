@@ -603,8 +603,8 @@ public class IPDView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnIpd;
-    private javax.swing.JComboBox<String> comboBldGrp;
-    private javax.swing.JComboBox<String> comboDep;
+    public javax.swing.JComboBox<String> comboBldGrp;
+    public javax.swing.JComboBox<String> comboDep;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -631,17 +631,17 @@ public class IPDView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JRadioButton radioInsuranceN;
     private javax.swing.JRadioButton radioInsuranceY;
-    private javax.swing.JTextField txtAge;
+    public javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtDateTime;
-    private javax.swing.JTextField txtIpdNo;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPolicyNo;
+    public javax.swing.JTextField txtIpdNo;
+    public javax.swing.JTextField txtName;
+    public javax.swing.JTextField txtPolicyNo;
     // End of variables declaration//GEN-END:variables
 }
