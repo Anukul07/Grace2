@@ -3,32 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-import DAO.IpdDataDao;
-import View.IpdDataView;
+import DAO.OpdDataDao;
+import View.OpdDataView;
 import Model.IPDModel;
 
-public class IpdDataController {
-    IpdDataDao iDataDao = new IpdDataDao();
+public class OpdDataController {
+    OpdDataDao oDataDao = new OpdDataDao();
     IPDModel ipdmodel;
     
-    public void btnViewAllactionPerformed(IpdDataView iDataView) {
+    public void btnViewAllactionPerformed(OpdDataView oDataView) {
         try {
-            ipdmodel = iDataView.getDataView();
-            iDataDao.viewAll(iDataView);
+            ipdmodel = oDataView.getDataView();
+            oDataDao.viewAll(oDataView);
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
-    public void btnViewactionPerformed(IpdDataView iDataView) {
+    
+    public void btnViewactionPerformed(OpdDataView iDataView) {
         try {
             ipdmodel = iDataView.getDataView();
-            iDataDao.view(iDataView,ipdmodel);
+            oDataDao.view(iDataView,ipdmodel);
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
 }
+
