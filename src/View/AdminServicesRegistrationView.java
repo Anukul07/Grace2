@@ -3,18 +3,64 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Controller.AdServicesRegistrationController;
+import Model.AdminServicesRegistrationModel;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 /**
  *
  * @author anukul
  */
-public class AdminServicesRegistration extends javax.swing.JFrame {
-
+public class AdminServicesRegistrationView extends javax.swing.JFrame {
+    AdminServicesRegistrationModel adModel;
     /**
      * Creates new form AdminServicesRegistration
      */
-    public AdminServicesRegistration() {
+    public AdminServicesRegistrationView() {
         initComponents();
+    }
+    public AdminServicesRegistrationModel getInsertData(){
+        adModel = new AdminServicesRegistrationModel(serviceNameTxt.getText(),serviceChargeTxt.getText());
+        return adModel;
+    }
+    public AdminServicesRegistrationModel getUpdateData(){
+        adModel = new AdminServicesRegistrationModel(byNumberTxt.getText(),serviceNameTxt.getText(),serviceChargeTxt.getText());
+        return adModel;
+    }
+    public AdminServicesRegistrationModel getDeleteData(){
+         adModel = new AdminServicesRegistrationModel(byNumberTxt.getText());
+         return adModel;
+    }
+    public AdminServicesRegistrationModel getViewData(){
+        adModel = new AdminServicesRegistrationModel(byNumberTxt.getText(),serviceNameTxt.getText(),serviceChargeTxt.getText());
+        return adModel;
+    }
+    public void insertServicesListener(ActionListener log) {
+        RegisterButton.addActionListener(log);
+    }
+    public void deleteServicesListener(ActionListener log) {
+        DeleteButton.addActionListener(log);
+    }
+    public void updateServicesListener(ActionListener log) {
+        UpdateButton.addActionListener(log);
+    }
+    public void viewServicesListener(ActionListener log){
+        ViewButton.addActionListener(log);
+    }
+     private void resetText(){
+        serviceNameTxt.setText("");
+        byNumberTxt.setText("");
+        serviceChargeTxt.setText("");
+    }
+    private boolean isEmptyInsert() {
+        return serviceNameTxt.getText().isEmpty() || serviceChargeTxt.getText().isEmpty();
+    }
+     private boolean isEmptyUpdate() {
+        return serviceNameTxt.getText().isEmpty()||byNumberTxt.getText().isEmpty() || serviceChargeTxt.getText().isEmpty();
+    }
+
+    private boolean isEmptyDelete() {
+        return byNumberTxt.getText().isEmpty();
     }
 
     /**
@@ -27,39 +73,44 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        RegisterButton = new javax.swing.JButton();
+        UpdateButton = new javax.swing.JButton();
+        ViewButton = new javax.swing.JButton();
+        DeleteButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        serviceNameTxt = new javax.swing.JTextField();
+        serviceChargeTxt = new javax.swing.JTextField();
+        byNumberTxt = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        ViewTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(192, 199, 180));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationRegister.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegisterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationRegister.png"))); // NOI18N
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegisterButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationUpdate.png"))); // NOI18N
-        jButton2.setText("jButton2");
+        UpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationUpdate.png"))); // NOI18N
+        UpdateButton.setText("jButton2");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationView.png"))); // NOI18N
-        jButton3.setText("jButton3");
+        ViewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationView.png"))); // NOI18N
+        ViewButton.setText("jButton3");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationDelete.png"))); // NOI18N
-        jButton4.setText("jButton4");
+        DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationDelete.png"))); // NOI18N
+        DeleteButton.setText("jButton4");
+        DeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Admin-Services.png"))); // NOI18N
 
@@ -72,25 +123,25 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setText("Service name");
 
-        jTextField1.setBackground(new java.awt.Color(247, 255, 229));
+        serviceNameTxt.setBackground(new java.awt.Color(247, 255, 229));
 
-        jTextField2.setBackground(new java.awt.Color(247, 255, 229));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        serviceChargeTxt.setBackground(new java.awt.Color(247, 255, 229));
+        serviceChargeTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                serviceChargeTxtActionPerformed(evt);
             }
         });
 
-        jTextField3.setBackground(new java.awt.Color(247, 255, 229));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        byNumberTxt.setBackground(new java.awt.Color(247, 255, 229));
+        byNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                byNumberTxtActionPerformed(evt);
             }
         });
 
-        jTable2.setBackground(new java.awt.Color(247, 255, 229));
-        jTable2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        ViewTable.setBackground(new java.awt.Color(247, 255, 229));
+        ViewTable.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -113,7 +164,7 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
                 "Service Id", "Service Name", "Service Charge"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(ViewTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,26 +181,26 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(serviceNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(serviceChargeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(byNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(ViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -163,24 +214,24 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(serviceNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(serviceChargeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(byNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(ViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE)
                         .addGap(282, 282, 282))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -202,17 +253,37 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void serviceChargeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceChargeTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_serviceChargeTxtActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void byNumberTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_byNumberTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_byNumberTxtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+        adControl.RegisterButtonActionPerformed(this);
+        if(isEmptyInsert()){
+            JOptionPane.showMessageDialog(this, "Fields must be filled");
+        }else {
+            JOptionPane.showMessageDialog(this, "Services registered successfully");
+            resetText();
+        }
+    }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
+        // TODO add your handling code here:
+        AdServicesRegistrationController adControl = new AdServicesRegistrationController();
+        adControl.DeleteButtonActionPerformed(this);
+        if(isEmptyDelete()){
+             JOptionPane.showMessageDialog(this, "By number field must be filled");
+        }else{
+            JOptionPane.showMessageDialog(this, "Service deleted successfully");
+        }
+        resetText();
+    }//GEN-LAST:event_DeleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,38 +302,39 @@ public class AdminServicesRegistration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminServicesRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminServicesRegistrationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminServicesRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminServicesRegistrationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminServicesRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminServicesRegistrationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminServicesRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminServicesRegistrationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminServicesRegistration().setVisible(true);
+                new AdminServicesRegistrationView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton DeleteButton;
+    private javax.swing.JButton RegisterButton;
+    private javax.swing.JButton UpdateButton;
+    private javax.swing.JButton ViewButton;
+    private javax.swing.JTable ViewTable;
+    private javax.swing.JTextField byNumberTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField serviceChargeTxt;
+    private javax.swing.JTextField serviceNameTxt;
     // End of variables declaration//GEN-END:variables
 }

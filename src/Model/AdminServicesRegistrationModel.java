@@ -9,38 +9,38 @@ package Model;
  * @author anukul
  */
 public class AdminServicesRegistrationModel {
-    private int servicesId;
-    private String serviceName;
-    private int serviceCharge;
+    public String servicesId;
+    public String serviceName;
+    public String serviceCharge;
     
-    AdminServicesRegistrationModel(int servicesId, String serviceName, int serviceCharge){
+    public AdminServicesRegistrationModel(String servicesId, String serviceName, String serviceCharge){
         this.servicesId = servicesId;
         this.serviceName = serviceName;
         this.serviceCharge = serviceCharge;
     }
-    AdminServicesRegistrationModel(String serviceName, int serviceCharge){
+    public AdminServicesRegistrationModel(String serviceName, String serviceCharge){
         this.serviceName = serviceName;
         this.serviceCharge = serviceCharge;
     }
-    AdminServicesRegistrationModel(int servicesId){
+    public AdminServicesRegistrationModel(String servicesId){
         this.servicesId = servicesId;
     }
-    public void setServicesId(int servicesId){
+    public void setServicesId(String servicesId){
         this.servicesId= servicesId;
     }
     public void setServiceName(String serviceName){
         this.serviceName= serviceName;
     }
-    public void setServiceCharge(int serviceCharge){
+    public void setServiceCharge(String serviceCharge){
         this.serviceCharge= serviceCharge;
     }
-    public int getServicesId(){
+    public String getServicesId(){
         return servicesId;
     }
     public String getServiceName(){
         return serviceName;
     }
-    public int getServiceCharge(){
+    public String getServiceCharge(){
         return serviceCharge;
     }
    
