@@ -202,21 +202,17 @@ public class AdminDoctorController implements ActionListener {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0); 
 
-        // Retrieve all students from the database
+        // Retrieve all data from the database
         AdminDoctorDAO dao = new AdminDoctorDAO();
         List<AdminDoctorModel> datas = dao.getAllData(); 
         
     
-        
-        
-
-        // Iterate through the students and add them to the table
         for (AdminDoctorModel data : datas) {
             Object[] row = {data.getId(), data.getName(), data.getAge(),
                     data.getBloodGroup(),
                     data.getDepartment(), data.getDate()};
             model.addRow(row);
-        // Update the rank
+        
         
         }
     }
