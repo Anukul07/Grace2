@@ -32,7 +32,6 @@ public class OPDDao {
 
                 pst.executeUpdate();
                 
-                JOptionPane.showMessageDialog(null, "Data registered Successfully!");
             }
         }
         catch(SQLException e) {
