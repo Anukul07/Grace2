@@ -6,10 +6,9 @@ package View;
 
 import Model.TheLoginModel;
 import Controller.TheLoginController;
+import DAO.LoginDAO;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+
 
 /**
  *
@@ -18,29 +17,16 @@ import javax.swing.JButton;
 
 public class TheLoginView extends javax.swing.JFrame {
 
-    TheLoginModel logMod;
-    TheLoginView viewlog;
 
     public TheLoginView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        TheLoginModel logMod = new TheLoginModel();
+        LoginDAO ldao = new LoginDAO();
+        TheLoginController controller = new TheLoginController(ldao, this, logMod);
     }
 
-    public void delay() throws InterruptedException {
-        Thread.sleep(1000);
-    }
-
-    public void he() {
-        UserDashboardView1 dv = new UserDashboardView1();  //creating object to call method
-      
-        try {
-            delay();
-//            dv.msgboxPop();
-        } catch (Exception e) {
-
-        }
-
-    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,7 +43,7 @@ public class TheLoginView extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         passwordText = new javax.swing.JTextField();
-        emailText1 = new javax.swing.JTextField();
+        emailText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(192, 199, 180));
@@ -114,8 +100,8 @@ public class TheLoginView extends javax.swing.JFrame {
         passwordText.setBackground(new java.awt.Color(223, 230, 216));
         passwordText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        emailText1.setBackground(new java.awt.Color(223, 230, 216));
-        emailText1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        emailText.setBackground(new java.awt.Color(223, 230, 216));
+        emailText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout bgPanelLayout = new javax.swing.GroupLayout(bgPanel);
         bgPanel.setLayout(bgPanelLayout);
@@ -152,7 +138,7 @@ public class TheLoginView extends javax.swing.JFrame {
             .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgPanelLayout.createSequentialGroup()
                     .addContainerGap(900, Short.MAX_VALUE)
-                    .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(337, 337, 337)))
         );
         bgPanelLayout.setVerticalGroup(
@@ -184,7 +170,7 @@ public class TheLoginView extends javax.swing.JFrame {
             .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(bgPanelLayout.createSequentialGroup()
                     .addGap(310, 310, 310)
-                    .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(680, Short.MAX_VALUE)))
         );
 
@@ -196,27 +182,12 @@ public class TheLoginView extends javax.swing.JFrame {
 //validating user
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-        TheLoginController l = new TheLoginController();
-        l.actionPerformed(this);
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public TheLoginModel getUser() {
-        logMod = new TheLoginModel(passwordText.getText(), passwordText.getText());
-        return logMod;
-    }
-
-    public void setMessage(String msg) {
-        JOptionPane.showMessageDialog(this, msg);
-    }
-
-    public void addLoginListener(ActionListener log) {
-        loginButton.addActionListener(log);
-    }
+    
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        TheRegistrationView rv = new TheRegistrationView();
-        rv.setVisible(true);
-        this.dispose();
+       ;
 
 
     }//GEN-LAST:event_registerButtonActionPerformed
@@ -287,15 +258,15 @@ public class TheLoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bgPanel;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailText1;
+    public javax.swing.JTextField emailText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JButton loginButton;
+    public javax.swing.JButton loginButton;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField passwordText;
-    private javax.swing.JButton registerButton;
+    public javax.swing.JTextField passwordText;
+    public javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

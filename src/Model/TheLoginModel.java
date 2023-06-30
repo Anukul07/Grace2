@@ -11,12 +11,20 @@ import Controller.UserDashboardController;
  * @author anukul
  */
 public class TheLoginModel {
-    String email,password;
-     public TheLoginModel(String email, String password){
-         this.email=email;
-         this.password=password;
-         
-        
+    String email,password,username;
+//     public TheLoginModel(String email, String password){
+//         this.email=email;
+//         this.password=password;
+//         
+//        
+//    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
