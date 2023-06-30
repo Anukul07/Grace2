@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import java.sql.Statement;
 import Model.TheLoginModel;
 import Controller.UserDashboardController;
+import DAO.UserDashboardDAO;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -25,20 +26,23 @@ import javax.swing.JButton;
  * @author ghimi
  */
 public class UserDashboardView1 extends javax.swing.JFrame {
-    public ResultSet rs;
-    TheLoginModel logm;
-   UserDashboardController usc=new UserDashboardController();
-   
-    public UserDashboardView1() {
-        initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
-    }
-    
-    public void addBtnListener(ActionListener Log){
-        Logout.addActionListener(Log);
+    public UserDashboardView1(){
+     initComponents();
+    setExtendedState(JFrame.MAXIMIZED_BOTH);
+    this.setVisible(true);
+    TheLoginModel logm = new TheLoginModel();
+    UserDashboardDAO dao = new UserDashboardDAO();
+    UserDashboardController usc=new UserDashboardController(dao,logm,this);
+       
         
     }
+   
+    
+     public void changeUsername(TheLoginModel mod) {
+        System.out.println(mod.getUsername());
+        UserText.setText(mod.getUsername());
+    }
+    
    
 
   
@@ -61,15 +65,14 @@ public class UserDashboardView1 extends javax.swing.JFrame {
         ClinicName = new javax.swing.JLabel();
         ClinicName2 = new javax.swing.JLabel();
         UserLogo = new javax.swing.JLabel();
-        Patient = new javax.swing.JButton();
+        PatientBtn = new javax.swing.JButton();
         DoctorBtn = new javax.swing.JButton();
-        Services = new javax.swing.JButton();
+        Servicesbtn = new javax.swing.JButton();
         UserText = new javax.swing.JLabel();
-        Rooms = new javax.swing.JButton();
-        Billing = new javax.swing.JButton();
-        Staff = new javax.swing.JButton();
+        Roomsbtn = new javax.swing.JButton();
+        Billingbtn = new javax.swing.JButton();
+        Staffbtn = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
-        Refreshbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -85,10 +88,10 @@ public class UserDashboardView1 extends javax.swing.JFrame {
 
         UserLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/User.png"))); // NOI18N
 
-        Patient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Patient1.png"))); // NOI18N
-        Patient.addActionListener(new java.awt.event.ActionListener() {
+        PatientBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Patient1.png"))); // NOI18N
+        PatientBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PatientActionPerformed(evt);
+                PatientBtnActionPerformed(evt);
             }
         });
 
@@ -99,48 +102,43 @@ public class UserDashboardView1 extends javax.swing.JFrame {
             }
         });
 
-        Services.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Services1.png"))); // NOI18N
-        Services.addActionListener(new java.awt.event.ActionListener() {
+        Servicesbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Services1.png"))); // NOI18N
+        Servicesbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ServicesActionPerformed(evt);
+                ServicesbtnActionPerformed(evt);
             }
         });
 
         UserText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         UserText.setText("USER");
 
-        Rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Rooms1.png"))); // NOI18N
-        Rooms.addActionListener(new java.awt.event.ActionListener() {
+        Roomsbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Rooms1.png"))); // NOI18N
+        Roomsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RoomsActionPerformed(evt);
+                RoomsbtnActionPerformed(evt);
             }
         });
 
-        Billing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Billing1.png"))); // NOI18N
-        Billing.addActionListener(new java.awt.event.ActionListener() {
+        Billingbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Billing1.png"))); // NOI18N
+        Billingbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BillingActionPerformed(evt);
+                BillingbtnActionPerformed(evt);
             }
         });
 
-        Staff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Staff1.png"))); // NOI18N
-        Staff.addActionListener(new java.awt.event.ActionListener() {
+        Staffbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Staff1.png"))); // NOI18N
+        Staffbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StaffActionPerformed(evt);
+                StaffbtnActionPerformed(evt);
             }
         });
 
+        Logout.setBackground(new java.awt.Color(62, 117, 83));
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
         Logout.setText("LOGOUT");
         Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutActionPerformed(evt);
-            }
-        });
-
-        Refreshbtn.setText("Refresh");
-        Refreshbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshbtnActionPerformed(evt);
             }
         });
 
@@ -167,23 +165,21 @@ public class UserDashboardView1 extends javax.swing.JFrame {
                                 .addGap(84, 84, 84))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Refreshbtn)
-                        .addGap(18, 18, 18)
                         .addComponent(Logout)
-                        .addGap(26, 26, 26))))
+                        .addGap(67, 67, 67))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Roomsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(218, 218, 218)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DoctorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Billing, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Billingbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Services, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Staff, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Servicesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Staffbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(133, 133, 133))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,19 +198,17 @@ public class UserDashboardView1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(UserText)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Logout)
-                            .addComponent(Refreshbtn))))
+                        .addComponent(Logout)))
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DoctorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Services, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Servicesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Billing, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Staff, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Roomsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Billingbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Staffbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
@@ -232,58 +226,43 @@ public class UserDashboardView1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientActionPerformed
-        // TODO add your handling code here:
-        PatientView pv = new PatientView();
-        pv.setVisible(true);
-        this.dispose();
+    private void PatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientBtnActionPerformed
+       
 
-    }//GEN-LAST:event_PatientActionPerformed
+    }//GEN-LAST:event_PatientBtnActionPerformed
 
     private void DoctorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorBtnActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Doctor' button");
+     
     }//GEN-LAST:event_DoctorBtnActionPerformed
 
-    private void ServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServicesActionPerformed
+    private void ServicesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServicesbtnActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Service' button");
-    }//GEN-LAST:event_ServicesActionPerformed
+   
+    }//GEN-LAST:event_ServicesbtnActionPerformed
 
-    private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
+    private void RoomsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsbtnActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Rooms' button");
-    }//GEN-LAST:event_RoomsActionPerformed
+        
+    }//GEN-LAST:event_RoomsbtnActionPerformed
 
-    private void BillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingActionPerformed
+    private void BillingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingbtnActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Billing' button");
-    }//GEN-LAST:event_BillingActionPerformed
+   
+    }//GEN-LAST:event_BillingbtnActionPerformed
 
-    private void StaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Staff' button");
-    }//GEN-LAST:event_StaffActionPerformed
+    private void StaffbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffbtnActionPerformed
+        
+    }//GEN-LAST:event_StaffbtnActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
-        UserDashboardController controller = new UserDashboardController();
-        controller.LogoutactionPerformed(this);
-        UserText.setText(" ");
+       
         
-    //        closeWin();
+   
         
     }//GEN-LAST:event_LogoutActionPerformed
 
-    private void RefreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshbtnActionPerformed
-        this.setVisible(false);
-       this.setVisible(true);
-        UserDashboardController usc=new UserDashboardController();
-        usc.UpdateUserDisplay(UserText);
-    }//GEN-LAST:event_RefreshbtnActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
        
         
@@ -328,17 +307,16 @@ public class UserDashboardView1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Billing;
+    public javax.swing.JButton Billingbtn;
     private javax.swing.JLabel ClinicName;
     private javax.swing.JLabel ClinicName2;
-    private javax.swing.JButton DoctorBtn;
+    public javax.swing.JButton DoctorBtn;
     private javax.swing.JLabel Logo;
-    private javax.swing.JButton Logout;
-    private javax.swing.JButton Patient;
-    private javax.swing.JButton Refreshbtn;
-    private javax.swing.JButton Rooms;
-    private javax.swing.JButton Services;
-    private javax.swing.JButton Staff;
+    public javax.swing.JButton Logout;
+    public javax.swing.JButton PatientBtn;
+    public javax.swing.JButton Roomsbtn;
+    public javax.swing.JButton Servicesbtn;
+    public javax.swing.JButton Staffbtn;
     private javax.swing.JLabel UserLogo;
     private javax.swing.JLabel UserText;
     private javax.swing.JPanel jPanel1;
