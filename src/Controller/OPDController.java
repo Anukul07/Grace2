@@ -24,14 +24,14 @@ public class OPDController {
     public void OpdBtnactionPerformed(OPDView opdview){
          try {
             model = opdview.getUser();
+            opddao.insertQuery(model.getOPD_No(),model.getPatient_Name(),model.getAge(),model.getBlood_Grp(),model.getDepartment(),model.getPolicy_No());
             checkUser(model);
-                
+            
             if (checkUser(model)) {
-                opddao.insertQuery(model.getOPD_No(),model.getPatient_Name(),model.getAge(),model.getBlood_Grp(),model.getDepartment(),model.getPolicy_No());
                 opdview.setMessage("Registered Successfully");
             }  
             else {
-                System.out.println("error");
+                opdview.setMessage("Fields must be filled");
             }
         }
             

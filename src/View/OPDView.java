@@ -36,6 +36,7 @@ public class OPDView extends javax.swing.JFrame {
     public void setMessage(String msg) {
         JOptionPane.showMessageDialog(this, msg);
     }
+   
     
     public void addPatientListener(ActionListener log) {
         opdRegister.addActionListener(log);
