@@ -22,6 +22,10 @@ public class AdRoomRegistrationModel {
         this.roomNo = roomNo;
         this.roomCharge = roomCharge;
     }
+
+    public AdRoomRegistrationModel(String roomId){
+        this.roomId = roomId;
+    }
     public void setRoomId(String roomId){
         this.roomId = roomId;
     }

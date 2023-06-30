@@ -82,7 +82,6 @@ public class AdRoomRegistrationController {
                 System.out.println("Empty fields");
                 return false; 
             }
-            
             adDao.updateQuery(data.getRoomId(), data.getRoomNo(),data.getRoomCharge());
             
         }
@@ -90,6 +89,47 @@ public class AdRoomRegistrationController {
             System.out.println("Something went wrong : "+e.getMessage());
         }
         return false;
+    }
+    public void DeleteButtonActionPerformed(AdminRoomRegistrationView adView) {
+        try{
+            adModel = adView.getDataDelete();
+            checkDataDeletion(adModel);
+            if(checkDataDeletion(adModel)){
+                
+                adDao.deleteQuery(adModel.getRoomId());
+            }else{
+                System.out.println("Room could not be registered");
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Something went wrong : "+e.getMessage());
+            
+        }
+        
+    }
+    public boolean checkDataDeletion(AdRoomRegistrationModel data){
+        try{
+            if (data.getRoomId().isEmpty()){
+                System.out.println("Empty fields");
+                return false; 
+            }else{
+                return true;
+            } 
+        }
+        catch (Exception e){
+            System.out.println("Something went wrong : "+e.getMessage());
+        }
+        return false;
+    }
+    public void ViewButtonActionPerformed(AdminRoomRegistrationView adView){
+        try{
+            adModel = adView.getDataView();
+            adDao.viewQuery(adView);
+        }catch(Exception e){
+            System.out.println("Something went wrong : "+e.getMessage());
+        }
     }
 }
     
