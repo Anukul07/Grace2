@@ -17,7 +17,7 @@ public class DbConnection {
     static Connection conn = null;
     public static Connection connect(){
         String userName = "root";
-        String password = "";
+        String password = "scooby019";
 
         
         try {
@@ -31,6 +31,6 @@ public class DbConnection {
             System.out.println("Something went wrong" + ex.getMessage());
         }
         return conn;
-         
+        
     }
 }
