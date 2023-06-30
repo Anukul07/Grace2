@@ -67,28 +67,26 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Refreshbtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="Logout" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Patient" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
-                      <Component id="Rooms" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="PatientBtn" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="Roomsbtn" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="DoctorBtn" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
-                      <Component id="Billing" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="Billingbtn" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="169" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Services" min="-2" pref="268" max="-2" attributes="0"/>
-                      <Component id="Staff" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="Servicesbtn" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="Staffbtn" min="-2" pref="268" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
               </Group>
@@ -111,23 +109,20 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="UserText" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Logout" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Refreshbtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="Logout" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Patient" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="PatientBtn" min="-2" pref="242" max="-2" attributes="0"/>
                       <Component id="DoctorBtn" min="-2" pref="242" max="-2" attributes="0"/>
-                      <Component id="Services" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="Servicesbtn" min="-2" pref="242" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Rooms" min="-2" pref="242" max="-2" attributes="0"/>
-                      <Component id="Billing" min="-2" pref="242" max="-2" attributes="0"/>
-                      <Component id="Staff" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="Roomsbtn" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="Billingbtn" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="Staffbtn" min="-2" pref="242" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="134" max="32767" attributes="0"/>
               </Group>
@@ -165,15 +160,18 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Patient">
+        <Component class="javax.swing.JButton" name="PatientBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/Patient1.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PatientActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PatientBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="DoctorBtn">
           <Properties>
@@ -184,16 +182,22 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DoctorBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Services">
+        <Component class="javax.swing.JButton" name="Servicesbtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/Services1.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ServicesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ServicesbtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="UserText">
           <Properties>
@@ -203,51 +207,61 @@
             <Property name="text" type="java.lang.String" value="USER"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Rooms">
+        <Component class="javax.swing.JButton" name="Roomsbtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/Rooms1.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RoomsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RoomsbtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Billing">
+        <Component class="javax.swing.JButton" name="Billingbtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/Billing1.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BillingActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BillingbtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Staff">
+        <Component class="javax.swing.JButton" name="Staffbtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/Staff1.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StaffActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StaffbtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="Logout">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="53" green="75" red="3e" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="LOGOUT"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LogoutActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="Refreshbtn">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Refresh"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RefreshbtnActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
