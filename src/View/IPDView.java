@@ -4,11 +4,6 @@
  */
 package View;
 import View.PatientView;
-
-/**
- *
- * @author dell
- */
 import Model.IPDModel;
 import Controller.IPDController;
 import javax.swing.JFrame;

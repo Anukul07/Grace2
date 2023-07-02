@@ -9,7 +9,7 @@ import DAO.UserServiceDAO;
 
 public class UserServiceController {
     UserServiceModel model;
-    UserServiceDAO dao;
+    UserServiceDAO dao = new UserServiceDAO();
     
     public void btnUserServiceactionPerformed (UserServiceView serviceView) {
         try {
@@ -25,7 +25,7 @@ public class UserServiceController {
         }
         
         catch(Exception e) {
-            
+            System.out.println(e.getMessage());
         }
     }
 }
