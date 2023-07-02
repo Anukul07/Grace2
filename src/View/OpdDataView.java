@@ -5,12 +5,12 @@
 package View;
 import javax.swing.JFrame;
 import View.AdminPatientView;
-import Model.IPDModel;
+import Model.OPDModel;
 import View.OPDView;
 import Controller.OpdDataController;
 
 public class OpdDataView extends javax.swing.JFrame {
-    IPDModel ipdmodel;
+    OPDModel opdmodel;
     OPDView opdview = new OPDView();
 
     /**
@@ -22,9 +22,9 @@ public class OpdDataView extends javax.swing.JFrame {
         opdTable.setEnabled(false);
     }
     
-    public IPDModel getDataView() {
-        ipdmodel = new IPDModel(opdview.txtOpdNo.getText(), opdview.txtName.getText(), opdview.txtAge.getText(), opdview.comboBldGrp.getSelectedItem().toString(), opdview.comboDep.getSelectedItem().toString(), opdview.txtPolicyNo.getText());
-        return ipdmodel;
+    public OPDModel getDataView() {
+        opdmodel = new OPDModel(opdview.txtOpdNo.getText(), opdview.txtName.getText(), opdview.txtAge.getText(), opdview.comboBldGrp.getSelectedItem().toString(), opdview.comboDep.getSelectedItem().toString(), opdview.txtPolicyNo.getText());
+        return opdmodel;
     }
 
     /**

@@ -5,15 +5,15 @@
 package Controller;
 import DAO.OpdDataDao;
 import View.OpdDataView;
-import Model.IPDModel;
+import Model.OPDModel;
 
 public class OpdDataController {
     OpdDataDao oDataDao = new OpdDataDao();
-    IPDModel ipdmodel;
+    OPDModel opdmodel;
     
     public void btnViewAllactionPerformed(OpdDataView oDataView) {
         try {
-            ipdmodel = oDataView.getDataView();
+            opdmodel = oDataView.getDataView();
             oDataDao.viewAll(oDataView);
         }
         catch(Exception e) {
@@ -23,8 +23,8 @@ public class OpdDataController {
     
     public void btnViewactionPerformed(OpdDataView iDataView) {
         try {
-            ipdmodel = iDataView.getDataView();
-            oDataDao.view(iDataView,ipdmodel);
+            opdmodel = iDataView.getDataView();
+            oDataDao.view(iDataView,opdmodel);
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
