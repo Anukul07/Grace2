@@ -8,6 +8,7 @@ import Controller.UserDashboardController;
 import Model.TheLoginModel;
 import View.AdminDashboard;
 import View.TheLoginView;
+import View.LoginView1;
 import View.UserDashboardView1;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +26,7 @@ import java.util.List;
 public class LoginDAO {
     public int count=0;
     
-    public boolean LoginVerify(TheLoginModel model, TheLoginView view) {
+    public boolean LoginVerify(TheLoginModel model, LoginView1 view) {
 
         try {
             if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123")) {

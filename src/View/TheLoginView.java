@@ -23,7 +23,7 @@ public class TheLoginView extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         TheLoginModel logMod = new TheLoginModel();
         LoginDAO ldao = new LoginDAO();
-        TheLoginController controller = new TheLoginController(ldao, this, logMod);
+//        TheLoginController controller = new TheLoginController(ldao, this, logMod);
     }
 
     
