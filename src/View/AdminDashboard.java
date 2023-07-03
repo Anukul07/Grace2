@@ -183,7 +183,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void StaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Testing 'Staff' button");
+        AdminStaffView adv = new AdminStaffView();
+        adv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_StaffButtonActionPerformed
 
     private void ServicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServicesButtonActionPerformed
