@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author ghimi
+ * @author dilasha
  */
 public class AdminStaffView extends javax.swing.JFrame {
 
