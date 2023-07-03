@@ -79,6 +79,22 @@ public class TheRoomAvailability extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Left Arrow.png"))); // NOI18N
         jLabel3.setText("Back");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(95, 148, 115));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButton1.setText("View");
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(95, 148, 115));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -160,6 +176,14 @@ public class TheRoomAvailability extends javax.swing.JFrame {
     AdminRoomsDao roomAvailability = new AdminRoomsDao();
     roomAvailability.viewQuery2(model);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+       UserDashboardView1 userDashboard = new UserDashboardView1();
+       userDashboard.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
 
     /**
      * @param args the command line arguments
