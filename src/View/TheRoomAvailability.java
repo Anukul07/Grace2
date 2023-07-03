@@ -96,6 +96,17 @@ public class TheRoomAvailability extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(95, 148, 115));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButton1.setText("View");
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,11 +177,13 @@ public class TheRoomAvailability extends javax.swing.JFrame {
     roomAvailability.viewQuery2(model);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
        UserDashboardView1 userDashboard = new UserDashboardView1();
        userDashboard.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
+
 
     /**
      * @param args the command line arguments
