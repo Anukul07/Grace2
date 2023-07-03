@@ -72,4 +72,21 @@ public class AdminRoomsDao {
             System.out.println("Something went wrong : "+e.getMessage());
         }
     }
+    
+    public void viewQuery2(DefaultTableModel model) {
+    try {
+        Connection conn = DbConnection.connect();
+        String query = "SELECT RoomNo FROM rooms";
+        model.setRowCount(0);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            String roomNo = rs.getString("RoomNo");
+            model.addRow(new Object[]{roomNo});
+        }
+    } catch (SQLException e) {
+        System.out.println("Something went wrong: " + e.getMessage());
+    }
+}
+
 }

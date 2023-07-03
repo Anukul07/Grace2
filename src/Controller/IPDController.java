@@ -10,15 +10,11 @@ package Controller;
  */
 import View.IPDView;
 import Model.IPDModel;
-import java.sql.*;
 import javax.swing.JOptionPane;
 import DAO.IpdDao;
 
 public class IPDController {
     IPDModel model;
-    IPDView view;
-    ResultSet rs;
-    PreparedStatement pst;
     IpdDao ipdDao = new IpdDao();
     
    
@@ -30,9 +26,6 @@ public class IPDController {
             if (ipdDao.insert(model)) {
                 ipdview.setMessage("Registered Successfully");
             }  
-            else {
-                System.out.println("error");
-            }
         }
             
 

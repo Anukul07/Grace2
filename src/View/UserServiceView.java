@@ -89,6 +89,8 @@ public class UserServiceView extends javax.swing.JFrame {
         jLabel7.setText("Patient name");
 
         comboService.setBackground(new java.awt.Color(223, 230, 216));
+        comboService.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        comboService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "X-Ray", "COVID Test", "Ultrasound", "Ct-Scan", "MRI" }));
 
         txtDateService.setBackground(new java.awt.Color(223, 230, 216));
         txtDateService.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -106,10 +108,13 @@ public class UserServiceView extends javax.swing.JFrame {
         });
 
         txtServiceCharge.setBackground(new java.awt.Color(223, 230, 216));
+        txtServiceCharge.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         txtPatientId.setBackground(new java.awt.Color(223, 230, 216));
+        txtPatientId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         txtPatientName.setBackground(new java.awt.Color(223, 230, 216));
+        txtPatientName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnUserService.setBackground(new java.awt.Color(62, 117, 83));
         btnUserService.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -131,11 +136,12 @@ public class UserServiceView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(1105, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +183,7 @@ public class UserServiceView extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(58, 58, 58)
                 .addComponent(comboService, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txtDateService, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
