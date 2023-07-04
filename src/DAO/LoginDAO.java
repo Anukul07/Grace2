@@ -6,6 +6,7 @@ package DAO;
 
 import Controller.UserDashboardController;
 import Model.TheLoginModel;
+import Model.UserDashboardModel;
 import View.AdminDashboard;
 import View.TheLoginView;
 import View.LoginView1;
@@ -47,9 +48,11 @@ public class LoginDAO {
                 if (checkData(model)) {
                     try {
                         JOptionPane.showMessageDialog(null, "Logged in as an user!");
-                        UpdateUserdisplay(model);
+                        setUserstatus(model);
                         UserDashboardView1 dash= new UserDashboardView1();
-                        dash.changeUsername(model);
+//                        dash.changeUsername(model);
+//                        UserDashboardDAO udao = new UserDashboardDAO(this,UserText);
+//                        udao.UpdateUsername();
                         dash.setVisible(true);
                         view.dispose();
                         
@@ -99,34 +102,49 @@ public class LoginDAO {
     
     
     }
-    
-    
-      public List<TheLoginModel> UpdateUserdisplay(TheLoginModel mod) {
-        List<TheLoginModel> data = new ArrayList<>();
+      public void setUserstatus(TheLoginModel mod) {
         try {
             PreparedStatement pst = null;
             ResultSet rs = null;
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
-            String query3 = "select userName from registration where email=?";
+            String query3 = "update registration set status=1 where email=?";
             pst = conn.prepareStatement(query3);
             pst.setString(1, mod.getEmail());
             System.out.println(mod.getEmail());
-            rs = pst.executeQuery();
+            pst.executeUpdate();
 
-            if (rs.next()) {
-                mod.setUsername(rs.getString("userName"));
-                System.out.println(mod.getUsername());
-                data.add(mod);
-
-            }
 
         } catch (Exception f) {
 
         }
-        return data;
 
     }
+    
+    
+//      public void UpdateUserdisplay(UserDashboardModel mod) {
+//        try {
+//            PreparedStatement pst = null;
+//            ResultSet rs = null;
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
+//            String query3 = "select userName from registration where status=1";
+//            pst = conn.prepareStatement(query3);
+//            System.out.println(mod.getUsername());
+//            rs = pst.executeQuery();
+//
+//            if (rs.next()) {
+//                mod.setUsername(rs.getString("userName"));
+//                System.out.println(mod.getUsername());
+//
+//            }
+//
+//        } catch (Exception f) {
+//
+//        }
+//        
+//
+//    }
       
    
 

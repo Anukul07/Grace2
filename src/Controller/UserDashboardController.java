@@ -79,6 +79,7 @@ public class UserDashboardController implements ActionListener{
              int choice=JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO LOGOUT?", "MESSAGE", JOptionPane.YES_NO_OPTION);
              if(choice==0){
                  view.dispose();
+                 dao.setOffline();
              }
              else{
                  

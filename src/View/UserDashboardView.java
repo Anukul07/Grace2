@@ -27,7 +27,7 @@ public class UserDashboardView extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
     private void msgboxPop(){
-        int rep=JOptionPane.showConfirmDialog(null, "Please login!","Confirmation", JOptionPane.YES_NO_CANCEL_OPTION);
+        int rep=JOptionPane.showConfirmDialog(null, "Please login!","Confirmation", JOptionPane.YES_NO_OPTION);
         if(rep==JOptionPane.CANCEL_OPTION || rep==JOptionPane.NO_OPTION){
             JOptionPane.showMessageDialog(null, "ABORTED", "VERIFICATION", JOptionPane.WARNING_MESSAGE);
             System.exit(0);        

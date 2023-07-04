@@ -6,8 +6,11 @@ package Controller;
 
 
 
+import View.TheLoginView;
 import Model.TheLoginModel;
+import Model.UserDashboardModel;
 import DAO.LoginDAO;
+import Model.TheRegistrationModel;
 import View.LoginView1;
 import View.TheRegistrationView;
 import java.awt.event.ActionEvent;
@@ -28,12 +31,14 @@ public class TheLoginController implements ActionListener,MouseListener {
         this.logmod=mod;
         this.logindao=dao;
         logview.LoginBtn.addActionListener(this);
+        logview.Signupbtn.addMouseListener(this);
         
     }
     
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==logview.LoginBtn){
+            UserDashboardModel umod = new UserDashboardModel();
             logmod.setEmail(logview.EmailText.getText());
             String password = new String(logview.txtpassword.getPassword());
             logmod.setPassword(password);
@@ -47,13 +52,13 @@ public class TheLoginController implements ActionListener,MouseListener {
             
             
         }
-      
-       
-        
-        
+ 
         
     }
     
+ 
+   
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==logview.Signupbtn){
@@ -80,6 +85,5 @@ public class TheLoginController implements ActionListener,MouseListener {
     public void mouseExited(MouseEvent e) {
     }
     
- 
     }
 
