@@ -8,6 +8,8 @@ import View.AdminPatientView;
 import Model.IPDModel;
 import View.IPDView;
 import Controller.IpdDataController;
+import DAO.IpdDao;
+import javax.swing.table.DefaultTableModel;
 
 public class IpdDataView extends javax.swing.JFrame {
     IPDModel ipdmodel;
@@ -202,8 +204,11 @@ public class IpdDataView extends javax.swing.JFrame {
 
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        IpdDataController iDataCon = new IpdDataController();
-        iDataCon.btnViewactionPerformed(this);
+        String ipdNo = txtIpdId.getText().trim();
+        DefaultTableModel model = (DefaultTableModel) ipdTable.getModel();
+        model.setRowCount(0);    
+        IpdDao ipdDao = new IpdDao();
+        ipdDao.viewByIdQueryIPD(model, ipdNo);
     }//GEN-LAST:event_btnViewActionPerformed
 
 

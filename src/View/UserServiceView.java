@@ -240,7 +240,7 @@ public class UserServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserServiceActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        UserDashboardView u_dash = new UserDashboardView();
+        UserDashboardView1 u_dash = new UserDashboardView1();
         u_dash.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
