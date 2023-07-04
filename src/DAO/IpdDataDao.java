@@ -10,6 +10,7 @@ import View.IpdDataView;
 import javax.swing.JTable;
 
 public class IpdDataDao{
+
     public void viewAll(IpdDataView iDataView) {     
         try {
             DefaultTableModel dtm = (DefaultTableModel)iDataView.ipdTable.getModel(); 

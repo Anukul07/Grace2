@@ -11,7 +11,7 @@ import javax.swing.JTable;
 
 public class OpdDataDao {
     PreparedStatement pst = null;
-    
+  
     public void viewAll(OpdDataView oDataView) {     
         try {
             DefaultTableModel dtm = (DefaultTableModel)oDataView.opdTable.getModel(); 

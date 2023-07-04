@@ -6,42 +6,37 @@ package Controller;
 
 
 
-import View.TheLoginView;
 import Model.TheLoginModel;
-import View.AdminDashboard;
-import View.UserDashboardView;
-import java.sql.*;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
 import DAO.LoginDAO;
+import View.LoginView1;
+import View.TheRegistrationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
-public class TheLoginController implements ActionListener {
+public class TheLoginController implements ActionListener,MouseListener {
     public int count=0;
-    TheLoginView logview;
+    LoginView1 logview;
     TheLoginModel logmod;
     LoginDAO logindao;
    
     
-    public TheLoginController(LoginDAO dao,TheLoginView view, TheLoginModel mod){
+    public TheLoginController(LoginDAO dao,LoginView1 view, TheLoginModel mod){
         this.logview=view;
         this.logmod=mod;
         this.logindao=dao;
-        logview.loginButton.addActionListener(this);
-        logview.registerButton.addActionListener(this);
+        logview.LoginBtn.addActionListener(this);
         
     }
     
     @Override
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==logview.loginButton){
-            logmod.setEmail(logview.emailText.getText());
-            logmod.setPassword(logview.passwordText.getText());
+        if(e.getSource()==logview.LoginBtn){
+            logmod.setEmail(logview.EmailText.getText());
+            String password = new String(logview.txtpassword.getPassword());
+            logmod.setPassword(password);
             if(logindao.LoginVerify(logmod, logview)){
                 System.out.println("Login successful");
                 
@@ -52,33 +47,39 @@ public class TheLoginController implements ActionListener {
             
             
         }
-        if(e.getSource()==logview.registerButton){
-            
-        }
+      
        
         
         
         
     }
-    public void msgpopUp(String Message){
-        JOptionPane.showMessageDialog(null, Message);
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource()==logview.Signupbtn){
+            TheRegistrationView rv = new TheRegistrationView();
+            rv.setVisible(true);
+            logview.dispose();
+        }
+        
     }
-   
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
     
-    
-//    public void UpdateStatus(TheLoginModel logmod){
-//        try{
-//         Class.forName("com.mysql.cj.jdbc.Driver");
-//         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
-//         String query="update registration set status='"+1+"' where email='"+logmod.getEmail()+"'";
-//         pst=conn.prepareStatement(query);
-//         pst.executeUpdate(query);
-//
-//        }
-//        catch(Exception f){
-//            
-//        }
-//     }
-    
+ 
     }
 
