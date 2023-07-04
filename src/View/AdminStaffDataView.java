@@ -29,7 +29,7 @@ public class AdminStaffDataView extends javax.swing.JFrame {
         
         ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
         ViewTable.getTableHeader().setOpaque(false);
-        ViewTable.getTableHeader().setForeground(new Color(95,148,115));
+        ViewTable.getTableHeader().setForeground(new Color(44,107,120));
     }
 
     /**
@@ -51,18 +51,18 @@ public class AdminStaffDataView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(192, 199, 180));
+        jPanel1.setBackground(new java.awt.Color(162, 186, 190));
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminStaffDataLogo.png"))); // NOI18N
 
-        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
 
-        ViewTable.setBackground(new java.awt.Color(212, 220, 197));
+        ViewTable.setBackground(new java.awt.Color(174, 200, 204));
         ViewTable.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,11 +81,16 @@ public class AdminStaffDataView extends javax.swing.JFrame {
             }
         });
         ViewTable.setRowHeight(30);
-        ViewTable.setSelectionBackground(new java.awt.Color(95, 148, 115));
+        ViewTable.setSelectionBackground(new java.awt.Color(24, 85, 98));
+        ViewTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         ViewTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(ViewTable);
 
-        ViewAllButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ViewAll.png"))); // NOI18N
+        ViewAllButton.setBackground(new java.awt.Color(24, 85, 98));
+        ViewAllButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ViewAllButton.setForeground(new java.awt.Color(255, 255, 255));
+        ViewAllButton.setText("VIEW ALL");
+        ViewAllButton.setToolTipText("");
         ViewAllButton.setBorder(null);
         ViewAllButton.setOpaque(false);
         ViewAllButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +109,12 @@ public class AdminStaffDataView extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Logo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 766, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 704, Short.MAX_VALUE)
                         .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ViewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ViewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,8 +130,8 @@ public class AdminStaffDataView extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(ViewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(ViewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
