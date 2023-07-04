@@ -133,19 +133,23 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(192, 199, 180));
+        jPanel1.setBackground(new java.awt.Color(162, 186, 190));
         jPanel1.setPreferredSize(new java.awt.Dimension(1048, 1024));
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminStaffRegistrationLogo.png"))); // NOI18N
 
-        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
 
-        RegisterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationRegister.png"))); // NOI18N
+        RegisterButton.setBackground(new java.awt.Color(24, 85, 98));
+        RegisterButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        RegisterButton.setForeground(new java.awt.Color(255, 255, 255));
+        RegisterButton.setText("REGISTER");
+        RegisterButton.setBorder(null);
         RegisterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +157,10 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
             }
         });
 
-        UpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationUpdate.png"))); // NOI18N
+        UpdateButton.setBackground(new java.awt.Color(24, 85, 98));
+        UpdateButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        UpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        UpdateButton.setText("UPDATE");
         UpdateButton.setHideActionText(true);
         UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,14 +168,20 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
             }
         });
 
-        ViewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationView.png"))); // NOI18N
+        ViewButton.setBackground(new java.awt.Color(24, 85, 98));
+        ViewButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ViewButton.setForeground(new java.awt.Color(255, 255, 255));
+        ViewButton.setText("VIEW");
         ViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewButtonActionPerformed(evt);
             }
         });
 
-        DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationDelete.png"))); // NOI18N
+        DeleteButton.setBackground(new java.awt.Color(24, 85, 98));
+        DeleteButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        DeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteButton.setText("DELETE");
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteButtonActionPerformed(evt);
@@ -178,7 +191,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         NameLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         NameLabel.setText("Name");
 
-        txtName.setBackground(new java.awt.Color(223, 230, 216));
+        txtName.setBackground(new java.awt.Color(174, 200, 204));
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +202,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         DOBLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         DOBLabel.setText("DOB");
 
-        txtDOB.setBackground(new java.awt.Color(223, 230, 216));
+        txtDOB.setBackground(new java.awt.Color(174, 200, 204));
         txtDOB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +213,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         AgeLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         AgeLabel.setText("Age");
 
-        txtAge.setBackground(new java.awt.Color(223, 230, 216));
+        txtAge.setBackground(new java.awt.Color(174, 200, 204));
         txtAge.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +224,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         BloodGroupLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         BloodGroupLabel.setText("Blood Group ");
 
-        comboBldGrp.setBackground(new java.awt.Color(223, 230, 216));
+        comboBldGrp.setBackground(new java.awt.Color(174, 200, 204));
         comboBldGrp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         comboBldGrp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -" }));
         comboBldGrp.addActionListener(new java.awt.event.ActionListener() {
@@ -223,14 +236,14 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         SexLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         SexLabel.setText("Sex");
 
-        comboSex.setBackground(new java.awt.Color(223, 230, 216));
+        comboSex.setBackground(new java.awt.Color(174, 200, 204));
         comboSex.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         comboSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
         AddressLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         AddressLabel.setText("Address");
 
-        txtAddress.setBackground(new java.awt.Color(223, 230, 216));
+        txtAddress.setBackground(new java.awt.Color(174, 200, 204));
         txtAddress.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +254,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         ContactLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         ContactLabel.setText("Contact no.");
 
-        txtContact.setBackground(new java.awt.Color(223, 230, 216));
+        txtContact.setBackground(new java.awt.Color(174, 200, 204));
         txtContact.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +262,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
             }
         });
 
-        txtStaffID.setBackground(new java.awt.Color(223, 230, 216));
+        txtStaffID.setBackground(new java.awt.Color(174, 200, 204));
         txtStaffID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtStaffID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +273,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         StaffIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         StaffIDLabel.setText("Staff ID");
 
-        txtEmail.setBackground(new java.awt.Color(223, 230, 216));
+        txtEmail.setBackground(new java.awt.Color(174, 200, 204));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +284,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         EmailLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         EmailLabel.setText("Email");
 
-        comboDep.setBackground(new java.awt.Color(223, 230, 216));
+        comboDep.setBackground(new java.awt.Color(174, 200, 204));
         comboDep.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         comboDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         comboDep.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +299,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         PositionLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         PositionLabel1.setText("Title of");
 
-        txtPosition.setBackground(new java.awt.Color(223, 230, 216));
+        txtPosition.setBackground(new java.awt.Color(174, 200, 204));
         txtPosition.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +310,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         DateOfJoinLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         DateOfJoinLabel.setText("Date of Join");
 
-        txtDateofjoin.setBackground(new java.awt.Color(223, 230, 216));
+        txtDateofjoin.setBackground(new java.awt.Color(174, 200, 204));
         txtDateofjoin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtDateofjoin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +321,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         PositionLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         PositionLabel2.setText("Position");
 
-        txtByID.setBackground(new java.awt.Color(223, 230, 216));
+        txtByID.setBackground(new java.awt.Color(174, 200, 204));
         txtByID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtByID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,7 +340,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(Logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
@@ -381,7 +394,7 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
                                     .addComponent(txtDateofjoin, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(66, 66, 66))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(147, 147, 147))))
@@ -659,19 +672,19 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel StaffIDLabel;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    public javax.swing.JComboBox<String> comboBldGrp;
-    public javax.swing.JComboBox<String> comboDep;
+    private javax.swing.JComboBox<String> comboBldGrp;
+    private javax.swing.JComboBox<String> comboDep;
     private javax.swing.JComboBox<String> comboSex;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
-    public javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtByID;
     private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtDOB;
-    public javax.swing.JTextField txtDateofjoin;
+    private javax.swing.JTextField txtDateofjoin;
     private javax.swing.JTextField txtEmail;
-    public javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPosition;
-    public javax.swing.JTextField txtStaffID;
+    private javax.swing.JTextField txtStaffID;
     // End of variables declaration//GEN-END:variables
 }
