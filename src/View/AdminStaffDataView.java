@@ -86,6 +86,8 @@ public class AdminStaffDataView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ViewTable);
 
         ViewAllButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ViewAll.png"))); // NOI18N
+        ViewAllButton.setBorder(null);
+        ViewAllButton.setOpaque(false);
         ViewAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewAllButtonActionPerformed(evt);

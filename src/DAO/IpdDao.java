@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import Model.IPDModel;
+import javax.swing.table.DefaultTableModel;
 
 public class IpdDao {
 
@@ -37,5 +38,31 @@ public class IpdDao {
            System.out.println(e2.getMessage());
         }
         return false;
+    }
+    
+    public void viewByIdQueryIPD(DefaultTableModel model, String ipdNo) {
+        try (
+                Connection conn = DbConnection.connect(); 
+                PreparedStatement pst = conn.prepareStatement("SELECT * FROM ipd_registration WHERE IPD_No = ?")) {
+
+            pst.setString(1, ipdNo);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("IPD_No"),
+                    rs.getString("Patient_Name"),
+                    rs.getString("Age"),
+                    rs.getString("Blood_Grp"),
+                    rs.getString("Department"),
+                    rs.getString("Policy_No")
+                });
+            }
+        } 
+        
+        catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

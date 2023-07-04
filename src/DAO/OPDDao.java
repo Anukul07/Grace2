@@ -14,7 +14,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class OPDDao {
     public void insertQuery(String OPD_No, String Patient_Name, String Age, String Blood_Grp, String Department, String Policy_No) {
@@ -36,6 +38,32 @@ public class OPDDao {
         }
         catch(SQLException e) {
             System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+    
+    public void viewByIdQueryOPD(DefaultTableModel model, String opdNo) {
+        try (
+                Connection conn = DbConnection.connect(); 
+                PreparedStatement pst = conn.prepareStatement("SELECT * FROM opd_registration WHERE OPD_No = ?")) {
+
+            pst.setString(1, opdNo);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("OPD_No"),
+                    rs.getString("Patient_Name"),
+                    rs.getString("Age"),
+                    rs.getString("Blood_Grp"),
+                    rs.getString("Department"),
+                    rs.getString("Policy_No")
+                });
+            }
+        } 
+        
+        catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

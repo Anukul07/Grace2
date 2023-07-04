@@ -114,7 +114,6 @@
             <Property name="text" type="java.lang.String" value="By ID:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtIpdId">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -142,7 +141,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewAllActionPerformed"/>
           </Events>
         </Component>
-
         <Component class="javax.swing.JButton" name="btnView">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

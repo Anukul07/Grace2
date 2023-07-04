@@ -20,15 +20,4 @@ public class IpdDataController {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
-    public void btnViewactionPerformed(IpdDataView iDataView) {
-        try {
-            ipdmodel = iDataView.getDataView();
-            iDataDao.view(iDataView,ipdmodel);
-        }
-        catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
 }

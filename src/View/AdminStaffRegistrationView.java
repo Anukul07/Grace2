@@ -6,9 +6,13 @@ package View;
 
 import Controller.AdminStaffRegistrationController;
 import Model.AdminStaffRegistrationModel;
+import OptionPaneUI.ByIDFieldEmpty;
+import OptionPaneUI.DeletedSuccessfully;
+import OptionPaneUI.FieldsEmpty;
+import OptionPaneUI.RegisteredSuccessfully;
+import OptionPaneUI.UpdatedSuccessfully;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -499,11 +503,13 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         adc.UpdateButtonActionPerformed(this);
         if(isEmptyUpdate())
         {
-            JOptionPane.showMessageDialog(this, "Fields must be filled");
+            FieldsEmpty view = new FieldsEmpty();
+            view.setVisible(true);        
         }
         else 
         {
-            JOptionPane.showMessageDialog(this, "Staff updated successfully");
+            UpdatedSuccessfully view = new UpdatedSuccessfully();
+            view.setVisible(true);
             resetText();
         }
 
@@ -570,11 +576,13 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         adc.RegisterButtonActionPerformed(this);
         if(isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "Fields must be filled");
+            FieldsEmpty view = new FieldsEmpty();
+            view.setVisible(true);
         }
         else 
         {
-            JOptionPane.showMessageDialog(this, "Staff registered successfully");
+            RegisteredSuccessfully view = new RegisteredSuccessfully();
+            view.setVisible(true);
             resetText();
         }
     }//GEN-LAST:event_RegisterButtonActionPerformed
@@ -584,11 +592,13 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
         AdminStaffRegistrationController adc = new AdminStaffRegistrationController();
         adc.DeleteButtonActionPerformed(this);        
         if(isEmptyDelete()){
-            JOptionPane.showMessageDialog(this, "By number field must be filled");
+            ByIDFieldEmpty view = new ByIDFieldEmpty();
+            view.setVisible(true);
         }
         else 
         {
-            JOptionPane.showMessageDialog(this, "Staff deleted successfully");
+            DeletedSuccessfully view = new DeletedSuccessfully();
+            view.setVisible(true);
             resetText();
         }
     }//GEN-LAST:event_DeleteButtonActionPerformed
