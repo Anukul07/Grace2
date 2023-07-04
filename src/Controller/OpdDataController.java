@@ -20,15 +20,6 @@ public class OpdDataController {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    
-    public void btnViewactionPerformed(OpdDataView iDataView) {
-        try {
-            opdmodel = iDataView.getDataView();
-            oDataDao.view(iDataView,opdmodel);
-        }
-        catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
+
 }
 

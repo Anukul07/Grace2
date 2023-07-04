@@ -8,6 +8,8 @@ import View.AdminPatientView;
 import Model.OPDModel;
 import View.OPDView;
 import Controller.OpdDataController;
+import DAO.OPDDao;
+import javax.swing.table.DefaultTableModel;
 
 public class OpdDataView extends javax.swing.JFrame {
     OPDModel opdmodel;
@@ -39,7 +41,7 @@ public class OpdDataView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtOpdId = new javax.swing.JTextField();
         btnView = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -55,8 +57,8 @@ public class OpdDataView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("By ID:");
 
-        jTextField1.setBackground(new java.awt.Color(223, 230, 216));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtOpdId.setBackground(new java.awt.Color(223, 230, 216));
+        txtOpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnView.setBackground(new java.awt.Color(62, 117, 83));
         btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -126,6 +128,7 @@ public class OpdDataView extends javax.swing.JFrame {
         ));
         opdTable.setGridColor(new java.awt.Color(150, 145, 145));
         jScrollPane1.setViewportView(opdTable);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,7 +140,7 @@ public class OpdDataView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
@@ -160,7 +163,7 @@ public class OpdDataView extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,8 +193,11 @@ public class OpdDataView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        OpdDataController oDataCon = new OpdDataController();
-        oDataCon.btnViewactionPerformed(this);
+        String opdNo = txtOpdId.getText().trim();
+        DefaultTableModel model = (DefaultTableModel) opdTable.getModel();
+        model.setRowCount(0);    
+        OPDDao opdDao = new OPDDao();
+        opdDao.viewByIdQueryOPD(model, opdNo);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
@@ -236,14 +242,13 @@ public class OpdDataView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JTable opdTable;
+    private javax.swing.JTextField txtOpdId;
     // End of variables declaration//GEN-END:variables
 }
