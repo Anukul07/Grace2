@@ -59,7 +59,6 @@ public class AdminDoctorController implements ActionListener {
             model.setAddress(view.AddressText.getText());
             model.setContactNo(view.ContactText.getText());
             model.setDateofBirth(view.DateofBirthText.getText());
-            model.setQualification(view.QualificationText.getText());
             model.setDepartment(view.Department.getText());
             model.setDate(Integer.parseInt(view.Date.getText().trim()));
             model.setBloodGroup(view.BloodGroupText.getText());
@@ -85,7 +84,6 @@ public class AdminDoctorController implements ActionListener {
             model.setDateofBirth(view.DateofBirthText.getText());
             model.setAddress(view.AddressText.getText());
             model.setContactNo(view.ContactText.getText());
-            model.setQualification(view.QualificationText.getText());
             model.setDepartment(view.Department.getText());
             model.setDate(Integer.parseInt(view.Date.getText().trim()));
             model.setBloodGroup(view.BloodGroupText.getText());
@@ -129,7 +127,6 @@ public class AdminDoctorController implements ActionListener {
                     view.AddressText.setText(model.getAddress());
                     view.ContactText.setText(model.getContactNo());
                     view.EmailText.setText(model.getEmail());
-                    view.QualificationText.setText(model.getQualification());
                     view.DateofBirthText.setText(model.getDateofBirth());
                     view.SexText.setText(model.getSex());
                     
@@ -152,7 +149,6 @@ public class AdminDoctorController implements ActionListener {
              view.AddressText.setText(" ");
              view.ContactText.setText(" ");
              view.EmailText.setText(" ");
-             view.QualificationText.setText(" ");
              view.SexText.setText(" ");
              view.DateofBirthText.setText(" ");
          }
@@ -192,7 +188,6 @@ public class AdminDoctorController implements ActionListener {
              view.AddressText.setText(" ");
              view.ContactText.setText(" ");
              view.EmailText.setText(" ");
-             view.QualificationText.setText(" ");
              view.SexText.setText(" ");
              view.DateofBirthText.setText(" ");
     }

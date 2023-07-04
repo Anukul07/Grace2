@@ -21,9 +21,8 @@ public class AdminDoctorDAO {
 
     public void createTable() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
-            String sql = "create table if not exists doctor(DoctorId int, DoctorName varchar(10), age int, BloodGroup varchar(10),Department varchar (10),DateofJoin varchar(10),sex varchar(10),dateofbirth varchar(10),  address varchar(10),contactno varchar(10),email varchar(30),  qualification varchar(100))";
+            Connection conn = DbConnection.connect();
+            String sql = "create table if not exists doctor(DoctorId int, DoctorName varchar(10), age int, BloodGroup varchar(10),DateofJoin varchar(10),sex varchar(10),dateofbirth varchar(10),  address varchar(10),contactno varchar(10),email varchar(30),  qualification varchar(100))";
             pst = conn.prepareStatement(sql);
             pst.executeUpdate();
             System.out.println("table created");
@@ -35,9 +34,9 @@ public class AdminDoctorDAO {
 
     public boolean add(AdminDoctorModel mod) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
-            String sql = "insert into doctor (DoctorId, DoctorName, age, BloodGroup, Department, DateOfJoin, sex, dateofbirth, address, contactno, email, qualification) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+         
+            Connection conn = DbConnection.connect();
+            String sql = "insert into doctor (DoctorId, DoctorName, age, BloodGroup, Department, DateOfJoin, sex, dateofbirth, address, contactno, email) values (?,?,?,?,?,?,?,?,?,?,?)";
             pst = conn.prepareStatement(sql);
 
             pst.setInt(1, mod.getId());
@@ -51,7 +50,6 @@ public class AdminDoctorDAO {
             pst.setString(9, mod.getAddress());
             pst.setString(10, mod.getContactNo());
             pst.setString(11, mod.getEmail());
-            pst.setString(12, mod.getQualification());
 
             pst.executeUpdate();
             return true;
@@ -68,10 +66,10 @@ public class AdminDoctorDAO {
         PreparedStatement pst = null;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
+            
+            Connection conn = DbConnection.connect();
 
-            String sql = "UPDATE doctor Set     DoctorId=? ,DoctorName=?, age=?, BloodGroup=?, Department=?, DateofJoin=?, sex=?, dateofbirth=?, address=?, contactno=?, email=?, qualification=? WHERE DoctorId=?";
+            String sql = "UPDATE doctor Set     DoctorId=? ,DoctorName=?, age=?, BloodGroup=?, Department=?, DateofJoin=?, sex=?, dateofbirth=?, address=?, contactno=?, email=?, WHERE DoctorId=?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, mod.getId());
             pst.setString(2, mod.getName());
@@ -84,8 +82,7 @@ public class AdminDoctorDAO {
             pst.setString(9, mod.getAddress());
             pst.setString(10, mod.getContactNo());
             pst.setString(11, mod.getEmail());
-            pst.setString(12, mod.getQualification());
-            pst.setInt(13, mod.getId());
+            pst.setInt(12, mod.getId());
             pst.executeUpdate();
             return true;
 
@@ -100,8 +97,8 @@ public class AdminDoctorDAO {
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
+            
+            Connection conn = DbConnection.connect();
             String sql = "SELECT * FROM doctor WHERE DoctorId=?";
 
             pst = conn.prepareStatement(sql);
@@ -120,7 +117,6 @@ public class AdminDoctorDAO {
                 mod.setAddress(rs.getString("address"));
                 mod.setEmail(rs.getString("email"));
                 mod.setContactNo(rs.getString("contactno"));
-                mod.setQualification(rs.getString("qualification"));
                 mod.setDateofBirth(rs.getString("dateofbirth"));
                 return true;
             }
@@ -138,8 +134,8 @@ public class AdminDoctorDAO {
         PreparedStatement ps = null;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
+            
+            Connection conn = DbConnection.connect();
             String sql = "DELETE FROM doctor WHERE DoctorId=?";
 
             ps = conn.prepareStatement(sql);
@@ -160,8 +156,7 @@ public class AdminDoctorDAO {
         ResultSet rs = null;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "");
+            Connection conn = DbConnection.connect();
             String sql = "SELECT * FROM doctor";
 
             ps = conn.prepareStatement(sql);
