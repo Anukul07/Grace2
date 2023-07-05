@@ -10,6 +10,13 @@ import javax.swing.JOptionPane;
 
 import Controller.AdRoomRegistrationController;
 import Model.AdRoomRegistrationModel;
+import OptionPaneUI.ByIDFieldEmpty;
+import OptionPaneUI.DeletedSuccessfully;
+import OptionPaneUI.FieldsEmpty;
+import OptionPaneUI.RegisteredSuccessfully;
+import OptionPaneUI.UpdatedSuccessfully;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
@@ -23,6 +30,10 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     public AdminRoomRegistrationView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 16));
+        ViewTable.getTableHeader().setOpaque(false);
+        ViewTable.getTableHeader().setForeground(new Color(44,107,120));
     }
     public AdRoomRegistrationModel getData() {
         adModel = new AdRoomRegistrationModel(roomNoTxt.getText(),roomChargeTxt.getText());
@@ -98,77 +109,120 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(192, 199, 180));
+        jPanel1.setBackground(new java.awt.Color(162, 186, 190));
+        jPanel1.setLayout(null);
 
         RoomRegistrationLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationLogo.png"))); // NOI18N
+        jPanel1.add(RoomRegistrationLogo);
+        RoomRegistrationLogo.setBounds(19, 6, 652, 210);
 
-        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackButton.png"))); // NOI18N
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(BackButton);
+        BackButton.setBounds(937, 33, 187, 90);
 
-        RegisterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationRegister.png"))); // NOI18N
-        RegisterButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        RegisterButton.setBackground(new java.awt.Color(24, 85, 98));
+        RegisterButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        RegisterButton.setForeground(new java.awt.Color(255, 255, 255));
+        RegisterButton.setText("REGISTER");
+        RegisterButton.setBorder(null);
         RegisterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(RegisterButton);
+        RegisterButton.setBounds(100, 470, 170, 55);
 
-        UpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationUpdate.png"))); // NOI18N
-        UpdateButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        UpdateButton.setBackground(new java.awt.Color(24, 85, 98));
+        UpdateButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        UpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        UpdateButton.setText("UPDATE");
+        UpdateButton.setBorder(null);
         UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UpdateButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(UpdateButton);
+        UpdateButton.setBounds(300, 470, 157, 55);
 
-        ViewButton.setBackground(new java.awt.Color(95, 148, 115));
-        ViewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationView.png"))); // NOI18N
-        ViewButton.setText("jButton3");
-        ViewButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ViewButton.setBackground(new java.awt.Color(24, 85, 98));
+        ViewButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ViewButton.setForeground(new java.awt.Color(255, 255, 255));
+        ViewButton.setText("VIEW");
+        ViewButton.setBorder(null);
         ViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(ViewButton);
+        ViewButton.setBounds(310, 660, 128, 43);
 
-        DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomRegistrationDelete.png"))); // NOI18N
-        DeleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DeleteButton.setBackground(new java.awt.Color(24, 85, 98));
+        DeleteButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        DeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteButton.setText("DELETE");
+        DeleteButton.setBorder(null);
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(DeleteButton);
+        DeleteButton.setBounds(110, 660, 168, 43);
 
         RoomNoLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         RoomNoLabel.setText("Room No.");
+        jPanel1.add(RoomNoLabel);
+        RoomNoLabel.setBounds(40, 310, 135, 41);
 
-        roomChargeTxt.setBackground(new java.awt.Color(223, 230, 216));
+        roomChargeTxt.setBackground(new java.awt.Color(174, 200, 204));
         roomChargeTxt.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         roomChargeTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roomChargeTxtActionPerformed(evt);
             }
         });
+        jPanel1.add(roomChargeTxt);
+        roomChargeTxt.setBounds(260, 390, 222, 38);
 
         RoomChargeLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         RoomChargeLabel.setText("Room charge");
+        jPanel1.add(RoomChargeLabel);
+        RoomChargeLabel.setBounds(40, 380, 189, 41);
 
-        roomNoTxt.setBackground(new java.awt.Color(223, 230, 216));
+        roomNoTxt.setBackground(new java.awt.Color(174, 200, 204));
         roomNoTxt.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(roomNoTxt);
+        roomNoTxt.setBounds(260, 310, 222, 41);
 
         ByNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        ByNumberLabel.setText("By number");
+        ByNumberLabel.setText("By ID");
+        jPanel1.add(ByNumberLabel);
+        ByNumberLabel.setBounds(60, 570, 96, 54);
 
-        roomIdTxt.setBackground(new java.awt.Color(223, 230, 216));
+        roomIdTxt.setBackground(new java.awt.Color(174, 200, 204));
+        jPanel1.add(roomIdTxt);
+        roomIdTxt.setBounds(190, 570, 311, 45);
 
-        ViewTable.setBackground(new java.awt.Color(247, 255, 229));
+        ViewTable.setBackground(new java.awt.Color(174, 200, 204));
         ViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -199,104 +253,18 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ViewTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(RoomRegistrationLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(28, 28, 28)
-                                                .addComponent(RoomNoLabel)
-                                                .addGap(45, 45, 45))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(RoomChargeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(roomNoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                                            .addComponent(roomChargeTxt)))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(ByNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(roomIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(156, 156, 156)
-                                            .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(42, 42, 42)
-                                            .addComponent(ViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(64, 64, 64))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(RoomRegistrationLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(roomNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RoomNoLabel))
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RoomChargeLabel)
-                            .addComponent(roomChargeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(roomIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ByNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
-        );
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(640, 270, 462, 402);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
         );
 
         pack();
@@ -315,9 +283,11 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         AdRoomRegistrationController adControl = new AdRoomRegistrationController();
         adControl.RegisterButtonActionPerformed(this);
         if(isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fields must be filled");
+            FieldsEmpty view = new FieldsEmpty();
+            view.setVisible(true);       
         }else {
-            JOptionPane.showMessageDialog(this, "Rooms registered successfully");
+            RegisteredSuccessfully view = new RegisteredSuccessfully();
+            view.setVisible(true);       
             resetText();
         }
 
@@ -330,9 +300,11 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         adControl.UpdateButtonActionPerformed(this);
 
         if(isEmptyUpdate()){
-            JOptionPane.showMessageDialog(this, "Fields must be filled");
+            FieldsEmpty view = new FieldsEmpty();
+            view.setVisible(true);       
         }else {
-            JOptionPane.showMessageDialog(this, "Rooms updated successfully");
+            UpdatedSuccessfully view = new UpdatedSuccessfully();
+            view.setVisible(true);
             resetText();
         }
 
@@ -352,9 +324,11 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
         AdRoomRegistrationController adControl = new AdRoomRegistrationController();
         adControl.DeleteButtonActionPerformed(this);        
         if(isEmptyDelete()){
-            JOptionPane.showMessageDialog(this, "By number field must be filled");
+            ByIDFieldEmpty view = new ByIDFieldEmpty();
+            view.setVisible(true);      
         }else {
-            JOptionPane.showMessageDialog(this, "Rooms deleted successfully");
+            DeletedSuccessfully view = new DeletedSuccessfully();
+            view.setVisible(true);    
             resetText();
         }
         
@@ -409,7 +383,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel RoomRegistrationLogo;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    public javax.swing.JTable ViewTable;
+    private javax.swing.JTable ViewTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField roomChargeTxt;

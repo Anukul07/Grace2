@@ -9,6 +9,8 @@ import Model.IPDModel;
 import View.IPDView;
 import Controller.IpdDataController;
 import DAO.IpdDao;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 
 public class IpdDataView extends javax.swing.JFrame {
@@ -22,6 +24,10 @@ public class IpdDataView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         ipdTable.setEnabled(false);
+        
+        ipdTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        ipdTable.getTableHeader().setOpaque(false);
+        ipdTable.getTableHeader().setForeground(new Color(44,107,120));
 
     }
     
