@@ -9,6 +9,8 @@ import Model.OPDModel;
 import View.OPDView;
 import Controller.OpdDataController;
 import DAO.OPDDao;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 
 public class OpdDataView extends javax.swing.JFrame {
@@ -22,6 +24,11 @@ public class OpdDataView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         opdTable.setEnabled(false);
+        
+        opdTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        opdTable.getTableHeader().setOpaque(false);
+        opdTable.getTableHeader().setForeground(new Color(44,107,120));
+
     }
     
     public OPDModel getDataView() {
@@ -132,7 +139,7 @@ public class OpdDataView extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "OPD No", "Patient name", "Age", "Blood Group", "Department", "Policy No."
+                "OPD No", "Patient Name", "Age", "Blood Group", "Department", "Policy No."
             }
         ));
         opdTable.setGridColor(new java.awt.Color(150, 145, 145));
