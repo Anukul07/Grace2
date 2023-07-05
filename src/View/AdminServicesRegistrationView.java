@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionListener;
-
-import javax.swing.JOptionPane;
 
 import Controller.AdServicesRegistrationController;
 import Model.AdminServicesRegistrationModel;
@@ -14,9 +14,6 @@ import OptionPaneUI.DeletedSuccessfully;
 import OptionPaneUI.FieldsEmpty;
 import OptionPaneUI.RegisteredSuccessfully;
 import OptionPaneUI.UpdatedSuccessfully;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JFrame;
 /**
  *
  * @author anukul
@@ -415,7 +412,7 @@ public class AdminServicesRegistrationView extends javax.swing.JFrame {
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    private javax.swing.JTable ViewTable;
+    public javax.swing.JTable ViewTable;
     private javax.swing.JTextField byNumberTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
