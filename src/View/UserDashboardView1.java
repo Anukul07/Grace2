@@ -15,6 +15,7 @@ import java.sql.Statement;
 import Model.TheLoginModel;
 import Controller.UserDashboardController;
 import DAO.UserDashboardDAO;
+import Model.UserDashboardModel;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -30,15 +31,19 @@ public class UserDashboardView1 extends javax.swing.JFrame {
      initComponents();
     setExtendedState(JFrame.MAXIMIZED_BOTH);
     this.setVisible(true);
-    TheLoginModel logm = new TheLoginModel();
-    UserDashboardDAO dao = new UserDashboardDAO();
-    UserDashboardController usc=new UserDashboardController(dao,logm,this);
+     TheLoginModel logm = new TheLoginModel();
+    UserDashboardModel model = new UserDashboardModel();
+    UserDashboardDAO udao = new UserDashboardDAO(this,UserText,model);
+    UserDashboardController usc=new UserDashboardController(udao,logm,this);
+    this.revalidate();
+    this.repaint();
+   
        
         
     }
    
     
-     public void changeUsername(TheLoginModel mod) {
+     public void changeUsername(UserDashboardModel mod) {
         System.out.println(mod.getUsername());
         UserText.setText(mod.getUsername());
     }
