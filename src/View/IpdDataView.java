@@ -9,6 +9,8 @@ import Model.IPDModel;
 import View.IPDView;
 import Controller.IpdDataController;
 import DAO.IpdDao;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 
 public class IpdDataView extends javax.swing.JFrame {
@@ -22,6 +24,10 @@ public class IpdDataView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         ipdTable.setEnabled(false);
+        
+        ipdTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        ipdTable.getTableHeader().setOpaque(false);
+        ipdTable.getTableHeader().setForeground(new Color(44,107,120));
 
     }
     
@@ -60,11 +66,12 @@ public class IpdDataView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("By ID:");
 
-        txtIpdId.setBackground(new java.awt.Color(174, 200, 204));
-        txtIpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIpdId.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        btnViewAll.setBackground(new java.awt.Color(24, 85, 98));
+        txtIpdId.setBackground(new java.awt.Color(223, 230, 216));
+        txtIpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        btnViewAll.setBackground(new java.awt.Color(44, 107, 120));
+
         btnViewAll.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnViewAll.setForeground(new java.awt.Color(255, 255, 255));
         btnViewAll.setText("VIEW ALL");
@@ -74,7 +81,9 @@ public class IpdDataView extends javax.swing.JFrame {
             }
         });
 
-        btnView.setBackground(new java.awt.Color(24, 85, 98));
+
+        btnView.setBackground(new java.awt.Color(44, 107, 120));
+
         btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("VIEW");

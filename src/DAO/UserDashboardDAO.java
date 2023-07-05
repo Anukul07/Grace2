@@ -5,6 +5,7 @@
 package DAO;
 
 import Model.TheLoginModel;
+import Model.UserDashboardModel;
 import View.UserDashboardView1;
 import javax.swing.JLabel;
 import java.sql.Connection;
@@ -18,64 +19,57 @@ import java.util.List;
  *
 \ */
 public class UserDashboardDAO {
-     PreparedStatement pst;
-//    public List<TheLoginModel> UpdateUserdisplay(TheLoginModel mod,UserDashboardView1 view,JLabel label){
-//         List<TheLoginModel> data = new ArrayList<>();
-//        try{
-//        PreparedStatement pst = null;
-//        ResultSet rs = null;
-//         Class.forName("com.mysql.cj.jdbc.Driver");
-//         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
-//         String query3="select userName from registration where email=?";
-//         pst=conn.prepareStatement(query3);
-//         pst.setString(1, mod.getEmail());
-//         rs=pst.executeQuery();
-//         
-//         
-//        while(rs.next()) {
-//            TheLoginModel model = new TheLoginModel();
-//            model.setEmail(rs.getString("userName"));
-//            data.add(model);
-////            view.setLocationRelativeTo(null);
-////                String labelText = rs.getString("userName");
-////                System.out.println(labelText);
-////                label.setText(labelText);
-//                
-//            }
-//       
-//         
-//        }
-//        catch(Exception f){
-//            
-//        }
-//        return data;
-//    }
-//         public void LogoutactionPerformed(TheLoginModel mod){
-//        
-//         try{
-//            PreparedStatement pst=null;
-//            ResultSet rs = null;
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
-//            String query3="select * from registration where status= 1";
-//            pst=conn.prepareStatement(query3);
-//            pst.set
-//            rs=pst.executeQuery();
-//         
-//         
-//            if (rs.next()) {
-//                String query="update registration set status='"+0+"' ";
-//                pst=conn.prepareStatement(query);
-//                pst.executeUpdate(query);
-//               
-//            }   
-//         }
-//         catch(Exception f){
-//            
-//         }
-//    
-//    }
-  
+      UserDashboardView1 view;
+    JLabel label;
+    UserDashboardModel model;
+    
+    public UserDashboardDAO(UserDashboardView1 view,JLabel label,UserDashboardModel mod){
+        this.view=view;
+        this.label=label;
+        this.model=mod;
+        UpdateUsername(mod);
+        
+    }
+
+       public void UpdateUsername(UserDashboardModel mod) {
+        try {
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
+            String query3 = "select userName from registration where status=1";
+            pst = conn.prepareStatement(query3);
+           
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                mod.setUsername(rs.getString("userName"));
+                view.changeUsername(mod);
+
+            }
+
+        } catch (Exception f) {
+
+        }
+        
+
+    }
+       
+           public void setOffline(){
+            try {
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
+            String query3 = "Update registration set status=0 where status=1";
+            pst = conn.prepareStatement(query3);
+            pst.executeUpdate();
+            }
+            catch(Exception e){
+                
+            }
+       }
+
 
    
 

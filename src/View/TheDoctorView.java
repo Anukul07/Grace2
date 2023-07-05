@@ -236,7 +236,7 @@ public class TheDoctorView extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        TheDoctorPrescription doctorPrescription = new TheDoctorPrescription();
+        TheDoctorPrescriptionView doctorPrescription = new TheDoctorPrescriptionView();
         doctorPrescription.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel3MouseClicked
