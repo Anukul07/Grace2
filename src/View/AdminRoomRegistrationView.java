@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import Controller.AdRoomRegistrationController;
 import Model.AdRoomRegistrationModel;
@@ -15,8 +16,6 @@ import OptionPaneUI.DeletedSuccessfully;
 import OptionPaneUI.FieldsEmpty;
 import OptionPaneUI.RegisteredSuccessfully;
 import OptionPaneUI.UpdatedSuccessfully;
-import java.awt.Color;
-import java.awt.Font;
 
 /**
  *
@@ -383,7 +382,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel RoomRegistrationLogo;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JButton ViewButton;
-    private javax.swing.JTable ViewTable;
+    public javax.swing.JTable ViewTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField roomChargeTxt;
