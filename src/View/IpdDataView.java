@@ -60,10 +60,10 @@ public class IpdDataView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("By ID:");
 
-
         txtIpdId.setBackground(new java.awt.Color(223, 230, 216));
         txtIpdId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnViewAll.setBackground(new java.awt.Color(62, 117, 83));
+
+        btnViewAll.setBackground(new java.awt.Color(44, 107, 120));
         btnViewAll.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnViewAll.setForeground(new java.awt.Color(255, 255, 255));
         btnViewAll.setText("VIEW ALL");
@@ -73,8 +73,7 @@ public class IpdDataView extends javax.swing.JFrame {
             }
         });
 
-
-        btnView.setBackground(new java.awt.Color(62, 117, 83));
+        btnView.setBackground(new java.awt.Color(44, 107, 120));
         btnView.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("VIEW");
@@ -147,7 +146,6 @@ public class IpdDataView extends javax.swing.JFrame {
                         .addComponent(txtIpdId, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                         .addGap(38, 38, 38)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(253, Short.MAX_VALUE))
@@ -248,7 +246,6 @@ public class IpdDataView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewAll;
     public javax.swing.JTable ipdTable;
