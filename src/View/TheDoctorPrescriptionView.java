@@ -108,6 +108,7 @@ public class TheDoctorPrescriptionView extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("Doctor Name");
 
+        jTextField1.setBackground(new java.awt.Color(223, 230, 216));
         jTextField1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +116,7 @@ public class TheDoctorPrescriptionView extends javax.swing.JFrame {
             }
         });
 
+        jTextField2.setBackground(new java.awt.Color(223, 230, 216));
         jTextField2.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +130,7 @@ public class TheDoctorPrescriptionView extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Patient Name");
 
+        jTextField3.setBackground(new java.awt.Color(223, 230, 216));
         jTextField3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jTextField3.setText(" ");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +139,7 @@ public class TheDoctorPrescriptionView extends javax.swing.JFrame {
             }
         });
 
+        jTextField4.setBackground(new java.awt.Color(223, 230, 216));
         jTextField4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jTextField4.setText(" ");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +151,7 @@ public class TheDoctorPrescriptionView extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("Diagnosis");
 
+        jTextArea1.setBackground(new java.awt.Color(223, 230, 216));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);

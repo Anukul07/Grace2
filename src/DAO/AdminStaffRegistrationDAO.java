@@ -25,7 +25,7 @@ public class AdminStaffRegistrationDAO {
                 String query = "INSERT INTO staffs(StaffID, Name, Age, BloodGroup, Department, DateofJoin) VALUES (?,?,?,?,?,?)";
                 PreparedStatement pst = conn.prepareStatement(query);
                 
-                pst.setString(1, StaffID);
+                pst.setInt(1, Integer.parseInt(StaffID));                
                 pst.setString(2, Name);
                 pst.setString(3, Age);
                 pst.setString(4, BloodGroup);
@@ -72,7 +72,7 @@ public class AdminStaffRegistrationDAO {
             
             PreparedStatement pst = conn.prepareStatement(query);
             
-                pst.setString(1, StaffID);
+                pst.setInt(1, Integer.parseInt(StaffID));                
              
             pst.executeUpdate();
         }
