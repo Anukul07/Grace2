@@ -4,11 +4,10 @@
  */
 package DAO;
 
-import Controller.UserDashboardController;
 import Model.TheLoginModel;
 import View.AdminDashboard;
-import View.TheLoginView;
-import View.LoginView1;
+import View.LoginPageView;
+
 import View.UserDashboardView1;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,8 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  *
@@ -26,7 +24,7 @@ import java.util.List;
 public class LoginDAO {
     public int count=0;
     
-    public boolean LoginVerify(TheLoginModel model, LoginView1 view) {
+    public boolean LoginVerify(TheLoginModel model, LoginPageView view) {
 
         try {
             if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123")) {
@@ -46,10 +44,9 @@ public class LoginDAO {
 
                 if (checkData(model)) {
                     try {
+                        setUserstatus(model);
                         JOptionPane.showMessageDialog(null, "Logged in as an user!");
-                        UpdateUserdisplay(model);
                         UserDashboardView1 dash= new UserDashboardView1();
-                        dash.changeUsername(model);
                         dash.setVisible(true);
                         view.dispose();
                         
@@ -101,30 +98,22 @@ public class LoginDAO {
     }
     
     
-      public List<TheLoginModel> UpdateUserdisplay(TheLoginModel mod) {
-        List<TheLoginModel> data = new ArrayList<>();
+          public void setUserstatus(TheLoginModel mod) {
         try {
             PreparedStatement pst = null;
             ResultSet rs = null;
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
-            String query3 = "select userName from registration where email=?";
+            String query3 = "update registration set status=1 where email=?";
             pst = conn.prepareStatement(query3);
             pst.setString(1, mod.getEmail());
             System.out.println(mod.getEmail());
-            rs = pst.executeQuery();
+            pst.executeUpdate();
 
-            if (rs.next()) {
-                mod.setUsername(rs.getString("userName"));
-                System.out.println(mod.getUsername());
-                data.add(mod);
-
-            }
 
         } catch (Exception f) {
 
         }
-        return data;
 
     }
       

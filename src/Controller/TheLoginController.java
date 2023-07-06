@@ -4,64 +4,59 @@
  */
 package Controller;
 
-
-
 import Model.TheLoginModel;
 import DAO.LoginDAO;
+import View.LoginPageView;
 import View.LoginView1;
 import View.TheRegistrationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
+public class TheLoginController implements ActionListener, MouseListener {
 
-public class TheLoginController implements ActionListener,MouseListener {
-    public int count=0;
-    LoginView1 logview;
+    public int count = 0;
+    LoginPageView logview;
     TheLoginModel logmod;
     LoginDAO logindao;
-   
-    
-    public TheLoginController(LoginDAO dao,LoginView1 view, TheLoginModel mod){
-        this.logview=view;
-        this.logmod=mod;
-        this.logindao=dao;
+
+    public TheLoginController(LoginDAO dao, LoginPageView view, TheLoginModel mod) {
+        this.logview = view;
+        this.logmod = mod;
+        this.logindao = dao;
         logview.LoginBtn.addActionListener(this);
-        
+        logview.Signupbtn.addMouseListener(this);
+
     }
-    
+
     @Override
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource()==logview.LoginBtn){
-            logmod.setEmail(logview.EmailText.getText());
-            String password = new String(logview.txtpassword.getPassword());
-            logmod.setPassword(password);
-            if(logindao.LoginVerify(logmod, logview)){
-                System.out.println("Login successful");
-                
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == logview.LoginBtn) {
+            if (checkEmpty()) {
+                logmod.setEmail(logview.EmailText.getText());
+                logmod.setPassword(logview.txtpassword.getText());
+                if (logindao.LoginVerify(logmod, logview)) {
+                    System.out.println("Login successful");
+
+                } else {
+                JOptionPane.showMessageDialog(null, "Invalid credentials");
+                }
+
             }
-            else{
-                System.out.println("Login failed");
-            }
-            
-            
+
         }
-      
-       
-        
-        
-        
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource()==logview.Signupbtn){
+        if (e.getSource() == logview.Signupbtn) {
             TheRegistrationView rv = new TheRegistrationView();
             rv.setVisible(true);
             logview.dispose();
         }
-        
+
     }
 
     @Override
@@ -79,7 +74,16 @@ public class TheLoginController implements ActionListener,MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
-    
- 
+
+    public boolean checkEmpty() {
+
+     if (logview.txtpassword.getText().isEmpty() || logview.EmailText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "One or more fields are empty");
+            return false;
+
+        }
+     return true;
+
     }
 
+}

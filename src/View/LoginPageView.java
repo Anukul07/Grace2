@@ -8,6 +8,12 @@ package View;
  *
  * @author dell
  */
+<<<<<<< HEAD
+=======
+import Controller.TheLoginController;
+import DAO.LoginDAO;
+import Model.TheLoginModel;
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
 import javax.swing.JFrame;
 public class LoginPageView extends javax.swing.JFrame {
 
@@ -17,6 +23,12 @@ public class LoginPageView extends javax.swing.JFrame {
     public LoginPageView() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+<<<<<<< HEAD
+=======
+         TheLoginModel logMod = new TheLoginModel();
+        LoginDAO ldao = new LoginDAO();
+        TheLoginController controller = new TheLoginController(ldao, this, logMod);
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
     }
 
     /**
@@ -39,10 +51,17 @@ public class LoginPageView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+<<<<<<< HEAD
         emailText = new javax.swing.JTextField();
         emailText1 = new javax.swing.JTextField();
         registerButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
+=======
+        EmailText = new javax.swing.JTextField();
+        txtpassword = new javax.swing.JTextField();
+        Signupbtn = new javax.swing.JButton();
+        LoginBtn = new javax.swing.JButton();
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +125,7 @@ public class LoginPageView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("If you are a new user:");
 
+<<<<<<< HEAD
         emailText.setBackground(new java.awt.Color(223, 230, 216));
         emailText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -134,6 +154,36 @@ public class LoginPageView extends javax.swing.JFrame {
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
+=======
+        EmailText.setBackground(new java.awt.Color(223, 230, 216));
+        EmailText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        txtpassword.setBackground(new java.awt.Color(223, 230, 216));
+        txtpassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpasswordActionPerformed(evt);
+            }
+        });
+
+        Signupbtn.setBackground(new java.awt.Color(44, 107, 120));
+        Signupbtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Signupbtn.setForeground(new java.awt.Color(223, 230, 216));
+        Signupbtn.setText("REGISTER");
+        Signupbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignupbtnActionPerformed(evt);
+            }
+        });
+
+        LoginBtn.setBackground(new java.awt.Color(44, 107, 120));
+        LoginBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        LoginBtn.setForeground(new java.awt.Color(217, 217, 217));
+        LoginBtn.setText("LOGIN");
+        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginBtnActionPerformed(evt);
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
             }
         });
 
@@ -150,18 +200,31 @@ public class LoginPageView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                        .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                         .addContainerGap())))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
+<<<<<<< HEAD
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                        .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(331, 331, 331)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,18 +244,31 @@ public class LoginPageView extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                        .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                             .addComponent(jLabel5)))
                     .addComponent(jLabel4))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
+<<<<<<< HEAD
                     .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(117, 117, 117)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                    .addComponent(Signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(117, 117, 117)
+                .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -214,6 +290,7 @@ public class LoginPageView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
 
 
@@ -226,6 +303,20 @@ public class LoginPageView extends javax.swing.JFrame {
     private void emailText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailText1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailText1ActionPerformed
+=======
+    private void SignupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupbtnActionPerformed
+
+
+    }//GEN-LAST:event_SignupbtnActionPerformed
+
+    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+
+    }//GEN-LAST:event_LoginBtnActionPerformed
+
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpasswordActionPerformed
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
 
     /**
      * @param args the command line arguments
@@ -263,8 +354,14 @@ public class LoginPageView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     public javax.swing.JTextField emailText;
     public javax.swing.JTextField emailText1;
+=======
+    public javax.swing.JTextField EmailText;
+    public javax.swing.JButton LoginBtn;
+    public javax.swing.JButton Signupbtn;
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -276,7 +373,11 @@ public class LoginPageView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+<<<<<<< HEAD
     public javax.swing.JButton loginButton;
     public javax.swing.JButton registerButton;
+=======
+    public javax.swing.JTextField txtpassword;
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
     // End of variables declaration//GEN-END:variables
 }

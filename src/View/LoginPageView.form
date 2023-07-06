@@ -136,13 +136,22 @@
                   <EmptySpace pref="124" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                           <Component id="emailText1" min="-2" pref="313" max="-2" attributes="0"/>
+=======
+                          <Component id="txtpassword" min="-2" pref="313" max="-2" attributes="0"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                               <Component id="emailText" min="-2" pref="313" max="-2" attributes="0"/>
                               <Component id="registerButton" min="-2" pref="130" max="-2" attributes="0"/>
+=======
+                              <Component id="EmailText" min="-2" pref="313" max="-2" attributes="0"/>
+                              <Component id="Signupbtn" min="-2" pref="130" max="-2" attributes="0"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -152,7 +161,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="loginButton" min="-2" pref="246" max="-2" attributes="0"/>
+=======
+                          <Component id="LoginBtn" min="-2" pref="246" max="-2" attributes="0"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
@@ -179,10 +192,17 @@
                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
                           <Component id="emailText" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="emailText1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+=======
+                          <Component id="EmailText" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtpassword" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -191,10 +211,17 @@
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="registerButton" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   <Component id="loginButton" min="-2" pref="59" max="-2" attributes="0"/>
+=======
+                      <Component id="Signupbtn" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <Component id="LoginBtn" min="-2" pref="59" max="-2" attributes="0"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -241,7 +268,11 @@
             <Property name="text" type="java.lang.String" value="If you are a new user:"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JTextField" name="emailText">
+=======
+        <Component class="javax.swing.JTextField" name="EmailText">
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d8" green="e6" red="df" type="rgb"/>
@@ -254,7 +285,11 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JTextField" name="emailText1">
+=======
+        <Component class="javax.swing.JTextField" name="txtpassword">
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d8" green="e6" red="df" type="rgb"/>
@@ -264,13 +299,21 @@
             </Property>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailText1ActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpasswordActionPerformed"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="registerButton">
+=======
+        <Component class="javax.swing.JButton" name="Signupbtn">
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="78" green="6b" red="2c" type="rgb"/>
@@ -284,13 +327,21 @@
             <Property name="text" type="java.lang.String" value="REGISTER"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignupbtnActionPerformed"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="loginButton">
+=======
+        <Component class="javax.swing.JButton" name="LoginBtn">
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="78" green="6b" red="2c" type="rgb"/>
@@ -304,7 +355,11 @@
             <Property name="text" type="java.lang.String" value="LOGIN"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginBtnActionPerformed"/>
+>>>>>>> f12eac75a87f6dd73ac286abb92fd032358bef71
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

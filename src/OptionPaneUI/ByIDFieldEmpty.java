@@ -15,6 +15,7 @@ public class ByIDFieldEmpty extends javax.swing.JFrame {
      */
     public ByIDFieldEmpty() {
         initComponents();
+        
     }
 
     /**
@@ -32,14 +33,18 @@ public class ByIDFieldEmpty extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel2.setBackground(new java.awt.Color(192, 199, 180));
+        jPanel2.setBackground(new java.awt.Color(148, 175, 181));
 
         jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(95, 148, 115));
+        jLabel1.setForeground(new java.awt.Color(44, 107, 120));
         jLabel1.setText("'By ID' Field must be filled.");
 
-        OKButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/OK.png"))); // NOI18N
+        OKButton.setBackground(new java.awt.Color(24, 85, 98));
+        OKButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        OKButton.setForeground(new java.awt.Color(255, 255, 255));
+        OKButton.setText("OK");
         OKButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         OKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,7 +52,7 @@ public class ByIDFieldEmpty extends javax.swing.JFrame {
             }
         });
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo3.png"))); // NOI18N
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo4.png"))); // NOI18N
         Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -58,12 +63,12 @@ public class ByIDFieldEmpty extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(Logo)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(OKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,9 +79,9 @@ public class ByIDFieldEmpty extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel1)))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(OKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
