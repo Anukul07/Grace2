@@ -229,6 +229,11 @@ public class IPDView extends javax.swing.JFrame {
         comboDep.setBackground(new java.awt.Color(223, 230, 216));
         comboDep.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         comboDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Orthopedics", "Cardiology", "Internal Medicine", "Neurology", "General Surgery", "Dermatology", "Pediatrics" }));
+        comboDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboDepActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel17.setText("Ailment");
@@ -558,6 +563,10 @@ public class IPDView extends javax.swing.JFrame {
         patient.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void comboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboDepActionPerformed
 
     /**
      * @param args the command line arguments
