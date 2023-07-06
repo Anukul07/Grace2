@@ -17,7 +17,7 @@ public class DbConnection {
     static Connection conn;
     public static Connection connect(){
         String userName = "root";
-        String password = "ishiki123";
+        String password = "scooby019";
         
         try {
             try {
