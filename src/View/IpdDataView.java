@@ -25,7 +25,7 @@ public class IpdDataView extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         ipdTable.setEnabled(false);
         
-        ipdTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        ipdTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 24));
         ipdTable.getTableHeader().setOpaque(false);
         ipdTable.getTableHeader().setForeground(new Color(44,107,120));
 

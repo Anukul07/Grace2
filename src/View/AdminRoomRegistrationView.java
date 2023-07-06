@@ -29,7 +29,7 @@ public class AdminRoomRegistrationView extends javax.swing.JFrame {
     public AdminRoomRegistrationView() {
         initComponents();
         
-        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 16));
+        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 16));
         ViewTable.getTableHeader().setOpaque(false);
         ViewTable.getTableHeader().setForeground(new Color(44,107,120));
     }

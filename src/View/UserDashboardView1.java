@@ -4,22 +4,13 @@
  */
 package View;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.sql.Statement;
 import Model.TheLoginModel;
 import Controller.UserDashboardController;
 import DAO.UserDashboardDAO;
 import Model.UserDashboardModel;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
 
 
 /**
@@ -248,11 +239,17 @@ public class UserDashboardView1 extends javax.swing.JFrame {
 
     private void RoomsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsbtnActionPerformed
         // TODO add your handling code here:
+        TheRoomAvailability userview = new TheRoomAvailability();
+        userview.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_RoomsbtnActionPerformed
 
     private void BillingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingbtnActionPerformed
         // TODO add your handling code here:
+        BillingView view = new BillingView();
+        view.setVisible(true);
+        this.dispose();
    
     }//GEN-LAST:event_BillingbtnActionPerformed
 
