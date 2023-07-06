@@ -69,20 +69,19 @@ public class AdminDoctorDAO {
             
             Connection conn = DbConnection.connect();
 
-            String sql = "UPDATE doctor Set     DoctorId=? ,DoctorName=?, age=?, BloodGroup=?, Department=?, DateofJoin=?, sex=?, dateofbirth=?, address=?, contactno=?, email=?, WHERE DoctorId=?";
+            String sql = "UPDATE doctor Set DoctorName=?, age=?, BloodGroup=?, Department=?, DateofJoin=?, sex=?, dateofbirth=?, address=?, contactno=?, email=? WHERE DoctorId=?";
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, mod.getId());
-            pst.setString(2, mod.getName());
-            pst.setInt(3, mod.getAge());
-            pst.setString(4, mod.getBloodGroup());
-            pst.setString(5, mod.getDepartment());
-            pst.setInt(6, mod.getDate());
-            pst.setString(7, mod.getSex());
-            pst.setString(8, mod.getDateofBirth());
-            pst.setString(9, mod.getAddress());
-            pst.setString(10, mod.getContactNo());
-            pst.setString(11, mod.getEmail());
-            pst.setInt(12, mod.getId());
+            pst.setString(1, mod.getName());
+            pst.setInt(2, mod.getAge());
+            pst.setString(3, mod.getBloodGroup());
+            pst.setString(4, mod.getDepartment());
+            pst.setInt(5, mod.getDate());
+            pst.setString(6, mod.getSex());
+            pst.setString(7, mod.getDateofBirth());
+            pst.setString(8, mod.getAddress());
+            pst.setString(9, mod.getContactNo());
+            pst.setString(10, mod.getEmail());
+            pst.setInt(11, mod.getId());
             pst.executeUpdate();
             return true;
 
