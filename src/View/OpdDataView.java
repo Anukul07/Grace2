@@ -25,7 +25,7 @@ public class OpdDataView extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         opdTable.setEnabled(false);
         
-        opdTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        opdTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 24));
         opdTable.getTableHeader().setOpaque(false);
         opdTable.getTableHeader().setForeground(new Color(44,107,120));
 

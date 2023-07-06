@@ -27,7 +27,7 @@ public class AdminStaffDataView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
-        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 24));
+        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 24));
         ViewTable.getTableHeader().setOpaque(false);
         ViewTable.getTableHeader().setForeground(new Color(44,107,120));
     }

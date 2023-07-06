@@ -24,7 +24,7 @@ public class TheDoctorAvailabilityView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 20));
+        ViewTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 20));
         ViewTable.getTableHeader().setOpaque(false);
         ViewTable.getTableHeader().setForeground(new Color(62,117,83));
     }

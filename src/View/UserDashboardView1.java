@@ -248,6 +248,8 @@ public class UserDashboardView1 extends javax.swing.JFrame {
 
     private void RoomsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsbtnActionPerformed
         // TODO add your handling code here:
+        TheRoomAvailability userview = new TheRoomAvailability();
+        userview.setVisible(true);
         
     }//GEN-LAST:event_RoomsbtnActionPerformed
 
