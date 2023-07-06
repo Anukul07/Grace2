@@ -7,7 +7,6 @@ package Controller;
 import Model.TheLoginModel;
 import DAO.LoginDAO;
 import View.LoginPageView;
-import View.LoginView1;
 import View.TheRegistrationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
