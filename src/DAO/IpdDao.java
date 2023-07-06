@@ -21,7 +21,7 @@ public class IpdDao {
             String sql = "insert into ipd_registration (IPD_No, Patient_Name, Age, Blood_Grp, Department, Policy_No) values (?,?,?,?,?,?)";
             pst=conn.prepareStatement(sql);
                       
-            pst.setString(1, user.getIPD_No());
+            pst.setInt(1, Integer.parseInt(user.getIPD_No()));
             pst.setString(2, user.getPatient_Name());
             pst.setString(3, user.getAge());
             pst.setString(4, user.getBlood_Grp());
