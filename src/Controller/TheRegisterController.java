@@ -8,96 +8,56 @@ package Controller;
  *
  * @author Aryan
  */
-import View.TheRegistrationView;
+import DAO.RegistrationDAO;
 import Model.TheRegistrationModel;
+import View.LoginPageView;
+import View.RegistrationPageView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
 
-public class TheRegisterController {
+public class TheRegisterController implements ActionListener {
     TheRegistrationModel model;
-    TheRegistrationView view;
+    RegistrationPageView view;
+    RegistrationDAO dao;
     ResultSet rs;
     PreparedStatement pst=null;
-        public TheRegisterController(TheRegistrationView view)
+        public TheRegisterController(RegistrationPageView view , RegistrationDAO dao,TheRegistrationModel model)
         {
             this.view=view;
+            this.model=model;
+            this.dao=dao;
+            view.LoginBtn.addActionListener(this);
+            view.RegisterBtn.addActionListener(this);
+ 
+        }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==view.LoginBtn){
+            LoginPageView login = new LoginPageView();
+            view.dispose();
+            login.setVisible(true);
             
-            view.addLoginListner(new RegisetrListener());
         }
         
-    public void myreset()
-    {
-      
-      
-    
+        if(e.getSource()==view.RegisterBtn){
+            model.setName(view.NameText.getText());
+            model.setEmail(view.emailText4.getText());
+            model.setPasswd(view.PasswordText.getText());
+            model.setConf_pass(view.ConfirmpassText.getText());
+            model.setContact(view.ContactText.getText());
+            if(dao.RegisterData(model)){
+                JOptionPane.showMessageDialog(null, "Registered sucessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Registration failed", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
-    class RegisetrListener implements ActionListener
-    {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            try
-            {
-                model=view.getUser();
-                if(checkUser(model))
-                {
-                    view.setMessage("Registered Successfully");
-                    
-                }
-                
-            }
-            catch(Exception e1)
-            {
-                
-            }
-
-        }
-       
-        public boolean checkUser(TheRegistrationModel user) throws Exception
-        {
-            
-try
-          {
-         Class.forName("com.mysql.cj.jdbc.Driver");
-
-               
-
-
-               Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","scooby019");
-               
-
-               
-
-
-String sql="insert into registration(userName,Passwd,conf_password,email,contact_no) values(?,?,?,?,?)";
-pst = conn.prepareStatement(sql);
-
-// String sql="select * from patient where pname='"+user.getUsername()+"' AND paddress='"+user.getPassword()+"'";
-pst.setString(1,user.getName());
-pst.setString(2,user.getPasswd());
-pst.setString(3,user.getConf_pass());
-pst.setString(4,user.getEmail());
-pst.setString(5,user.getContact());
-
-
-
-pst.executeUpdate();
-              System.out.println("Data inserted");
-JOptionPane.showMessageDialog(null,"Data Registered Successfully");
-          
-          }
-          catch(Exception e2)
-          {
-              System.out.println(e2.getMessage());
-          }         
-            
-            return false;
-        }
-    
-}
     
 }
 

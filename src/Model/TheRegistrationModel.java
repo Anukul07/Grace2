@@ -11,14 +11,7 @@ package Model;
 public class TheRegistrationModel {
     String name,contact,email,passwd,conf_pass
     ;
-    public TheRegistrationModel(String name,String contact,String email,String passwd,String conf_pass){
-        this.name=name;
-        this.contact=contact;
-        this.email=email;
-        this.passwd=passwd;
-        this.conf_pass=conf_pass;
-        
-    }
+   
 
     public String getName() {
         return name;
