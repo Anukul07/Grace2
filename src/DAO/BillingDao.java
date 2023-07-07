@@ -5,6 +5,9 @@
 package DAO;
 import java.sql.*;
 import View.BillingView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,5 +40,5 @@ public class BillingDao {
             System.out.println("Something went wrong : "+ e.getMessage());
         }
     }
-    
 }
+  
