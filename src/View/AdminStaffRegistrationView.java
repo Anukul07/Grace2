@@ -508,6 +508,23 @@ public class AdminStaffRegistrationView extends javax.swing.JFrame {
 
     private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
         // TODO add your handling code here:
+        String id = txtByID.getText();
+        AdminStaffRegistrationController adc = new AdminStaffRegistrationController();
+        AdminStaffRegistrationModel staff = adc.searchStaff(id);
+        if (staff != null) {
+            txtStaffID.setText(staff.getStaffID());
+            txtStaffID.setEditable(false);
+            txtName.setText(staff.getName());
+            txtName.setEditable(true);
+            txtAge.setText(staff.getAge());
+            txtAge.setEditable(true);
+            comboBldGrp.setSelectedItem(staff.getBloodGroup());
+            comboBldGrp.setEditable(true);
+            comboDep.setSelectedItem(staff.getDepartment());
+            comboDep.setEditable(true);
+            txtDateofjoin.setText(staff.getDateofJoin());
+            txtDateofjoin.setEditable(true);
+        }
     }//GEN-LAST:event_ViewButtonActionPerformed
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed

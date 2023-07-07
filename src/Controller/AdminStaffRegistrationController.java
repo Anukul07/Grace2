@@ -121,4 +121,15 @@ public class AdminStaffRegistrationController {
         }
         return false;
     }
+    
+    public AdminStaffRegistrationModel searchStaff(String StaffID){
+        try{
+            return addao.viewQuery(StaffID);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Something went wrong : "+e.getMessage());
+        }
+        return null;
+    }
 }
