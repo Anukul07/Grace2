@@ -7,7 +7,7 @@ package Controller;
 import Model.TheLoginModel;
 import DAO.LoginDAO;
 import View.LoginPageView;
-import View.TheRegistrationView;
+import View.RegistrationPageView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -51,7 +51,7 @@ public class TheLoginController implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == logview.Signupbtn) {
-            TheRegistrationView rv = new TheRegistrationView();
+            RegistrationPageView rv = new RegistrationPageView();
             rv.setVisible(true);
             logview.dispose();
         }

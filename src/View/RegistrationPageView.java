@@ -4,6 +4,10 @@
  */
 package View;
 
+import Controller.TheRegisterController;
+import DAO.RegistrationDAO;
+import Model.TheRegistrationModel;
+
 /**
  *
  * @author dell
@@ -15,6 +19,9 @@ public class RegistrationPageView extends javax.swing.JFrame {
      */
     public RegistrationPageView() {
         initComponents();
+         RegistrationDAO dao= new RegistrationDAO();
+         TheRegistrationModel model=new TheRegistrationModel();
+        TheRegisterController controller =new TheRegisterController(this, dao, model);
     }
 
     /**
@@ -36,16 +43,16 @@ public class RegistrationPageView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        emailText = new javax.swing.JTextField();
-        emailText1 = new javax.swing.JTextField();
-        registerButton = new javax.swing.JButton();
-        loginButton = new javax.swing.JButton();
+        NameText = new javax.swing.JTextField();
+        ContactText = new javax.swing.JTextField();
+        LoginBtn = new javax.swing.JButton();
+        RegisterBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        emailText2 = new javax.swing.JTextField();
-        emailText3 = new javax.swing.JTextField();
+        PasswordText = new javax.swing.JTextField();
+        ConfirmpassText = new javax.swing.JTextField();
         emailText4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,34 +114,34 @@ public class RegistrationPageView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("If you already are a member:");
 
-        emailText.setBackground(new java.awt.Color(223, 230, 216));
-        emailText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        NameText.setBackground(new java.awt.Color(223, 230, 216));
+        NameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        emailText1.setBackground(new java.awt.Color(223, 230, 216));
-        emailText1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        emailText1.addActionListener(new java.awt.event.ActionListener() {
+        ContactText.setBackground(new java.awt.Color(223, 230, 216));
+        ContactText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ContactText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailText1ActionPerformed(evt);
+                ContactTextActionPerformed(evt);
             }
         });
 
-        registerButton.setBackground(new java.awt.Color(44, 107, 120));
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(223, 230, 216));
-        registerButton.setText("REGISTER");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        LoginBtn.setBackground(new java.awt.Color(44, 107, 120));
+        LoginBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        LoginBtn.setForeground(new java.awt.Color(223, 230, 216));
+        LoginBtn.setText("LOGIN");
+        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                LoginBtnActionPerformed(evt);
             }
         });
 
-        loginButton.setBackground(new java.awt.Color(44, 107, 120));
-        loginButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(217, 217, 217));
-        loginButton.setText("REGISTER");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
+        RegisterBtn.setBackground(new java.awt.Color(44, 107, 120));
+        RegisterBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        RegisterBtn.setForeground(new java.awt.Color(217, 217, 217));
+        RegisterBtn.setText("REGISTER");
+        RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
+                RegisterBtnActionPerformed(evt);
             }
         });
 
@@ -150,19 +157,19 @@ public class RegistrationPageView extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel13.setText("Confirm password");
 
-        emailText2.setBackground(new java.awt.Color(223, 230, 216));
-        emailText2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        emailText2.addActionListener(new java.awt.event.ActionListener() {
+        PasswordText.setBackground(new java.awt.Color(223, 230, 216));
+        PasswordText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PasswordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailText2ActionPerformed(evt);
+                PasswordTextActionPerformed(evt);
             }
         });
 
-        emailText3.setBackground(new java.awt.Color(223, 230, 216));
-        emailText3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        emailText3.addActionListener(new java.awt.event.ActionListener() {
+        ConfirmpassText.setBackground(new java.awt.Color(223, 230, 216));
+        ConfirmpassText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConfirmpassText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailText3ActionPerformed(evt);
+                ConfirmpassTextActionPerformed(evt);
             }
         });
 
@@ -193,16 +200,16 @@ public class RegistrationPageView extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ContactText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(109, 109, 109))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(emailText3, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailText2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConfirmpassText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(PasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(emailText4, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -210,7 +217,7 @@ public class RegistrationPageView extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,9 +241,9 @@ public class RegistrationPageView extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
-                            .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
-                        .addComponent(emailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ContactText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,17 +252,17 @@ public class RegistrationPageView extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
-                    .addComponent(emailText2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailText3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfirmpassText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,25 +288,25 @@ public class RegistrationPageView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailText1ActionPerformed
+    private void ContactTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailText1ActionPerformed
+    }//GEN-LAST:event_ContactTextActionPerformed
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
 
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }//GEN-LAST:event_LoginBtnActionPerformed
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+    private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
 
-    }//GEN-LAST:event_loginButtonActionPerformed
+    }//GEN-LAST:event_RegisterBtnActionPerformed
 
-    private void emailText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailText2ActionPerformed
+    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailText2ActionPerformed
+    }//GEN-LAST:event_PasswordTextActionPerformed
 
-    private void emailText3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailText3ActionPerformed
+    private void ConfirmpassTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmpassTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailText3ActionPerformed
+    }//GEN-LAST:event_ConfirmpassTextActionPerformed
 
     private void emailText4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailText4ActionPerformed
         // TODO add your handling code here:
@@ -341,10 +348,12 @@ public class RegistrationPageView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField emailText;
-    public javax.swing.JTextField emailText1;
-    public javax.swing.JTextField emailText2;
-    public javax.swing.JTextField emailText3;
+    public javax.swing.JTextField ConfirmpassText;
+    public javax.swing.JTextField ContactText;
+    public javax.swing.JButton LoginBtn;
+    public javax.swing.JTextField NameText;
+    public javax.swing.JTextField PasswordText;
+    public javax.swing.JButton RegisterBtn;
     public javax.swing.JTextField emailText4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -360,7 +369,5 @@ public class RegistrationPageView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JButton loginButton;
-    public javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

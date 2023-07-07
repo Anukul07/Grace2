@@ -35,7 +35,7 @@ public class UserDashboardView extends javax.swing.JFrame {
    
             
         else if (rep==JOptionPane.YES_OPTION){
-            TheLoginView lg = new TheLoginView();
+            LoginPageView lg = new LoginPageView();
             lg.setVisible(true);  
             close();
             }
