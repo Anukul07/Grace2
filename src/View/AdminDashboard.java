@@ -18,7 +18,9 @@ public class AdminDashboard extends javax.swing.JFrame {
      * Creates new form AdminDashboard
      */
     public AdminDashboard() {
-        initComponents();
+        initComponents();    
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
 
     }
 
@@ -56,21 +58,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         ClinicName2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         ClinicName2.setText("CLINIC");
         jPanel1.add(ClinicName2);
-        ClinicName2.setBounds(205, 104, 108, 36);
+        ClinicName2.setBounds(200, 120, 108, 36);
 
         ClinicName.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         ClinicName.setText("GRACE CARE");
         jPanel1.add(ClinicName);
-        ClinicName.setBounds(205, 54, 220, 40);
+        ClinicName.setBounds(200, 70, 220, 40);
 
         AdminLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/admin.png"))); // NOI18N
         jPanel1.add(AdminLogo);
-        AdminLogo.setBounds(1080, 30, 114, 94);
+        AdminLogo.setBounds(1330, 30, 114, 94);
 
         UserText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        UserText.setText("ADMIN");
+        UserText.setText("         ADMIN");
+        UserText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(UserText);
-        UserText.setBounds(1100, 130, 59, 25);
+        UserText.setBounds(1310, 130, 130, 25);
 
         PatientButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminPatientButton.png"))); // NOI18N
         PatientButton.setBorder(null);
@@ -81,7 +84,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(PatientButton);
-        PatientButton.setBounds(450, 650, 291, 100);
+        PatientButton.setBounds(510, 700, 490, 150);
 
         DoctorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminDoctorButton.png"))); // NOI18N
         DoctorButton.setBorder(null);
@@ -91,7 +94,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(DoctorButton);
-        DoctorButton.setBounds(770, 290, 293, 100);
+        DoctorButton.setBounds(930, 330, 490, 160);
 
         StaffButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminStaffButton.png"))); // NOI18N
         StaffButton.setBorder(null);
@@ -102,7 +105,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(StaffButton);
-        StaffButton.setBounds(120, 490, 300, 100);
+        StaffButton.setBounds(110, 520, 470, 160);
 
         ServicesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminServicesButton.png"))); // NOI18N
         ServicesButton.setBorder(null);
@@ -112,31 +115,32 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ServicesButton);
-        ServicesButton.setBounds(770, 490, 293, 100);
+        ServicesButton.setBounds(930, 520, 490, 160);
 
         RoomsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminRoomsButton.png"))); // NOI18N
         RoomsButton.setBorder(null);
+        RoomsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RoomsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoomsButtonActionPerformed(evt);
             }
         });
         jPanel1.add(RoomsButton);
-        RoomsButton.setBounds(120, 290, 296, 100);
+        RoomsButton.setBounds(110, 330, 470, 160);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AdminDesign.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(410, 240, 400, 406);
+        jLabel1.setBounds(570, 300, 400, 406);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1221, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1485, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
         );
 
         pack();
