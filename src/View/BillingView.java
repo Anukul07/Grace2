@@ -9,6 +9,13 @@ import java.awt.Font;
 import DAO.BillingDao;
 import DAO.DbConnection;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +23,12 @@ import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import java.awt.print.*;
+import java.awt.*;
+import javax.print.attribute.*;
+import javax.print.attribute.standard.MediaSize;
+import javax.print.attribute.standard.MediaSizeName;
+
 
 /**
  *
@@ -183,6 +196,11 @@ public class BillingView extends javax.swing.JFrame {
         });
 
         jButton2.setText("Print");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         totalAmountTxt.setBackground(new java.awt.Color(223, 230, 216));
 
@@ -499,7 +517,7 @@ public class BillingView extends javax.swing.JFrame {
         Date obj = new Date();
         String date1 = obj.toString();
         TextArea.setText(TextArea.getText()+"                           "+date1+"    ");
-        TextArea.setText(TextArea.getText()+"\n------------------------------------------------------------------------------\n");
+        TextArea.setText(TextArea.getText()+"\n----------------------------------------------------------------------------\n");
         if(IPDRadioButton.isSelected()){
         TextArea.setText(TextArea.getText()+"    Patient name :   "+patientName + "\n");
         TextArea.setText(TextArea.getText()+"    Age : "+ age1  +"\n");
@@ -519,7 +537,7 @@ public class BillingView extends javax.swing.JFrame {
         }else{
             TextArea.setText(TextArea.getText()+"    Opd number :"+opdNumber  +"\n");
         }
-        TextArea.setText(TextArea.getText()+"------------------------------------------------------------------------------\n");
+        TextArea.setText(TextArea.getText()+"----------------------------------------------------------------------------\n");
         if(ipdCharge==null|| ipdCharge.isEmpty() || ipdCharge.isBlank()){
             TextArea.setText(TextArea.getText()+"\n    Ipd charge : n/a \n");
         }else{
@@ -541,7 +559,7 @@ public class BillingView extends javax.swing.JFrame {
             TextArea.setText(TextArea.getText()+"    Service charge : "+ serviceCharge  +"\n");
 
         }
-        TextArea.setText(TextArea.getText()+"------------------------------------------------------------------------------\n");
+        TextArea.setText(TextArea.getText()+"----------------------------------------------------------------------------\n");
         if(IPDRadioButton.isSelected()){
             TextArea.setText(TextArea.getText()+"\n   Total : "+ipdTotalSum+"\n");
         }else{
@@ -568,13 +586,18 @@ public class BillingView extends javax.swing.JFrame {
             e.getMessage();
         }
         
-        TextArea.setText(TextArea.getText()+"------------------------------------------------------------------------------\n");
+        TextArea.setText(TextArea.getText()+"----------------------------------------------------------------------------\n");
         TextArea.setText(TextArea.getText()+"           *               We value our patient          *\n");
-        TextArea.setText(TextArea.getText()+"           *               Thank you !                          *\n");
+        TextArea.setText(TextArea.getText()+"           *               Thank you !                         *\n");
         TextArea.setText(TextArea.getText()+"\n                 Emergency helpline : 01-4211213                  ");
         
         
     }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        printTextArea();
+    }//GEN-LAST:event_jButton2ActionPerformed
     private int opdTotal(String oc, String sc){
         int sc1;
         int oc1;
@@ -614,7 +637,55 @@ public class BillingView extends javax.swing.JFrame {
         return totalIpd;
     }
     
+    private void printTextArea() {
+    PrinterJob job = PrinterJob.getPrinterJob();
+    PageFormat pf = job.defaultPage();
+    Paper paper = pf.getPaper();
     
+    // Set the paper size
+    MediaSizeName mediaSize = MediaSize.findMedia(100, 150, MediaSize.MM);
+    if (mediaSize != null) {
+        MediaSize ms = MediaSize.getMediaSizeForName(mediaSize);
+        paper.setSize(ms.getX(MediaSize.MM), ms.getY(MediaSize.MM));
+        pf.setPaper(paper);
+    }
+    
+    job.setPrintable(new Printable() {
+        @Override
+        public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+            if (pageIndex > 0) {
+                return NO_SUCH_PAGE;
+            }
+            
+            Graphics2D g2d = (Graphics2D) graphics;
+            g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+            
+            // Print the JTextArea content
+            Font font = TextArea.getFont();
+            FontMetrics fontMetrics = g2d.getFontMetrics(font);
+            int lineHeight = fontMetrics.getHeight();
+            
+            String[] lines = TextArea.getText().split("\\n");
+            int y = 0;
+            for (String line : lines) {
+                y += lineHeight;
+                g2d.drawString(line, 0, y);
+            }
+            
+            return PAGE_EXISTS;
+        }
+    });
+    
+    boolean printDialogResult = job.printDialog();
+    if (printDialogResult) {
+        try {
+            job.print();
+        } catch (PrinterException e) {
+            // Handle printing exception
+            e.printStackTrace();
+        }
+    }
+}
     
     /**
      * @param args the command line arguments
