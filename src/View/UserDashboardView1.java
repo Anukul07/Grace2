@@ -34,10 +34,9 @@ public class UserDashboardView1 extends javax.swing.JFrame {
     }
    
     
-     public UserDashboardModel changeUsername(UserDashboardModel mod) {
+     public void changeUsername(UserDashboardModel mod) {
         System.out.println(mod.getUsername());
         UserText.setText(mod.getUsername());
-        return mod;
     }
     
    

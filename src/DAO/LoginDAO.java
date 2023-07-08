@@ -23,55 +23,55 @@ import java.sql.PreparedStatement;
  */
 public class LoginDAO {
     public int count=0;
-    
-    public boolean LoginVerify(TheLoginModel model, LoginPageView view) {
-
-        try {
-            if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123")) {
-                JOptionPane.showMessageDialog(null, "Logged in as an admin");
-                AdminDashboard Ad = new AdminDashboard();
-                Ad.setVisible(true);
-                view.dispose();
-                count -= 1;
-                return true;
-
-            } else {
-                count += 2;
-
-            }
-            System.out.println(count);
-            if (count >= 1) {
-
-                if (checkData(model)) {
-                    try {
-                        setUserstatus(model);
-                        JOptionPane.showMessageDialog(null, "Logged in as an user!");
-                        UserDashboardView1 dash= new UserDashboardView1();
-                        dash.setVisible(true);
-                        view.dispose();
-                        
-
-                    } catch (Exception e1) {
-                        System.out.println(e1);
-
-                    }
-                    return true;
-                } else {
-
-                }
-            } else {
-
-            }
-
-        } catch (Exception e2) {
-            System.out.println(e2.getMessage());
-
-        }
-        return false;
-
-    }
-    public boolean checkData(TheLoginModel user) throws Exception {
-
+//    
+//    public boolean LoginVerify(TheLoginModel model, LoginPageView view) {
+//
+//        try {
+//            if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123")) {
+//                JOptionPane.showMessageDialog(null, "Logged in as an admin");
+//                AdminDashboard Ad = new AdminDashboard();
+//                Ad.setVisible(true);
+//                view.dispose();
+//                count -= 1;
+//                return true;
+//
+//            } else {
+//                count += 2;
+//
+//            }
+//            System.out.println(count);
+//            if (count >= 1) {
+//
+//                if (checkData(model)) {
+//                    try {
+//                        setUserstatus(model);
+//                        JOptionPane.showMessageDialog(null, "Logged in as an user!");
+//                        UserDashboardView1 dash= new UserDashboardView1();
+//                        dash.setVisible(true);
+//                        view.dispose();
+//                        
+//
+//                    } catch (Exception e1) {
+//                        System.out.println(e1);
+//
+//                    }
+//                    return true;
+//                } else {
+//
+//                }
+//            } else {
+//
+//            }
+//
+//        } catch (Exception e2) {
+//            System.out.println(e2.getMessage());
+//
+//        }
+//        return false;
+//
+//    }
+    public boolean checkData(TheLoginModel user) {
+     try{
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb", "root", "ishiki123");
@@ -92,6 +92,10 @@ public class LoginDAO {
             System.out.println(e3.getMessage());
 
         }
+     }
+     catch(Exception e){
+         
+     }
         return false;
     
     

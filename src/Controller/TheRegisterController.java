@@ -49,12 +49,12 @@ public class TheRegisterController implements ActionListener {
             model.setPasswd(view.PasswordText.getText());
             model.setConf_pass(view.ConfirmpassText.getText());
             model.setContact(view.ContactText.getText());
-            if(dao.RegisterData(model)){
-                JOptionPane.showMessageDialog(null, "Registered sucessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Registration failed", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
+//            if(dao.RegisterData(model)){
+//                JOptionPane.showMessageDialog(null, "Registered sucessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(null,"Registration failed", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            }
         }
     }
 
