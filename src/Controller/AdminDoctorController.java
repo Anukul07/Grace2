@@ -62,16 +62,16 @@ public class AdminDoctorController implements ActionListener {
             model.setDate(Integer.parseInt(view.DateofJoinText.getText().trim()));
             model.setBloodGroup(view.comboBldGrp.getSelectedItem().toString());
           
-              if(doctor.add(model))
-                {
-                    JOptionPane.showMessageDialog(null, "Added Successfully");
-                    reset();
-                    refreshTable();
-                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "Cannot be Added");
-                    reset();
-                }
+//              if(doctor.add(model))
+//                {
+//                    JOptionPane.showMessageDialog(null, "Added Successfully");
+//                    reset();
+//                    refreshTable();
+//                    
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Cannot be Added");
+//                    reset();
+//                }
             
         }
         
@@ -88,11 +88,11 @@ public class AdminDoctorController implements ActionListener {
             model.setDate(Integer.parseInt(view.DateofJoinText.getText().trim()));
             model.setBloodGroup(view.comboBldGrp.getSelectedItem().toString());
           
-            if(doctor.update(model)){
-                 JOptionPane.showMessageDialog(null, "Updated Successfully");
-                    reset();
-                    refreshTable();
-            }
+//            if(doctor.update(model)){
+//                 JOptionPane.showMessageDialog(null, "Updated Successfully");
+//                    reset();
+//                    refreshTable();
+//            }
                 
             
         }
@@ -194,21 +194,25 @@ public class AdminDoctorController implements ActionListener {
     }
     
     
-     private void refreshTable() {
+     public boolean refreshTable() {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0); 
 
         AdminDoctorDAO dao = new AdminDoctorDAO();
         List<AdminDoctorModel> datas = dao.getAllData(); 
-  
+        if (datas.isEmpty()){
+            return false;
+        }
 
         for (AdminDoctorModel data : datas) {
             Object[] row = {data.getId(), data.getName(), data.getAge(),
                     data.getBloodGroup(),
                     data.getDepartment(), data.getDate()};
             model.addRow(row);
+            
         
         }
+        return true;
     }
     
 }

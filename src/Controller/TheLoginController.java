@@ -7,7 +7,7 @@ package Controller;
 import Model.TheLoginModel;
 import DAO.LoginDAO;
 import View.LoginPageView;
-import View.TheRegistrationView;
+import View.RegistrationPageView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -20,8 +20,25 @@ public class TheLoginController implements ActionListener, MouseListener {
     LoginPageView logview;
     TheLoginModel logmod;
     LoginDAO logindao;
+    boolean status;
 
-    public TheLoginController(LoginDAO dao, LoginPageView view, TheLoginModel mod) {
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+//    public TheLoginController(LoginDAO dao, LoginPageView view, TheLoginModel mod) {
+//        this.logview = view;
+//        this.logmod = mod;
+//        this.logindao = dao;
+//        logview.LoginBtn.addActionListener(this);
+//        logview.Signupbtn.addMouseListener(this);
+//
+//    }
+       public TheLoginController(LoginDAO dao, LoginPageView view, TheLoginModel mod) {
         this.logview = view;
         this.logmod = mod;
         this.logindao = dao;
@@ -29,19 +46,24 @@ public class TheLoginController implements ActionListener, MouseListener {
         logview.Signupbtn.addMouseListener(this);
 
     }
+       
+       
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         if (e.getSource() == logview.LoginBtn) {
             if (checkEmpty()) {
                 logmod.setEmail(logview.EmailText.getText());
                 logmod.setPassword(logview.txtpassword.getText());
-                if (logindao.LoginVerify(logmod, logview)) {
-                    System.out.println("Login successful");
-
-                } else {
-                JOptionPane.showMessageDialog(null, "Invalid credentials");
-                }
+//                if (logindao.LoginVerify(logmod, logview)) {
+//                    System.out.println("Login successful");
+//                   
+//                }
+//
+//                 else {
+//                JOptionPane.showMessageDialog(null, "Invalid credentials");
+//                }
 
             }
 
@@ -51,7 +73,7 @@ public class TheLoginController implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == logview.Signupbtn) {
-            TheRegistrationView rv = new TheRegistrationView();
+            RegistrationPageView rv = new RegistrationPageView();
             rv.setVisible(true);
             logview.dispose();
         }
