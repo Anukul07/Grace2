@@ -20,15 +20,16 @@ public class UserStaffDAO {
 public void viewQueryStaffAvailability(DefaultTableModel model) {
     try (Connection conn = DbConnection.connect();
          Statement stmt = conn.createStatement();
-         ResultSet rs = stmt.executeQuery("SELECT * FROM doctor")) {
+         ResultSet rs = stmt.executeQuery("SELECT * FROM staffs")) {
 
         while (rs.next()) {
             model.addRow(new Object[] {
-                    rs.getString("DoctorId"),
-                    rs.getString("DoctorName"),
-                    rs.getString("sex"),
-                    rs.getString("contactno"),
-                    rs.getString("Department")
+                    rs.getString("StaffID"),
+                    rs.getString("Name"),
+                    rs.getString("Age"),
+                    rs.getString("BloodGroup"),
+                    rs.getString("Department"),
+                    rs.getString("DateofJoin")
             });
         }
     } catch (SQLException e) {
