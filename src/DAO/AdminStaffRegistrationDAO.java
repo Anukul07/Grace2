@@ -4,13 +4,10 @@
  */
 package DAO;
 
+import Model.AdminStaffRegistrationModel;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import javax.swing.table.DefaultTableModel;
-import View.AdminStaffRegistrationView;
 import java.sql.ResultSet;
 /**
 
@@ -80,5 +77,32 @@ public class AdminStaffRegistrationDAO {
         {
             System.out.println("Something went wrong :"+e.getMessage());
         } 
+    }
+    
+    public AdminStaffRegistrationModel viewQuery(String StaffID) throws SQLException{
+   
+        try {
+            Connection conn = DbConnection.connect();
+            String query = "SELECT StaffID, Name, Age, BloodGroup, Department, DateofJoin FROM staffs WHERE StaffID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, StaffID);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String id = rs.getString("StaffID");
+                String name = rs.getString("Name");
+                String age = rs.getString("Age");
+                String bloodGroup = rs.getString("BloodGroup");
+                String department = rs.getString("Department");
+                String dateOfJoin = rs.getString("DateofJoin");
+
+                return new AdminStaffRegistrationModel(id, name, age, bloodGroup, department, dateOfJoin);
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Something went wrong :"+e.getMessage());
+        } 
+        return null;
     }
 }
