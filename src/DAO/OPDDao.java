@@ -25,7 +25,7 @@ public class OPDDao {
                 String query = "insert into opd_registration (OPD_No, Patient_Name, Age, Blood_Grp, Department, Policy_No) values (?,?,?,?,?,?)";
                 PreparedStatement pst = conn.prepareStatement(query);
                 
-                pst.setInt(1, Integer.parseInt(OPD_No));
+                pst.setString(1, OPD_No);
                 pst.setString(2, Patient_Name);
                 pst.setString(3, Age);
                 pst.setString(4, Blood_Grp);
