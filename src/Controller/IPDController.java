@@ -11,6 +11,7 @@ package Controller;
 import View.IPDView;
 import Model.IPDModel;
 import DAO.IpdDao;
+import org.junit.Assert;
 
 public class IPDController {
     IPDModel model;
@@ -18,13 +19,11 @@ public class IPDController {
     
    
     public void IpdBtnactionPerformed(IPDView ipdview){
-         try {
+        try {
             model = ipdview.getUser();
             ipdDao.insert(model);
-                
-            if (ipdDao.insert(model)) {
-                ipdview.setMessage("Registered Successfully");
-            }  
+            
+            Assert.assertTrue(ipdDao.insert(model));
         }
             
 

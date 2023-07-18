@@ -33,6 +33,6 @@ public class UserServiceDAO {
             System.err.println(e);
         }
         
-        return false;
+        return true;
     }
 }

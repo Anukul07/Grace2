@@ -6,6 +6,7 @@ package Controller;
 import DAO.IpdDataDao;
 import View.IpdDataView;
 import Model.IPDModel;
+import org.junit.Assert;
 
 public class IpdDataController {
     IpdDataDao iDataDao = new IpdDataDao();
@@ -15,6 +16,8 @@ public class IpdDataController {
         try {
             ipdmodel = iDataView.getDataView();
             iDataDao.viewAll(iDataView);
+            
+            Assert.assertTrue(iDataDao.viewAll(iDataView)); 
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
