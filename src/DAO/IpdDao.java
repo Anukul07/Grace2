@@ -37,7 +37,7 @@ public class IpdDao {
         catch (Exception e2) {
            System.out.println(e2.getMessage());
         }
-        return false;
+        return true;
     }
     
     public void viewByIdQueryIPD(DefaultTableModel model, String ipdNo) {

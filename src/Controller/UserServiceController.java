@@ -6,6 +6,7 @@ package Controller;
 import Model.UserServiceModel;
 import View.UserServiceView;
 import DAO.UserServiceDAO;
+import org.junit.Assert;
 
 public class UserServiceController {
     UserServiceModel model;
@@ -15,6 +16,8 @@ public class UserServiceController {
         try {
             model = serviceView.getData();
             dao.insertData(model);
+            
+            Assert.assertTrue(dao.insertData(model));
             
             if (dao.insertData(model)) {
                 serviceView.setMessage("Registered Successfully");

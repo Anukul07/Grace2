@@ -24,6 +24,10 @@ public class IPDModel {
         this.Department = Department;
         this.Policy_No = Policy_No;
     }
+
+    public IPDModel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public String getIPD_No() {
     return IPD_No;

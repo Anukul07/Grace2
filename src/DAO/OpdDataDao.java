@@ -12,7 +12,7 @@ import javax.swing.JTable;
 public class OpdDataDao {
     PreparedStatement pst = null;
   
-    public void viewAll(OpdDataView oDataView) {     
+    public boolean viewAll(OpdDataView oDataView) {     
         try {
             DefaultTableModel dtm = (DefaultTableModel)oDataView.opdTable.getModel(); 
             Connection conn = DbConnection.connect();
@@ -29,6 +29,6 @@ public class OpdDataDao {
         catch(Exception e) {
             System.out.println(e.getMessage());
         }
-
+        return true;
     }
 }

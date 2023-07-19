@@ -11,7 +11,7 @@ import javax.swing.JTable;
 
 public class IpdDataDao{
 
-    public void viewAll(IpdDataView iDataView) {     
+    public boolean viewAll(IpdDataView iDataView) {     
         try {
             DefaultTableModel dtm = (DefaultTableModel)iDataView.ipdTable.getModel(); 
             Connection conn = DbConnection.connect();
@@ -31,7 +31,7 @@ public class IpdDataDao{
         catch(Exception e) {
 //            System.out.println(e.getMessage());
         }
-
+        return true;
     }
 }
 
