@@ -17,13 +17,10 @@ public class IPDController {
     IPDModel model;
     IpdDao ipdDao = new IpdDao();
     
-   
     public void IpdBtnactionPerformed(IPDView ipdview){
         try {
             model = ipdview.getUser();
             ipdDao.insert(model);
-            
-            Assert.assertTrue(ipdDao.insert(model));
         }
             
 
