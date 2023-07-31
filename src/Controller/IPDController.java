@@ -11,6 +11,7 @@ package Controller;
 import View.IPDView;
 import Model.IPDModel;
 import DAO.IpdDao;
+import org.junit.Assert;
 
 public class IPDController {
     IPDModel model;
