@@ -32,7 +32,7 @@ public class UserDashboardView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ABORTED", "VERIFICATION", JOptionPane.WARNING_MESSAGE);
             System.exit(0);        
         }
-   
+        
             
         else if (rep==JOptionPane.YES_OPTION){
             LoginPageView lg = new LoginPageView();

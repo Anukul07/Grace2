@@ -2,25 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package DAO;
 import DAO.IpdDataDao;
 import View.IpdDataView;
-import Model.IPDModel;
 import org.junit.Assert;
+import org.junit.Test;
 
-public class IpdDataController {
-    IpdDataDao iDataDao = new IpdDataDao();
-    IPDModel ipdmodel;
-    
-    public void btnViewAllactionPerformed(IpdDataView iDataView) {
+public class IpdDataDaoTest {
+
+    @Test
+    public void test() {
+        IpdDataDao iDataDao = new IpdDataDao();
+        IpdDataView iDataView = new IpdDataView();
+        
         try {
-            ipdmodel = iDataView.getDataView();
-            iDataDao.viewAll(iDataView);
-            
             Assert.assertTrue(iDataDao.viewAll(iDataView)); 
         }
         catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
