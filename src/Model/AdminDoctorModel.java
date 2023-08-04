@@ -9,8 +9,8 @@ package Model;
  * @author Aryan
  */
 public class AdminDoctorModel {
-    String name,bloodGroup,sex,Department,Email,ContactNo,Address,Qualification,DateofBirth;
-    int Id,Age,Date;
+    String Id,Age,name,bloodGroup,sex,Department,Email,ContactNo,Address,Qualification,DateofBirth,Date;
+    
 
     public String getDateofBirth() {
         return DateofBirth;
@@ -60,20 +60,7 @@ public class AdminDoctorModel {
     public void setQualification(String Qualification) {
         this.Qualification = Qualification;
     }
-    
-    
-   
 
-    
-    
-//    public AdminDoctorModel(String name,String bloodGroup,String Department, int age, int Id,int Date){
-//        this.name=name;
-//        this.bloodGroup=bloodGroup;
-//        this.Department=Department;
-//        this.Age=age;
-//        this.Id=Id;
-//        this.Date=Date;
-//    }
 
     public String getName() {
         return name;
@@ -99,27 +86,27 @@ public class AdminDoctorModel {
         this.Department = Department;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int Id) {
+    public void setId(String Id) {
         this.Id = Id;
     }
 
-    public int getAge() {
+    public String getAge() {
         return Age;
     }
 
-    public void setAge(int Age) {
+    public void setAge(String Age) {
         this.Age = Age;
     
     }
-    public int getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(int Date) {
+    public void setDate(String Date) {
         this.Date = Date;
     }
 }

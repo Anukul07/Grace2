@@ -4,10 +4,8 @@
  */
 package DAO;
 import java.sql.*;
-import Model.IPDModel;
 import javax.swing.table.DefaultTableModel;
 import View.IpdDataView;
-import javax.swing.JTable;
 
 public class IpdDataDao{
 

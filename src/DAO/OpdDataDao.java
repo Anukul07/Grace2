@@ -4,10 +4,8 @@
  */
 package DAO;
 import java.sql.*;
-import Model.OPDModel;
 import javax.swing.table.DefaultTableModel;
 import View.OpdDataView;
-import javax.swing.JTable;
 
 public class OpdDataDao {
     PreparedStatement pst = null;

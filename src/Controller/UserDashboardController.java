@@ -8,7 +8,6 @@ package Controller;
 import java.sql.*;
 import Model.TheLoginModel;
 import View.UserDashboardView1;
-import javax.swing.JLabel;
 import DAO.UserDashboardDAO;
 import View.PatientView;
 import View.TheDoctorView;
