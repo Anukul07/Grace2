@@ -6,8 +6,7 @@ package Controller;
 import View.AdminRoomRegistrationView;
 import Model.AdRoomRegistrationModel;
 import DAO.*;
-import javax.swing.JOptionPane;
-import java.sql.*;
+
 
 
 

@@ -19,6 +19,7 @@ public class UserDashboardView extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
+        
         msgboxPop();
         
     }

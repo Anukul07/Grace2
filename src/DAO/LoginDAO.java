@@ -7,14 +7,13 @@ package DAO;
 import Model.TheLoginModel;
 import View.AdminDashboard;
 import View.LoginPageView;
-
 import View.UserDashboardView1;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -23,53 +22,58 @@ import java.sql.PreparedStatement;
  */
 public class LoginDAO {
     public int count=0;
-//    
-//    public boolean LoginVerify(TheLoginModel model, LoginPageView view) {
-//
-//        try {
-//            if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123")) {
-//                JOptionPane.showMessageDialog(null, "Logged in as an admin");
-//                AdminDashboard Ad = new AdminDashboard();
-//                Ad.setVisible(true);
-//                view.dispose();
-//                count -= 1;
-//                return true;
-//
-//            } else {
-//                count += 2;
-//
-//            }
-//            System.out.println(count);
-//            if (count >= 1) {
-//
-//                if (checkData(model)) {
-//                    try {
-//                        setUserstatus(model);
-//                        JOptionPane.showMessageDialog(null, "Logged in as an user!");
-//                        UserDashboardView1 dash= new UserDashboardView1();
-//                        dash.setVisible(true);
-//                        view.dispose();
-//                        
-//
-//                    } catch (Exception e1) {
-//                        System.out.println(e1);
-//
-//                    }
-//                    return true;
-//                } else {
-//
-//                }
-//            } else {
-//
-//            }
-//
-//        } catch (Exception e2) {
-//            System.out.println(e2.getMessage());
-//
-//        }
-//        return false;
-//
-//    }
+    
+    public boolean LoginVerify(TheLoginModel model, LoginPageView view) {
+
+        try {
+            if (model.getEmail().equals("aryan@gmail.com") && model.getPassword().equals("ishiki123") || 
+       model.getEmail().equals("anukul@gmail.com") && model.getPassword().equals("anukul123") ||
+       model.getEmail().equals("dilasha@gmail.com") && model.getPassword().equals("dilasha123") ||
+       model.getEmail().equals("diya@gmail.com") && model.getPassword().equals("diya123")||
+       model.getEmail().equals("abhishek@gmail.com") && model.getPassword().equals("abhishek123")){
+                JOptionPane.showMessageDialog(null, "Logged in as an admin","Sucess",JOptionPane.INFORMATION_MESSAGE);
+                AdminDashboard Ad = new AdminDashboard();
+                Ad.setVisible(true);
+                view.dispose();
+                count -= 1;
+                return true;
+
+            } else {
+                count += 2;
+
+            }
+            System.out.println(count);
+            if (count >= 1) {
+
+                if (checkData(model)) {
+                    try {
+                        setUserstatus(model);
+                JOptionPane.showMessageDialog(null, "Logged in as a user","Sucess",JOptionPane.INFORMATION_MESSAGE);
+
+                        UserDashboardView1 dash= new UserDashboardView1();
+                        dash.setVisible(true);
+                        view.dispose();
+                        
+
+                    } catch (Exception e1) {
+                        System.out.println(e1);
+
+                    }
+                    return true;
+                } else {
+
+                }
+            } else {
+
+            }
+
+        } catch (Exception e2) {
+            System.out.println(e2.getMessage());
+
+        }
+        return false;
+
+    }
     public boolean checkData(TheLoginModel user) {
      try{
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -111,7 +115,6 @@ public class LoginDAO {
             String query3 = "update registration set status=1 where email=?";
             pst = conn.prepareStatement(query3);
             pst.setString(1, mod.getEmail());
-            System.out.println(mod.getEmail());
             pst.executeUpdate();
 
 

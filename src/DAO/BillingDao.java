@@ -5,9 +5,6 @@
 package DAO;
 import java.sql.*;
 import View.BillingView;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import View.BillingView;
 
 /**
  *

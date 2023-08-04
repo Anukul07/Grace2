@@ -4,7 +4,6 @@
  */
 package DAO;
 
-import Model.AdminDoctorModel;
 import Model.TheRegistrationModel;
 import java.sql.*;
 import java.sql.Connection;
@@ -33,6 +32,7 @@ public class RegistrationDAO {
 
         } catch (Exception e) {
             System.err.println(e);
+            
 
         }
 
