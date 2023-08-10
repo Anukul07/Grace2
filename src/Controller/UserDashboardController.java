@@ -9,9 +9,12 @@ import java.sql.*;
 import Model.TheLoginModel;
 import View.UserDashboardView1;
 import DAO.UserDashboardDAO;
+import View.BillingView;
 import View.PatientView;
 import View.TheDoctorView;
+import View.TheRoomAvailability;
 import View.UserServiceView;
+import View.UserStaffView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -60,6 +63,9 @@ public class UserDashboardController implements ActionListener{
              
          }
          if(e.getSource()==view.Staffbtn){
+             UserStaffView staff = new UserStaffView();
+             staff.setVisible(true);
+             view.dispose();
              
          }
          if(e.getSource()==view.Servicesbtn){
@@ -69,9 +75,15 @@ public class UserDashboardController implements ActionListener{
              
          }
          if(e.getSource()==view.Roomsbtn){
+              TheRoomAvailability userview = new TheRoomAvailability();
+              userview.setVisible(true);
+              view.dispose();
              
          }
          if(e.getSource()==view.Billingbtn){
+             BillingView billing = new BillingView();
+             billing.setVisible(true);
+             view.dispose();
              
          }
          if(e.getSource()==view.Logout){
