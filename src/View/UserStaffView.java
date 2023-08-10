@@ -163,18 +163,18 @@ public class UserStaffView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        // TODO add your handling code here:
-        AdminStaffView adview = new AdminStaffView();
-        adview.setVisible(true);
-        this.dispose();
+//            UserDashboardView1 dashboard= new UserDashboardView1();
+//            dashboard.setVisible(true);
+//            this.setVisible(false);
+        
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ViewAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAllButtonActionPerformed
         // TODO add your handling code here:
-          DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
-    model.setRowCount(0);    
-    UserStaffDAO staffAvailability = new UserStaffDAO();
-    staffAvailability.viewQueryStaffAvailability(model);
+//          DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
+//    model.setRowCount(0);    
+//    UserStaffDAO staffAvailability = new UserStaffDAO();
+//    staffAvailability.viewQueryStaffAvailability(model);
        
       
    
@@ -217,7 +217,7 @@ public class UserStaffView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackButton;
+    public javax.swing.JButton BackButton;
     private javax.swing.JLabel Logo;
     public javax.swing.JButton ViewAllButton;
     public javax.swing.JTable ViewTable;

@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.UserStaffDAO;
+import View.UserDashboardView1;
 import View.UserStaffView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,8 @@ public class UserStaffController implements ActionListener{
     
     public UserStaffController(UserStaffView view){
         this.view=view;
+        view.BackButton.addActionListener(this);
+        view.ViewAllButton.addActionListener(this);
         
     }
     
@@ -30,6 +33,13 @@ public class UserStaffController implements ActionListener{
             UserStaffDAO staffAvailability = new UserStaffDAO();
             staffAvailability.viewQueryStaffAvailability(model);
         }
+        if(e.getSource()==view.BackButton){
+            UserDashboardView1 dashboard= new UserDashboardView1();
+            dashboard.setVisible(true);
+            view.setVisible(false);
+        
+        }
+        
 
     }
     
